@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  
+  /* Brand Palette - Earth & Urban */
+  --color-brand-smoke: hsl(0 0% 7%);     /* #121212 - Smoke Black */
+  --color-brand-offwhite: hsl(45 20% 93%); /* #F2F0E9 - Off White */
+  --color-brand-forest: hsl(150 40% 17%);  /* #1B3B2B - Dark Forest Green */
+  --color-brand-wood: hsl(30 20% 40%);     /* Muted Wood for accents */
+  --color-brand-yellow: hsl(45 90% 60%);   /* Warm Yellow */
+  
+  --color-background: var(--brand-offwhite);
+  --color-foreground: var(--brand-smoke);
+  
+  --color-card: var(--brand-offwhite);
+  --color-card-foreground: var(--brand-smoke);
+  
+  --color-popover: var(--brand-offwhite);
+  --color-popover-foreground: var(--brand-smoke);
+  
+  --color-primary: var(--brand-forest);
+  --color-primary-foreground: var(--brand-offwhite);
+  
+  --color-secondary: var(--brand-smoke);
+  --color-secondary-foreground: var(--brand-offwhite);
+  
+  --color-muted: hsl(0 0% 90%);
+  --color-muted-foreground: hsl(0 0% 40%);
+  
+  --color-accent: var(--brand-forest);
+  --color-accent-foreground: var(--brand-offwhite);
+  
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(60 9.1% 97.8%);
+  
+  --color-border: var(--brand-smoke); /* For the 1px borders */
+  --color-input: var(--brand-smoke);
+  --color-ring: var(--brand-forest);
+  
+  --font-sans: 'Helvetica Neue', 'Arial', sans-serif; /* Urban feel */
+  --font-serif: 'Times New Roman', serif; /* Editorial feel */
+}
+
+:root {
+  --brand-smoke: 0 0% 7%;
+  --brand-offwhite: 45 20% 93%;
+  --brand-forest: 150 40% 17%;
+  --brand-wood: 30 20% 40%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased text-brand-smoke bg-brand-offwhite min-h-screen relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal tracking-tight text-brand-smoke;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
