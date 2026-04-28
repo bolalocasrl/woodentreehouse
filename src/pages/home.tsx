@@ -45,11 +45,20 @@ export default function Home() {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
   const [activeGadgetId, setActiveGadgetId] = useState<string | null>(null);
   
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end end"]
-  });
+const heroRef = useRef(null);
+const { scrollYProgress } = useScroll({
+  target: heroRef,
+  offset: ["start start", "end end"],
+  layoutEffect: false
+});
+const [scrollVal, setScrollVal] = useState(0);
+useEffect(() => {
+  return scrollYProgress.on("change", (v) => setScrollVal(v));
+}, [scrollYProgress]);
+
+const calcOverlayOpacity = Math.min(0.7, Math.max(0.2, (scrollVal - 0.2) / 0.4 * 0.5 + 0.2));
+const calcContentOpacity = Math.min(1, Math.max(0, (scrollVal - 0.3) / 0.3));
+const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
   
   // Parallax / Scroll Animations
   // 0% - 25%: Initial state (clear image) -> Start moving
@@ -144,7 +153,7 @@ export default function Home() {
              />
              <motion.div 
                className="absolute inset-0 bg-black"
-               style={{ opacity: overlayOpacity }}
+               style={{ opacity: calcOverlayOpacity }}
              />
           </motion.div>
 
@@ -152,9 +161,9 @@ export default function Home() {
           <motion.div 
             className="w-full px-6 text-center z-10 relative"
             style={{ 
-              opacity: contentOpacity,
-              y: contentY
-            }}
+  opacity: calcContentOpacity,
+  y: calcContentY
+}}
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-normal tracking-tighter mb-8 text-brand-offwhite text-center mx-auto cursor-default">
               {"Wooden Tree House".split("").map((char, index) => {
