@@ -8,34 +8,34 @@ import { Button } from "@/components/ui/button";
 import imgLogo from "@/assets/images/logo-nero.png";
 
 // Images - Background
-import imgHero from "@/assets/images/mondowth.jpg";
+import imgHero from "@/assets/images/mondowth.webp";
 
 // Images - La Casetta
-import imgColore from "@/assets/images/colore.jpg";
-import imgTerrazza from "@/assets/images/Terrazza.jpg";
-import imgInteriore from "@/assets/images/interiore.jpg";
+import imgColore from "@/assets/images/colore.webp";
+import imgTerrazza from "@/assets/images/Terrazza.webp";
+import imgInteriore from "@/assets/images/interiore.webp";
 
 // Images - Alcolica
-import imgCasettaAlcolica from "@/assets/images/casettalcolica.jpg";
-import imgTrasportoAlcolica from "@/assets/images/trasportoalcolica.jpg";
+import imgCasettaAlcolica from "@/assets/images/casettalcolica.webp";
+import imgTrasportoAlcolica from "@/assets/images/trasportoalcolica.webp";
 
 // Images - Set Design
-import imgSetDesign from "@/assets/images/tshwth.jpeg";
+import imgSetDesign from "@/assets/images/tshwth.webp";
 
 // Images - Events
-import imgFesta from "@/assets/images/festa.jpg";
-import imgCarnevale from "@/assets/images/carnevale.jpg";
+import imgFesta from "@/assets/images/festa.webp";
+import imgCarnevale from "@/assets/images/carnevale.webp";
 
 // Images - Merch
-import imgTshirt from "@/assets/images/Military Green 1.jpg";
-import imgHoodie from "@/assets/images/nero 1.jpg";
-import imgBeanie from "@/assets/images/Cuffie WTH.pdf.jpg";
-import imgCrewneck from "@/assets/images/bianco 1.jpg";
+import imgTshirt from "@/assets/images/Military Green 1.webp";
+import imgHoodie from "@/assets/images/nero 1.webp";
+import imgBeanie from "@/assets/images/Cuffie WTH.pdf.webp";
+import imgCrewneck from "@/assets/images/bianco 1.webp";
 
 // Images - Art Exhibition
-import imgMadreNatura from "@/assets/images/madre-natura.jpg";
-import imgCas2 from "@/assets/images/cas2.jpg";
-import imgJeck from "@/assets/images/jeck.jpg";
+import imgMadreNatura from "@/assets/images/madre-natura.webp";
+import imgCas2 from "@/assets/images/cas2.webp";
+import imgJeck from "@/assets/images/jeck.webp";
 
 export default function Home() {
   const [email, setEmail] = useState("");
