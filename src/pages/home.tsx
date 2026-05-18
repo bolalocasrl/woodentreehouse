@@ -206,6 +206,12 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                 {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : "Join"}
               </button>
             </form>
+            <p className="text-[11px] text-brand-offwhite/50 mt-3 text-center">
+              Cliccando su Join accetti la nostra{" "}
+              <a href="/privacy-policy" className="underline underline-offset-2 hover:text-brand-offwhite/80 transition-colors">
+                Privacy Policy
+              </a>
+            </p>
           </motion.div>
 
           {/* Scroll Indicator - Always visible, outside of opacity animation */}
@@ -462,18 +468,22 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
         <footer className="border-t border-brand-smoke/20 p-8 md:p-16 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8 bg-brand-offwhite text-brand-smoke">
            <div>
              <h4 className="font-serif text-xl mb-2">Wooden Tree House</h4>
-             <p className="text-sm text-brand-smoke/60 max-w-xs">
+             <p className="text-sm text-brand-smoke/60 max-w-xs mb-3">
                Sogni intagliati nel legno, avventure vissute insieme.
-               Est. 2014, Emilia Romagna.
              </p>
+             <p className="text-xs text-brand-smoke/50">WOODEN TREE HOUSE APS — P.IVA 04354171201 — C.F. 91457460375</p>
+             <p className="text-xs text-brand-smoke/50">woodentreehouse97@pec.it</p>
            </div>
            <div className="flex flex-col items-center md:items-end gap-4">
              <a href="https://www.instagram.com/wooden_tree_house/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-forest transition-colors">
                <Instagram className="w-5 h-5" />
                <span className="text-sm font-bold uppercase tracking-widest">Instagram</span>
              </a>
+             <a href="/privacy-policy" className="text-xs text-brand-smoke/50 hover:text-brand-smoke transition-colors underline underline-offset-4">
+               Privacy Policy
+             </a>
              <p className="text-xs text-brand-smoke/40">
-               © {new Date().getFullYear()} WTH. All rights reserved.
+               © 2025 WOODEN TREE HOUSE APS. All rights reserved.
              </p>
            </div>
         </footer>
