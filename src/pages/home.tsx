@@ -42,6 +42,7 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
   const [activeGadgetId, setActiveGadgetId] = useState<string | null>(null);
   
@@ -83,25 +84,42 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
     if (!email) return;
 
     setIsSubmitting(true);
-    
-    try {
-      const formData = new FormData();
-      formData.append("entry.585338124", email);
-      
-      await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSc3uQ4qNSTqXCH3Bxze80htz5rrxCMEjvOVZX1y3XZv3ks1ag/formResponse",
-        {
-          method: "POST",
-          body: formData,
-          mode: "no-cors",
-        }
-      );
+    setIsError(false);
 
-      setEmail("");
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 3000);
+    try {
+      const res = await fetch("https://api.brevo.com/v3/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": import.meta.env.VITE_BREVO_API_KEY,
+        },
+        body: JSON.stringify({ email, listIds: [2], updateEnabled: true }),
+      });
+
+      if (res.ok) {
+        setEmail("");
+        setIsSuccess(true);
+        setTimeout(() => setIsSuccess(false), 3000);
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const alreadyExists =
+          res.status === 400 &&
+          typeof data?.message === "string" &&
+          data.message.toLowerCase().includes("contact already exist");
+
+        if (alreadyExists) {
+          setEmail("");
+          setIsSuccess(true);
+          setTimeout(() => setIsSuccess(false), 3000);
+        } else {
+          setIsError(true);
+          setTimeout(() => setIsError(false), 3000);
+        }
+      }
     } catch (error) {
       console.error("Error submitting form", error);
+      setIsError(true);
+      setTimeout(() => setIsError(false), 3000);
     } finally {
       setIsSubmitting(false);
     }
@@ -203,7 +221,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                 disabled={isSubmitting || isSuccess}
                 className="bg-brand-offwhite text-brand-smoke px-6 py-3 text-xs uppercase tracking-widest font-bold hover:bg-brand-yellow transition-colors disabled:opacity-70 disabled:hover:bg-brand-offwhite min-w-[100px]"
               >
-                {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : "Join"}
+                {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : isError ? "✗ Errore" : "Join"}
               </button>
             </form>
             <p className="text-[11px] text-brand-offwhite/50 mt-3 text-center">
