@@ -441,9 +441,14 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
               <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-2 block">Brand Equipment</span>
               <h2 className="text-3xl md:text-4xl font-serif text-white">Gadget</h2>
             </div>
-            <div className="text-xs font-mono border border-brand-offwhite px-3 py-1 uppercase">
-              Not For Sale — Community Only
-            </div>
+            <a
+              href="https://wooden-tree-house-shop.fourthwall.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono border border-brand-offwhite px-3 py-1 uppercase text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-wood transition-colors"
+            >
+              Shop — Visita il negozio →
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-offwhite/20 border border-brand-offwhite/20">
