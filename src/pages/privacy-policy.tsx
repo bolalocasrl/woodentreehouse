@@ -1,31 +1,34 @@
 import { useState, useEffect } from "react";
 import imgLogo from "@/assets/images/logo-nero.png";
 
+const linkClass = "underline underline-offset-4 hover:text-brand-forest transition-colors";
+
 const sections: { number: string; title: string; body: React.ReactNode }[] = [
   {
     number: "01",
     title: "Tipologie di dati raccolti",
-    body: "Tramite il form di iscrizione alla newsletter presente sul sito, raccogliamo esclusivamente l'indirizzo email fornito volontariamente dall'utente. Non raccogliamo dati sensibili, dati di pagamento né dati relativi a minori.",
+    body: "Tramite il form di iscrizione alla newsletter presente sul sito raccogliamo esclusivamente l'indirizzo email fornito volontariamente dall'utente. Durante la navigazione possono inoltre essere raccolti dati tecnici (ad es. indirizzo IP, tipo di browser e dispositivo, pagine visitate) tramite i log del server e gli strumenti descritti al punto 06. Non raccogliamo dati sensibili, dati di pagamento né dati relativi a minori.",
   },
   {
     number: "02",
     title: "Finalità del trattamento",
-    body: "I dati raccolti sono utilizzati esclusivamente per l'invio di comunicazioni relative ad eventi, aggiornamenti e novità riguardanti Wooden Tree House. Non utilizziamo i dati per finalità di profilazione commerciale né li cediamo a terzi.",
+    body: "L'indirizzo email è utilizzato per l'invio della newsletter: comunicazioni su eventi, aggiornamenti, novità, offerte e promozioni di Wooden Tree House e del suo shop online. I dati tecnici di navigazione sono utilizzati per garantire il funzionamento e la sicurezza del sito e, ove previsto, per statistiche di utilizzo e per misurare l'efficacia delle nostre campagne pubblicitarie. I dati non vengono venduti né ceduti a terzi per loro finalità autonome.",
   },
   {
     number: "03",
     title: "Base giuridica",
-    body: "Il trattamento si basa sul consenso espresso dall'utente al momento dell'iscrizione alla newsletter (art. 6, par. 1, lett. a del GDPR).",
+    body: "L'invio della newsletter si basa sul consenso espresso dall'utente al momento dell'iscrizione (art. 6, par. 1, lett. a del GDPR). Il trattamento dei dati tecnici necessari al funzionamento del sito si basa sul legittimo interesse del Titolare (art. 6, par. 1, lett. f del GDPR); l'uso di cookie di statistica e marketing si basa sul consenso dell'utente.",
   },
   {
     number: "04",
     title: "Conservazione dei dati",
     body: (
       <>
-        I dati vengono conservati fino alla revoca del consenso da parte dell'utente. In qualsiasi momento è possibile richiedere la cancellazione scrivendo a{" "}
-        <a href="mailto:woodentreehouse97@pec.it" className="underline underline-offset-4 hover:text-brand-forest transition-colors">
+        L'indirizzo email viene conservato fino alla revoca del consenso da parte dell'utente. È possibile disiscriversi in qualsiasi momento tramite il link presente in ogni email oppure scrivendo a{" "}
+        <a href="mailto:woodentreehouse97@pec.it" className={linkClass}>
           woodentreehouse97@pec.it
         </a>
+        . I dati tecnici di navigazione sono conservati per il tempo strettamente necessario alle finalità indicate.
       </>
     ),
   },
@@ -34,10 +37,15 @@ const sections: { number: string; title: string; body: React.ReactNode }[] = [
     title: "Diritti dell'interessato",
     body: (
       <>
-        In conformità al GDPR (Regolamento UE 2016/679), l'utente ha diritto di: accedere ai propri dati, rettificarli, cancellarli, opporsi al trattamento, richiedere la portabilità. Per esercitare questi diritti scrivere a{" "}
-        <a href="mailto:woodentreehouse97@pec.it" className="underline underline-offset-4 hover:text-brand-forest transition-colors">
+        In conformità al GDPR (Regolamento UE 2016/679), l'utente ha diritto di: accedere ai propri dati, rettificarli, cancellarli, limitarne od opporsi al trattamento, richiederne la portabilità e revocare il consenso in qualsiasi momento. Per esercitare questi diritti scrivere a{" "}
+        <a href="mailto:woodentreehouse97@pec.it" className={linkClass}>
           woodentreehouse97@pec.it
         </a>
+        . L'utente ha inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (
+        <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer" className={linkClass}>
+          garanteprivacy.it
+        </a>
+        ).
       </>
     ),
   },
@@ -46,16 +54,45 @@ const sections: { number: string; title: string; body: React.ReactNode }[] = [
     title: "Cookie e strumenti di terze parti",
     body: (
       <>
-        Il sito utilizza Google Forms per la raccolta delle iscrizioni alla newsletter. Google tratta i dati secondo la propria privacy policy disponibile su{" "}
-        <a href="https://policies.google.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-brand-forest transition-colors">
-          policies.google.com
+        Per il funzionamento del sito ci avvaliamo dei seguenti fornitori, che trattano i dati per nostro conto:
+        <br /><br />
+        <strong>Brevo</strong> (Sendinblue SAS, Francia) — gestione delle iscrizioni e invio della newsletter. Privacy policy:{" "}
+        <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer" className={linkClass}>
+          brevo.com/legal/privacypolicy
         </a>
-        . Il sito non utilizza cookie di profilazione o tracciamento.
+        .
+        <br /><br />
+        <strong>Vercel</strong> (Vercel Inc., USA) — hosting del sito e log tecnici del server. Privacy policy:{" "}
+        <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className={linkClass}>
+          vercel.com/legal/privacy-policy
+        </a>
+        .
+        <br /><br />
+        <strong>Google Tag Manager</strong> (Google Ireland Ltd.) — strumento che gestisce il caricamento di servizi di statistica e di marketing (ad es. Google Analytics, pixel pubblicitari di Google e Meta), i quali possono installare cookie e raccogliere dati di navigazione. Privacy policy:{" "}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className={linkClass}>
+          policies.google.com/privacy
+        </a>
+        .
+        <br /><br />
+        Alcuni di questi fornitori possono trasferire dati al di fuori dell'Unione Europea (in particolare negli Stati Uniti), sulla base delle garanzie previste dal GDPR, come l'EU-US Data Privacy Framework o le clausole contrattuali standard.
       </>
     ),
   },
   {
     number: "07",
+    title: "Shop online",
+    body: (
+      <>
+        Il nostro shop online è ospitato sulla piattaforma Fourthwall (
+        <a href="https://wooden-tree-house-shop.fourthwall.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
+          wooden-tree-house-shop.fourthwall.com
+        </a>
+        ). I dati forniti durante un acquisto (nome, indirizzo di spedizione, dati di pagamento) sono raccolti e trattati da Fourthwall secondo la propria privacy policy, consultabile sul sito dello shop.
+      </>
+    ),
+  },
+  {
+    number: "08",
     title: "Modifiche alla presente policy",
     body: "Il Titolare si riserva il diritto di modificare questa Privacy Policy in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con aggiornamento della data in cima.",
   },
@@ -97,7 +134,7 @@ export default function PrivacyPolicy() {
           </h1>
           <div className="w-12 h-[1px] bg-brand-offwhite/40 mb-8" />
           <p className="text-brand-offwhite/50 text-xs font-mono uppercase tracking-widest">
-            Ultimo aggiornamento: giugno 2025
+            Ultimo aggiornamento: settembre 2026
           </p>
         </div>
       </section>
