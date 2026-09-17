@@ -155,7 +155,7 @@ export default function PrivacyPolicy() {
       {/* FOOTER */}
       <footer className="border-t border-brand-smoke/20 py-10 px-6 text-center bg-brand-offwhite text-brand-smoke">
         <p className="text-xs text-brand-smoke/40 uppercase tracking-widest mb-5">
-          © 2025 WOODEN TREE HOUSE APS — P.IVA 04354171201
+          © 2013 WOODEN TREE HOUSE APS — P.IVA 04354171201
         </p>
         <a
           href="/"

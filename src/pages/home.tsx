@@ -491,7 +491,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                Privacy Policy
              </a>
              <p className="text-xs text-brand-smoke/40">
-               © 2025 WOODEN TREE HOUSE APS. All rights reserved.
+               © 2013 WOODEN TREE HOUSE APS. All rights reserved.
              </p>
            </div>
         </footer>
