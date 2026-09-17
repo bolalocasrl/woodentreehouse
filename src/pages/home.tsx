@@ -87,13 +87,10 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
     setIsError(false);
 
     try {
-      const res = await fetch("https://api.brevo.com/v3/contacts", {
+      const res = await fetch("/api/subscribe", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": import.meta.env.VITE_BREVO_API_KEY,
-        },
-        body: JSON.stringify({ email, listIds: [2], updateEnabled: true }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
       });
 
       if (res.ok) {
@@ -101,20 +98,8 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
         setIsSuccess(true);
         setTimeout(() => setIsSuccess(false), 3000);
       } else {
-        const data = await res.json().catch(() => ({}));
-        const alreadyExists =
-          res.status === 400 &&
-          typeof data?.message === "string" &&
-          data.message.toLowerCase().includes("contact already exist");
-
-        if (alreadyExists) {
-          setEmail("");
-          setIsSuccess(true);
-          setTimeout(() => setIsSuccess(false), 3000);
-        } else {
-          setIsError(true);
-          setTimeout(() => setIsError(false), 3000);
-        }
+        setIsError(true);
+        setTimeout(() => setIsError(false), 3000);
       }
     } catch (error) {
       console.error("Error submitting form", error);
