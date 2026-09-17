@@ -44,7 +44,27 @@ Da fare:
 - Sezione Gadget: allineare ai prodotti reali dello shop (le maglie verranno aggiunte su Fourthwall)
 - Landing page dedicata per sponsorizzate / promo Natale (più avanti)
 - Evento di conversione "iscrizione newsletter" in GTM per le campagne
-- Restyling grafico shop Fourthwall coerente con il sito
+- Aggiungere le maglie sullo shop Fourthwall
+
+---
+
+## Shop Fourthwall
+
+Pannello: https://admin.fourthwall.com/store/wooden-tree-house/
+
+Grafica (fatta settembre 2026, Site design):
+- Colori: Primary `#1B3B2B`, Secondary `#7A6652`, Background `#F2F0E9`, Text `#121212`, Text over Primary/Secondary `#F2F0E9`
+- Banner home con colori propri (testo e bottone `#F2F0E9`, testo bottone `#1B3B2B`), a tutta larghezza
+- Font titoli Tinos Regular (simile a Times del sito), testi Inter
+- Logo e favicon: logo del sito (ritagliato)
+- Foto prodotti 4:5
+- Testi home: "Lo shop / della Casetta", bottone "Scopri i prodotti", sezione "Gadget", testo "Sogni intagliati nel legno"
+- Menu: Home · Prodotti · Il sito (link a www.woodentreehousesgp.com)
+
+Prodotti e prezzi:
+- Prodotti "on demand" (stampati da Printful/Fourthwall a ordine, spedizione 7-13 giorni)
+- La valuta base è **USD**: i prezzi in EUR sono conversioni automatiche (Settings → Checkout → Local currencies), quindi non sono tondi e cambiano col cambio
+- Nuove maglie: Products → Create new product → catalogo (es. Comfort Colors 1717 da $15.45, Bella+Canvas 3001 da $11.75)
 
 ---
 
