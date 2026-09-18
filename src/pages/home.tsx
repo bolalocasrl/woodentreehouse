@@ -135,6 +135,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           <a href="#allestimenti" className="hover:underline underline-offset-4">Allestimenti</a>
           <a href="#eventi" className="hover:underline underline-offset-4">Eventi</a>
           <a href="#archive" className="hover:underline underline-offset-4">Gadget</a>
+          <a href="/shop" className="hover:underline underline-offset-4">Shop</a>
         </nav>
       </header>
       {/* HERO SECTION - Sticky Parallax Container */}
@@ -423,16 +424,14 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
         <section id="archive" className="p-8 md:p-16 bg-brand-wood text-brand-offwhite">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-2 block">Brand Equipment</span>
+              <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-2 block">Brand Equipment — Archivio</span>
               <h2 className="text-3xl md:text-4xl font-serif text-white">Gadget</h2>
             </div>
             <a
-              href="https://wooden-tree-house-shop.fourthwall.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/shop"
               className="text-xs font-mono border border-brand-offwhite px-3 py-1 uppercase text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-wood transition-colors"
             >
-              Shop — Visita il negozio →
+              Shop — Maglie e gadget →
             </a>
           </div>
 
