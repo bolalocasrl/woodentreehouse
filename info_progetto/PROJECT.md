@@ -44,7 +44,8 @@ Da fare:
 - Sezione Gadget: allineare ai prodotti reali dello shop (le maglie verranno aggiunte su Fourthwall)
 - Landing page dedicata per sponsorizzate / promo Natale (più avanti)
 - Evento di conversione "iscrizione newsletter" in GTM per le campagne
-- Aggiungere le maglie sullo shop Fourthwall
+- Landing page di Natale (+ banner cookie e pixel di tracciamento)
+- Email di benvenuto su Brevo (in pausa: password Brevo da recuperare)
 
 ---
 
@@ -61,10 +62,18 @@ Grafica (fatta settembre 2026, Site design):
 - Testi home: "Lo shop / della Casetta", bottone "Scopri i prodotti", sezione "Gadget", testo "Sogni intagliati nel legno"
 - Menu: Home · Prodotti · Il sito (link a www.woodentreehousesgp.com)
 
+Pagina `/shop` sul nostro sito:
+- `api/products.js` legge il catalogo dalla **Storefront API** di Fourthwall; il token sta in `FOURTHWALL_TOKEN` su Vercel (GitHub blocca il push se finisce nel codice), cache CDN 5 minuti
+- `src/lib/fourthwall.ts` espone prodotti, prezzi in EUR e raggruppamento per colore
+- Il pulsante Acquista apre `…/products/<slug>?variant=<id>`: sullo shop colore e taglia risultano già selezionati
+- Carrello e pagamento restano su Fourthwall (il carrello via API non funziona)
+
 Prodotti e prezzi:
 - Prodotti "on demand" (stampati da Printful/Fourthwall a ordine, spedizione 7-13 giorni)
 - La valuta base è **USD**: i prezzi in EUR sono conversioni automatiche (Settings → Checkout → Local currencies), quindi non sono tondi e cambiano col cambio
 - Nuove maglie: Products → Create new product → catalogo (es. Comfort Colors 1717 da $15.45, Bella+Canvas 3001 da $11.75)
+- Maglie pubblicate: "Maglia WTH" (Black, Hemp, Blue Spruce — logo bianco) e "Maglia WTH Chiara" (Ivory, White — logo nero), Comfort Colors 1717, $33.78 (circa €30), guadagno $18.33
+- Stampa: logo 9" centrato sul petto; file pronti in `public/logo-bianco.png` e `public/logo-nero.png`
 
 ---
 
@@ -73,6 +82,7 @@ Prodotti e prezzi:
 | Route | File | Descrizione |
 |---|---|---|
 | `/` | `src/pages/home.tsx` | Landing page principale (unica pagina reale) |
+| `/shop` | `src/pages/shop.tsx` | Shop: prodotti letti da Fourthwall, scheda con colori e taglie |
 | `/privacy-policy` | `src/pages/privacy-policy.tsx` | Privacy policy |
 | `*` (fallback) | `src/pages/not-found.tsx` | Pagina 404 |
 
