@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import imgLogo from "@/assets/images/logo-nero.png";
+import SiteHeader from "@/components/site/SiteHeader";
+import SiteFooter from "@/components/site/SiteFooter";
 import imgHeroShop from "@/assets/images/herofotoshop.webp";
 import {
   fetchProducts,
@@ -20,14 +21,6 @@ export default function Shop() {
   const [products, setProducts] = useState<FwProduct[] | null>(null);
   const [isError, setIsError] = useState(false);
   const [openProduct, setOpenProduct] = useState<FwProduct | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight * 0.6);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     fetchProducts()
@@ -47,28 +40,7 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen bg-brand-offwhite text-brand-smoke font-sans selection:bg-brand-forest selection:text-brand-offwhite">
-      {/* HEADER: chiaro sopra la foto, barra panna quando si scorre */}
-      <header
-        className={`fixed top-0 left-0 w-full z-50 px-4 md:px-8 flex justify-end items-center transition-all duration-500 ${
-          isScrolled
-            ? "bg-brand-offwhite/95 backdrop-blur-sm border-b border-brand-smoke/20 text-brand-smoke min-h-[4.5rem] md:min-h-[5.5rem]"
-            : "text-brand-offwhite min-h-[5.5rem] md:min-h-[9rem]"
-        }`}
-      >
-        <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2">
-          <a href="/" aria-label="Torna alla home">
-            <img
-              src={imgLogo}
-              alt="Wooden Tree House Logo"
-              className={`w-auto transition-all duration-500 ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-20 invert brightness-0 drop-shadow-lg"}`}
-            />
-          </a>
-        </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium tracking-wide uppercase">
-          <a href="/" className="hover:underline underline-offset-4">Il sito</a>
-          <a href="/#eventi" className="hover:underline underline-offset-4">Eventi</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section className="relative min-h-[80vh] md:min-h-[85vh] flex items-end overflow-hidden bg-brand-forest text-brand-offwhite border-b border-brand-offwhite/20">
@@ -153,25 +125,7 @@ export default function Shop() {
           </p>
         </section>
 
-        {/* FOOTER */}
-        <footer className="border-t border-brand-smoke/20 p-8 md:p-16 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
-          <div>
-            <h4 className="font-serif text-xl mb-2">Wooden Tree House</h4>
-            <p className="text-sm text-brand-smoke/60 max-w-xs mb-3">
-              Sogni intagliati nel legno, avventure vissute insieme.
-            </p>
-            <p className="text-xs text-brand-smoke/50">WOODEN TREE HOUSE APS — P.IVA 04354171201</p>
-          </div>
-          <div className="flex flex-col items-center md:items-end gap-4">
-            <a href="/" className="text-xs font-bold uppercase tracking-widest hover:text-brand-forest transition-colors">
-              ← Torna al sito
-            </a>
-            <a href="/privacy-policy" className="text-xs text-brand-smoke/50 hover:text-brand-smoke transition-colors underline underline-offset-4">
-              Privacy Policy
-            </a>
-            <p className="text-xs text-brand-smoke/40">© 2013 WOODEN TREE HOUSE APS. All rights reserved.</p>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
 
       <AnimatePresence>
