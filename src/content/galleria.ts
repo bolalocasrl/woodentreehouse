@@ -1,17 +1,35 @@
 // Contenuti della galleria.
 // Due modelli di pagina: "storia" (linea del tempo) e "progetti" (griglia di progetti).
-// Le foto stanno in public/galleria/<area>/..., in versione grande e miniatura (.thumb.webp).
+// Le foto stanno in public/galleria/<area>/... in più misure (nome-800.webp, nome-1600.webp, nome-2400.webp),
+// create con "npm run foto"; dimensioni e misure sono in foto.json.
+import manifest from "./foto.json";
 
 // Finché è true le pagine mostrano l'avviso di bozza e non vengono indicizzate
 export const GALLERIA_IN_BOZZA = true;
 
 export type Foto = {
-  src: string;
-  thumb: string;
+  base: string;
   alt: string;
   w: number;
   h: number;
+  larghezze: number[];
 };
+
+const MANIFEST = manifest as Record<string, { w: number; h: number; larghezze: number[] }>;
+
+export function foto(base: string, alt: string): Foto {
+  const info = MANIFEST[base];
+  if (!info) throw new Error(`Foto non trovata in foto.json: ${base} (hai lanciato npm run foto?)`);
+  return { base, alt, ...info };
+}
+
+// La misura più piccola che copre la larghezza richiesta
+export function urlFoto(f: Foto, larghezza = 1600) {
+  const l = f.larghezze.find((x) => x >= larghezza) ?? f.larghezze[f.larghezze.length - 1];
+  return `${f.base}-${l}.webp`;
+}
+
+export const srcSetFoto = (f: Foto) => f.larghezze.map((l) => `${f.base}-${l}.webp ${l}w`).join(", ");
 
 export type Tappa = {
   anno: string;
@@ -48,28 +66,22 @@ export type AreaProgetti = AreaBase & { modello: "progetti"; progetti: Progetto[
 export type Area = AreaStoria | AreaProgetti;
 
 // Foto segnaposto (quelle già presenti sul sito), da sostituire con le vostre
-const esempio = (nome: string, alt: string, w: number, h: number): Foto => ({
-  src: `/galleria/esempio/${nome}.webp`,
-  thumb: `/galleria/esempio/${nome}.thumb.webp`,
-  alt,
-  w,
-  h,
-});
+const esempio = (nome: string, alt: string) => foto(`/galleria/esempio/${nome}`, alt);
 
 const F = {
-  colore: esempio("colore", "La Casetta tra gli alberi", 1600, 1200),
-  terrazza: esempio("terrazza", "La terrazza della Casetta", 1600, 1067),
-  interiore: esempio("interiore", "L'interno della Casetta", 1600, 1200),
-  mondo: esempio("mondowth", "La Casetta vista dall'alto", 1600, 1067),
-  alcolica: esempio("casettalcolica", "La Casetta Alcolica", 1600, 1067),
-  trasporto: esempio("trasportoalcolica", "La Casetta Alcolica in viaggio", 1600, 1200),
-  carnevale: esempio("carnevale", "La Casetta Alcolica al carnevale", 1600, 1067),
-  festa: esempio("festa", "Una festa in Casetta", 1600, 1067),
-  gruppo: esempio("herofotoshop", "Il gruppo di Wooden Tree House in montagna", 1600, 1067),
-  setDesign: esempio("tshwth", "Allestimento in legno", 1200, 1600),
-  madreNatura: esempio("madre-natura", "Madre Natura", 1600, 1200),
-  cas2: esempio("cas2", "Opera in legno", 1200, 1600),
-  jeck: esempio("jeck", "Dettaglio di un'opera", 1200, 1600),
+  colore: esempio("colore", "La Casetta tra gli alberi"),
+  terrazza: esempio("terrazza", "La terrazza della Casetta"),
+  interiore: esempio("interiore", "L'interno della Casetta"),
+  mondo: esempio("mondowth", "La Casetta vista dall'alto"),
+  alcolica: esempio("casettalcolica", "La Casetta Alcolica"),
+  trasporto: esempio("trasportoalcolica", "La Casetta Alcolica in viaggio"),
+  carnevale: esempio("carnevale", "La Casetta Alcolica al carnevale"),
+  festa: esempio("festa", "Una festa in Casetta"),
+  gruppo: esempio("herofotoshop", "Il gruppo di Wooden Tree House in montagna"),
+  setDesign: esempio("tshwth", "Allestimento in legno"),
+  madreNatura: esempio("madre-natura", "Madre Natura"),
+  cas2: esempio("cas2", "Opera in legno"),
+  jeck: esempio("jeck", "Dettaglio di un'opera"),
 };
 
 export const AREE: Area[] = [

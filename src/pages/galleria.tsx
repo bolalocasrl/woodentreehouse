@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import SiteHeader from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
 import { AvvisoBozza, SchedaArea, useBozza } from "@/components/galleria/parts";
-import { AREE } from "@/content/galleria";
+import { AREE, urlFoto } from "@/content/galleria";
 
 // Tutte le foto delle aree, per il nastro che scorre nell'apertura
 const nastro = [...new Map(
   AREE.flatMap((a) => (a.modello === "storia" ? a.tappe.flatMap((t) => t.foto) : a.progetti.flatMap((p) => p.foto)))
-    .map((f) => [f.src, f])
+    .map((f) => [f.base, f])
 ).values()];
 
 export default function Galleria() {
@@ -48,7 +48,7 @@ export default function Galleria() {
             {[...nastro, ...nastro].map((foto, i) => (
               <img
                 key={i}
-                src={foto.thumb}
+                src={urlFoto(foto, 800)}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

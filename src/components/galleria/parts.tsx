@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AREE, GALLERIA_IN_BOZZA, type Area, type Foto } from "@/content/galleria";
+import FotoImg from "./FotoImg";
 
 // Finché la galleria è in bozza: niente indicizzazione su Google
 export function useBozza() {
@@ -44,14 +45,14 @@ type HeroProps = {
 export function GalleryHero({ foto, etichetta, titolo, sottotitolo, meta, indietro }: HeroProps) {
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] flex items-end overflow-hidden bg-brand-forest text-brand-offwhite">
-      <motion.img
-        src={foto.src}
-        alt={foto.alt}
-        className="absolute inset-0 w-full h-full object-cover"
+      <motion.div
+        className="absolute inset-0"
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.6, ease: "easeOut" }}
-      />
+      >
+        <FotoImg foto={foto} sizes="100vw" fetchPriority="high" className="w-full h-full object-cover" />
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-brand-smoke/85 via-brand-smoke/40 to-brand-smoke/10" />
       <div className="absolute inset-0 bg-gradient-to-r from-brand-smoke/60 via-brand-smoke/10 to-transparent" />
 
@@ -100,7 +101,7 @@ export function Collage({ foto, onOpen }: { foto: Foto[]; onOpen: (index: number
       {foto.map((f, i) => (
         <motion.button
           type="button"
-          key={`${f.src}-${i}`}
+          key={`${f.base}-${i}`}
           onClick={() => onOpen(i)}
           className={`group relative overflow-hidden bg-brand-smoke/10 ${layout(i)}`}
           initial={{ opacity: 0, y: 40 }}
@@ -108,9 +109,9 @@ export function Collage({ foto, onOpen }: { foto: Foto[]; onOpen: (index: number
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, delay: Math.min(i, 4) * 0.08, ease: "easeOut" }}
         >
-          <img
-            src={i === 0 ? f.src : f.thumb}
-            alt={f.alt}
+          <FotoImg
+            foto={f}
+            sizes={foto.length === 1 || i === 0 ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 30vw, 50vw"}
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -147,9 +148,9 @@ export function AltreAree({ corrente }: { corrente: string }) {
 export function SchedaArea({ area, compatta = false }: { area: Area; compatta?: boolean }) {
   return (
     <a href={`/galleria/${area.slug}`} className="group relative block overflow-hidden bg-brand-forest aspect-[4/5]">
-      <img
-        src={area.copertina.thumb}
-        alt={area.copertina.alt}
+      <FotoImg
+        foto={area.copertina}
+        sizes={compatta ? "(min-width: 1024px) 25vw, 50vw" : "(min-width: 768px) 50vw, 100vw"}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
