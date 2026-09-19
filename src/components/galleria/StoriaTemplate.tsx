@@ -102,7 +102,7 @@ export default function StoriaTemplate({ area }: { area: AreaStoria }) {
                   </span>
                   <h2 className="font-serif text-3xl md:text-5xl leading-tight mb-5">
                     {tappa.titolo}
-                    {tappa.esempio && <EtichettaEsempio />}
+                    {tappa.daConfermare && <EtichettaEsempio />}
                   </h2>
                   {tappa.testo && <p className="text-brand-smoke/70 text-lg leading-relaxed">{tappa.testo}</p>}
                 </motion.div>

@@ -30,7 +30,7 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
         <div className="flex items-center gap-6">
           <p className="font-serif text-5xl md:text-7xl leading-none text-brand-offwhite">{posts.length}</p>
           <p className="text-xs uppercase tracking-widest text-brand-offwhite/60 leading-relaxed">
-            posti<br />nel mondo
+            foto<br />dal mondo
           </p>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
               </span>
               <span className="min-w-0 flex-1 leading-tight">
                 <span className="block text-[13px] font-semibold">wooden_tree_house</span>
-                <span className="block text-[11px] text-brand-smoke/60 truncate">{post.luogo}</span>
+                <span className="block text-[11px] text-brand-smoke/60 truncate">{post.luogo ?? "In giro per il mondo"}</span>
               </span>
               <span className="text-brand-smoke/60 tracking-widest text-sm">···</span>
             </div>
@@ -71,9 +71,11 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 bg-brand-smoke/70 text-brand-offwhite text-[10px] font-bold uppercase tracking-widest px-2 py-1 backdrop-blur-sm">
-                <MapPin className="w-3 h-3" /> {post.luogo}
-              </span>
+              {post.luogo && (
+                <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 bg-brand-smoke/70 text-brand-offwhite text-[10px] font-bold uppercase tracking-widest px-2 py-1 backdrop-blur-sm">
+                  <MapPin className="w-3 h-3" /> {post.luogo}
+                </span>
+              )}
             </div>
 
             {/* azioni e didascalia */}
@@ -105,7 +107,7 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
             onClick={() => setTutti(true)}
             className="px-6 py-3 border border-brand-offwhite text-xs font-bold uppercase tracking-widest hover:bg-brand-offwhite hover:text-brand-forest transition-colors"
           >
-            Mostra tutti i {posts.length} posti
+            Mostra tutte le {posts.length} foto
           </button>
         )}
         <a

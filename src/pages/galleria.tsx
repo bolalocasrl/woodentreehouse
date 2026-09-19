@@ -6,7 +6,9 @@ import { AREE, urlFoto } from "@/content/galleria";
 
 // Tutte le foto delle aree, per il nastro che scorre nell'apertura
 const nastro = [...new Map(
-  AREE.flatMap((a) => (a.modello === "storia" ? a.tappe.flatMap((t) => t.foto) : a.progetti.flatMap((p) => p.foto)))
+  AREE.flatMap((a) => (a.modello === "storia" ? a.tappe.map((t) => t.foto[0]) : a.progetti.map((p) => p.foto[0])))
+    .filter(Boolean)
+    .slice(0, 16)
     .map((f) => [f.base, f])
 ).values()];
 
