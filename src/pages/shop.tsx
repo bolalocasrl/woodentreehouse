@@ -4,6 +4,8 @@ import { ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SiteHeader from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
+import AroundTheWorld from "@/components/shop/AroundTheWorld";
+import { POST_MONDO } from "@/content/around-the-world";
 import imgHeroShop from "@/assets/images/herofotoshop.webp";
 import {
   fetchProducts,
@@ -124,6 +126,8 @@ export default function Shop() {
             I prezzi sono in euro, tasse e spedizione si calcolano alla cassa.
           </p>
         </section>
+
+        <AroundTheWorld posts={POST_MONDO} />
 
         <SiteFooter />
       </main>
