@@ -1,2 +1,6 @@
 node_modules/
 dist/
+
+# foto originali per la galleria (restano solo sul Mac)
+woodentreehouse-foto/
+.DS_Store
