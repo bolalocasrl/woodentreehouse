@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { AreaProgetti, Progetto } from "@/content/galleria";
 import Lightbox from "./Lightbox";
+import FotoImg from "./FotoImg";
 import { AltreAree, EtichettaEsempio, GalleryHero } from "./parts";
 
 const WHATSAPP = "https://wa.me/34632854055";
@@ -33,9 +34,9 @@ export default function ProgettiTemplate({ area }: { area: AreaProgetti }) {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: "easeOut" }}
             >
-              <img
-                src={progetto.foto[0]?.thumb}
-                alt={progetto.foto[0]?.alt ?? progetto.titolo}
+              <FotoImg
+                foto={progetto.foto[0]}
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -92,7 +93,7 @@ export function ProgettoDettaglio({ area, progetto }: { area: AreaProgetti; prog
           {progetto.foto.map((foto, index) => (
             <motion.button
               type="button"
-              key={`${foto.src}-${index}`}
+              key={`${foto.base}-${index}`}
               onClick={() => setAperta(index)}
               className="group relative block w-full mb-2 md:mb-3 overflow-hidden break-inside-avoid bg-brand-smoke/10"
               style={{ aspectRatio: `${foto.w} / ${foto.h}` }}
@@ -101,9 +102,9 @@ export function ProgettoDettaglio({ area, progetto }: { area: AreaProgetti; prog
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <img
-                src={foto.thumb}
-                alt={foto.alt}
+              <FotoImg
+                foto={foto}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

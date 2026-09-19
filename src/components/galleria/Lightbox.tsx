@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import type { Foto } from "@/content/galleria";
+import { srcSetFoto, urlFoto, type Foto } from "@/content/galleria";
 
 type Props = {
   foto: Foto[];
@@ -63,8 +63,10 @@ export default function Lightbox({ foto, index, onClose, didascalia }: Props) {
           <div className="relative flex-1 flex items-center justify-center overflow-hidden px-4 md:px-20" onClick={onClose}>
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.img
-                key={item.src}
-                src={item.src}
+                key={item.base}
+                src={urlFoto(item, 2400)}
+                srcSet={srcSetFoto(item)}
+                sizes="100vw"
                 alt={item.alt}
                 custom={direction}
                 initial={{ opacity: 0, x: direction * 80 }}
