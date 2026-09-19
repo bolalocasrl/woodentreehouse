@@ -20,7 +20,7 @@ export function AvvisoBozza() {
   if (!GALLERIA_IN_BOZZA) return null;
   return (
     <div className="fixed bottom-4 left-4 z-[60] bg-brand-yellow text-brand-smoke text-[11px] font-bold uppercase tracking-widest px-3 py-2 shadow-lg">
-      Bozza — foto e testi di esempio
+      Bozza — testi da confermare
     </div>
   );
 }
@@ -28,7 +28,7 @@ export function AvvisoBozza() {
 export function EtichettaEsempio() {
   return (
     <span className="inline-block align-middle ml-3 text-[10px] font-bold uppercase tracking-widest border border-brand-wood text-brand-wood px-2 py-0.5">
-      Esempio
+      Da confermare
     </span>
   );
 }

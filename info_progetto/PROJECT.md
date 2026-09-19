@@ -55,13 +55,18 @@ Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
 - `GALLERIA_IN_BOZZA = true`: avviso "Bozza" in pagina, `noindex`, nessun link nei menu. Metterlo a `false` quando i contenuti sono veri.
 - Due modelli: `StoriaTemplate` (linea del tempo: Casetta, Casetta Alcolica, Wooden Tree Night, Wooden Tree Mobile) e `ProgettiTemplate` (Allestimenti, con pagina per progetto)
 - Componenti in `src/components/galleria/` (Lightbox a schermo intero, Collage, schede area)
-- Foto in `public/galleria/<area>/...` in 3 misure (`nome-800.webp`, `nome-1600.webp`, `nome-2400.webp`, qualità 84); dimensioni in `src/content/foto.json`. Il componente `FotoImg` usa srcset: il browser sceglie la misura giusta. Ora ci sono solo segnaposto in `public/galleria/esempio/`
+- Foto in `public/galleria/<area>/...` in 3 misure (`nome-800.webp`, `nome-1600.webp`, `nome-2400.webp`, qualità 84); dimensioni in `src/content/foto.json`. Il componente `FotoImg` usa srcset: il browser sceglie la misura giusta. Foto vere da `galleria_sito` (100 foto, settembre 2026)
 - **Preparare le foto:** `npm run foto -- <cartella-originali> <area>` (script `scripts/foto.mjs`, usa sharp; HEIC via sips; raddrizza le foto verticali)
 - Originali delle foto: cartella `PROGETTI/woodentreehouse-foto/` (fuori dal repo), una sottocartella per area e una per tappa (`AAAA-MM Titolo`), istruzioni in `LEGGIMI.txt`
 - Foto della home: ridotte a max 2880px, qualità 85 (non scendere sotto: la qualità delle foto è prioritaria)
 - Header/footer condivisi di shop e galleria: `src/components/site/SiteHeader.tsx` e `SiteFooter.tsx`
 - Nomi eventi: **Wooden Tree Night** (festa in Casetta) e **Wooden Tree Mobile** (Casetta Alcolica al carnevale di San Giovanni in Persiceto)
-- La Casetta è stata costruita per la prima volta nel luglio 2012
+- La Casetta è stata costruita per la prima volta nel luglio 2012 (sfida dello zio William a Giova, giardino di Giova a San Giovanni in Persiceto)
+- La Casetta Alcolica nasce nel 2018, al primo carnevale; migliorata 2019 e 2020 (casettina DJ), pausa Covid, ritorno con permessi Comune/Pro Loco (sotto l'arco)
+- Jack = amico artista: Madre Natura (muro dietro la consolle), street art in Casetta, Portale per Point Of View al Social Hub (2024)
+- WTN: 2018, 2021 (sett.), 2022 = Vol. V, 2023 = WTN 6, 2024 = WTN 7; WTN 8 (2025) solo su Drive
+- Tappe con `daConfermare: true` mostrano l'etichetta "Da confermare"
+- Foto originali: `/Users/user/Desktop/Matte/Progettiamo/WTH/Foto/galleria_sito` e Drive "Computer > Il mio laptop > Casetta" (account woodentreehouse97, leggibile col connettore Drive ma le foto grandi non si scaricano da lì)
 
 ---
 
@@ -86,7 +91,7 @@ Pagina `/shop` sul nostro sito:
 
 Sezione "WTH around the world" (in fondo a /shop):
 - dati in `src/content/around-the-world.ts` (foto, luogo, link al post Instagram, didascalia, data)
-- schede stile post Instagram: griglia su desktop, carosello su telefono; compare solo se l'elenco non è vuoto
+- schede stile post Instagram: griglia su desktop, carosello su telefono; ONLINE con 6 foto, link al profilo (mancano i link ai singoli post e i luoghi)
 - foto da preparare con `npm run foto -- <cartella> around-the-world`
 
 Prodotti e prezzi:

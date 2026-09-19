@@ -279,7 +279,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           <div className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative">
              <img src={imgCasettaAlcolica} alt="La Casetta Alcolica" className="w-full h-full object-cover transition-all duration-700 min-h-[400px]" />
              <div className="absolute bottom-0 right-0 p-4 bg-brand-yellow border-t border-l border-brand-smoke/20">
-               <span className="text-xs font-mono font-bold">EST. 2014</span>
+               <span className="text-xs font-mono font-bold">EST. 2018</span>
              </div>
           </div>
           <div className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh]">

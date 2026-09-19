@@ -45,7 +45,7 @@ export default function ProgettiTemplate({ area }: { area: AreaProgetti }) {
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="text-[10px] uppercase tracking-widest border border-brand-offwhite/50 px-2 py-0.5 rounded-full">{progetto.anno}</span>
                   <span className="text-[10px] uppercase tracking-widest border border-brand-offwhite/50 px-2 py-0.5 rounded-full">{progetto.foto.length} foto</span>
-                  {progetto.esempio && <span className="text-[10px] uppercase tracking-widest bg-brand-yellow text-brand-smoke px-2 py-0.5">Esempio</span>}
+                  {progetto.daConfermare && <span className="text-[10px] uppercase tracking-widest bg-brand-yellow text-brand-smoke px-2 py-0.5">Da confermare</span>}
                 </div>
                 <h2 className="font-serif text-3xl md:text-4xl leading-none mb-2 text-brand-offwhite">{progetto.titolo}</h2>
                 <p className="text-sm text-brand-offwhite/80 mb-4">{progetto.luogo}</p>
@@ -82,9 +82,9 @@ export function ProgettoDettaglio({ area, progetto }: { area: AreaProgetti; prog
       />
 
       <main className="border-x border-brand-smoke/20 max-w-[2000px] mx-auto bg-brand-offwhite">
-        {progetto.esempio && (
+        {progetto.daConfermare && (
           <p className="px-6 md:px-16 pt-10 text-sm text-brand-smoke/60">
-            Progetto di esempio <EtichettaEsempio />
+            Testo del progetto <EtichettaEsempio />
           </p>
         )}
 
