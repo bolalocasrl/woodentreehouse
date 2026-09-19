@@ -388,7 +388,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                 <img src={imgFesta} alt="Wooden Tree Night" className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" />
                 <div className={`absolute inset-0 bg-brand-forest/60 group-hover:bg-brand-forest/40 transition-colors z-10 duration-500 ${activeEventId === 'night' ? '!bg-brand-forest/40' : ''}`}></div>
                 <div className="absolute inset-0 z-20 p-8 md:p-16 flex flex-col justify-end text-brand-offwhite">
-                   <h3 className="text-4xl md:text-5xl font-serif mb-4 text-white">Wooden Tree House</h3>
+                   <h3 className="text-4xl md:text-5xl font-serif mb-4 text-white">Wooden Tree Night</h3>
                    <p className={`text-brand-offwhite/90 mb-6 max-w-lg text-base leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 font-normal ${activeEventId === 'night' ? '!opacity-100 !translate-y-0' : ''}`}>
                      Pensa quanto sarebbe bello entrare gratis alla festa in casetta semplicemente rispondendo alla domanda "Anno di fondazione WTH ?"
                    </p>

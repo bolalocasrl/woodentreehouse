@@ -7,12 +7,17 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import Shop from "@/pages/shop";
+import Galleria from "@/pages/galleria";
+import GalleriaArea from "@/pages/galleria-area";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/shop" component={Shop} />
+      <Route path="/galleria" component={Galleria} />
+      <Route path="/galleria/:area" component={GalleriaArea} />
+      <Route path="/galleria/:area/:progetto" component={GalleriaArea} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>

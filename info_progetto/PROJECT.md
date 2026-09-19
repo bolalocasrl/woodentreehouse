@@ -49,6 +49,20 @@ Da fare:
 
 ---
 
+## Galleria
+
+Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
+- `GALLERIA_IN_BOZZA = true`: avviso "Bozza" in pagina, `noindex`, nessun link nei menu. Metterlo a `false` quando i contenuti sono veri.
+- Due modelli: `StoriaTemplate` (linea del tempo: Casetta, Casetta Alcolica, Wooden Tree Night, Wooden Tree Mobile) e `ProgettiTemplate` (Allestimenti, con pagina per progetto)
+- Componenti in `src/components/galleria/` (Lightbox a schermo intero, Collage, schede area)
+- Foto in `public/galleria/<area>/...` in due versioni: `nome.webp` (1600px) e `nome.thumb.webp` (miniatura). Ora ci sono solo segnaposto in `public/galleria/esempio/`
+- Conversione foto: `cwebp` (installato con Homebrew)
+- Header/footer condivisi di shop e galleria: `src/components/site/SiteHeader.tsx` e `SiteFooter.tsx`
+- Nomi eventi: **Wooden Tree Night** (festa in Casetta) e **Wooden Tree Mobile** (Casetta Alcolica al carnevale di San Giovanni in Persiceto)
+- La Casetta è stata costruita per la prima volta nel luglio 2012
+
+---
+
 ## Shop Fourthwall
 
 Pannello: https://admin.fourthwall.com/store/wooden-tree-house/
@@ -83,6 +97,9 @@ Prodotti e prezzi:
 |---|---|---|
 | `/` | `src/pages/home.tsx` | Landing page principale (unica pagina reale) |
 | `/shop` | `src/pages/shop.tsx` | Shop: prodotti letti da Fourthwall, scheda con colori e taglie |
+| `/galleria` | `src/pages/galleria.tsx` | Galleria: Realizzazioni + Eventi (IN BOZZA, non linkata) |
+| `/galleria/:area` | `src/pages/galleria-area.tsx` | Pagina di un'area: modello "storia" o "progetti" |
+| `/galleria/:area/:progetto` | `src/pages/galleria-area.tsx` | Singolo progetto (solo Allestimenti) |
 | `/privacy-policy` | `src/pages/privacy-policy.tsx` | Privacy policy |
 | `*` (fallback) | `src/pages/not-found.tsx` | Pagina 404 |
 
