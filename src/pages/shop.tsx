@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import imgLogo from "@/assets/images/logo-nero.png";
+import imgHeroShop from "@/assets/images/herofotoshop.webp";
 import {
   fetchProducts,
   formatPrice,
@@ -19,6 +20,14 @@ export default function Shop() {
   const [products, setProducts] = useState<FwProduct[] | null>(null);
   const [isError, setIsError] = useState(false);
   const [openProduct, setOpenProduct] = useState<FwProduct | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > window.innerHeight * 0.6);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     fetchProducts()
@@ -38,30 +47,56 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen bg-brand-offwhite text-brand-smoke font-sans selection:bg-brand-forest selection:text-brand-offwhite">
-      {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-brand-offwhite p-4 md:p-8 flex justify-end items-center pointer-events-none min-h-[5.5rem] md:min-h-[9rem]">
-        <div className="pointer-events-auto absolute left-4 md:left-8 top-1/2 -translate-y-1/2">
+      {/* HEADER: chiaro sopra la foto, barra panna quando si scorre */}
+      <header
+        className={`fixed top-0 left-0 w-full z-50 px-4 md:px-8 flex justify-end items-center transition-all duration-500 ${
+          isScrolled
+            ? "bg-brand-offwhite/95 backdrop-blur-sm border-b border-brand-smoke/20 text-brand-smoke min-h-[4.5rem] md:min-h-[5.5rem]"
+            : "text-brand-offwhite min-h-[5.5rem] md:min-h-[9rem]"
+        }`}
+      >
+        <div className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2">
           <a href="/" aria-label="Torna alla home">
-            <img src={imgLogo} alt="Wooden Tree House Logo" className="h-16 w-auto md:h-20 invert brightness-0" />
+            <img
+              src={imgLogo}
+              alt="Wooden Tree House Logo"
+              className={`w-auto transition-all duration-500 ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-20 invert brightness-0 drop-shadow-lg"}`}
+            />
           </a>
         </div>
-        <nav className="pointer-events-auto hidden md:flex gap-6 text-sm font-medium tracking-wide uppercase">
+        <nav className="hidden md:flex gap-6 text-sm font-medium tracking-wide uppercase">
           <a href="/" className="hover:underline underline-offset-4">Il sito</a>
           <a href="/#eventi" className="hover:underline underline-offset-4">Eventi</a>
         </nav>
       </header>
 
       {/* HERO */}
-      <section className="bg-brand-forest text-brand-offwhite pt-[5.5rem] md:pt-[9rem] pb-16 md:pb-24 px-6 md:px-16 border-b border-brand-offwhite/20">
-        <div className="max-w-[2000px] mx-auto">
+      <section className="relative min-h-[80vh] md:min-h-[85vh] flex items-end overflow-hidden bg-brand-forest text-brand-offwhite border-b border-brand-offwhite/20">
+        <motion.img
+          src={imgHeroShop}
+          alt="La squadra di Wooden Tree House in montagna con le felpe WTH"
+          className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-smoke/85 via-brand-smoke/40 to-brand-smoke/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-smoke/60 via-brand-smoke/10 to-transparent" />
+
+        <motion.div
+          className="relative z-10 w-full max-w-[2000px] mx-auto px-6 md:px-16 pb-16 md:pb-24 pt-[7rem] md:pt-[10rem]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+        >
           <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-6 block">
             Brand Equipment
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal tracking-tighter text-brand-offwhite mb-8 leading-none">
             Lo shop<br />della Casetta
           </h1>
-          <div className="w-12 h-[1px] bg-brand-offwhite/40 mb-8" />
-          <p className="text-brand-offwhite/80 text-lg leading-relaxed max-w-xl font-normal">
+          <div className="w-12 h-[1px] bg-brand-offwhite/60 mb-8" />
+          <p className="text-brand-offwhite/90 text-lg leading-relaxed max-w-xl font-normal">
             Maglie, ciabatte e taccuini con il logo dell'albero. Ogni pezzo è stampato su ordinazione:
             lo produciamo quando lo ordini, senza magazzino e senza sprechi.
           </p>
@@ -69,13 +104,13 @@ export default function Shop() {
             {["Stampa su ordinazione", "Spedizione in 5–11 giorni", "Pagamento sicuro"].map((label) => (
               <span
                 key={label}
-                className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-brand-offwhite/90"
+                className="text-xs uppercase tracking-widest border border-brand-offwhite/60 px-3 py-1 rounded-full text-brand-offwhite backdrop-blur-sm bg-brand-smoke/20"
               >
                 {label}
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* GRIGLIA PRODOTTI */}
@@ -155,9 +190,9 @@ function ProductCard({ product, onOpen }: { product: FwProduct; onOpen: () => vo
     <button
       type="button"
       onClick={onOpen}
-      className="group bg-brand-offwhite text-left w-full border-b border-r border-brand-smoke/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-forest"
+      className="group flex flex-col bg-brand-offwhite text-left w-full border-b border-r border-brand-smoke/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-forest"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-brand-smoke/5">
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-brand-smoke/5">
         <img
           src={images[0]?.url}
           alt={product.name}
@@ -177,7 +212,7 @@ function ProductCard({ product, onOpen }: { product: FwProduct; onOpen: () => vo
           {product.name}
         </span>
       </div>
-      <div className="p-6 flex items-start justify-between gap-4 border-t border-brand-smoke/20">
+      <div className="w-full flex-1 p-6 flex items-start justify-between gap-4 border-t border-brand-smoke/20">
         <div>
           <h3 className="font-serif text-xl md:text-2xl leading-tight mb-2">{product.name}</h3>
           <div className="flex gap-2">
