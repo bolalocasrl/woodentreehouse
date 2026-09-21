@@ -52,7 +52,7 @@ Da fare:
 ## Galleria
 
 Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
-- `GALLERIA_IN_BOZZA = true`: avviso "Bozza" in pagina, `noindex`, nessun link nei menu. Metterlo a `false` quando i contenuti sono veri.
+- `GALLERIA_IN_BOZZA = false` (galleria pubblica da settembre 2026): link "Galleria" nei menu e pulsanti dalle sezioni della home. Con `true` torna in bozza (avviso, noindex, etichette "Da confermare" visibili)
 - Due modelli: `StoriaTemplate` (linea del tempo: Casetta, Casetta Alcolica, Wooden Tree Night, Wooden Tree Mobile) e `ProgettiTemplate` (Allestimenti, con pagina per progetto)
 - Componenti in `src/components/galleria/` (Lightbox a schermo intero, Collage, schede area)
 - Foto in `public/galleria/<area>/...` in 3 misure (`nome-800.webp`, `nome-1600.webp`, `nome-2400.webp`, qualità 84); dimensioni in `src/content/foto.json`. Il componente `FotoImg` usa srcset: il browser sceglie la misura giusta. Foto vere da `galleria_sito` (100 foto, settembre 2026)
@@ -64,7 +64,9 @@ Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
 - La Casetta è stata costruita per la prima volta nel luglio 2012 (sfida dello zio William a Giova, giardino di Giova a San Giovanni in Persiceto)
 - La Casetta Alcolica nasce nel 2018, al primo carnevale; migliorata 2019 e 2020 (casettina DJ), pausa Covid, ritorno con permessi Comune/Pro Loco (sotto l'arco)
 - Jack = amico artista: Madre Natura (muro dietro la consolle), street art in Casetta, Portale per Point Of View al Social Hub (2024)
-- WTN: 2018, 2021 (sett.), 2022 = Vol. V, 2023 = WTN 6, 2024 = WTN 7; WTN 8 (2025) solo su Drive
+- WTN: 2016 e 2017 già Wooden Tree Night grandi; 2018; set. 2021 = APE in Casetta; 2022 = Vol. V; ott. 2022 = APE in Casetta / WTN Autumn Edition; 2023 = WTN 6; 2024 = WTN 7; WTN 8 (2025) solo su Drive
+- La struttura verde con i tentacoli è la postazione DJ su ruote che va con la Casetta Alcolica
+- Drive: cartella "WTH storia" e cartella grande "Casetta" condivise con link (anteprime: drive.google.com/thumbnail?id=ID&sz=w500, originali: drive.usercontent.google.com/download?id=ID&export=download&confirm=t)
 - Tappe con `daConfermare: true` mostrano l'etichetta "Da confermare"
 - Foto originali: `/Users/user/Desktop/Matte/Progettiamo/WTH/Foto/galleria_sito` e Drive "Computer > Il mio laptop > Casetta" (account woodentreehouse97, leggibile col connettore Drive ma le foto grandi non si scaricano da lì)
 
