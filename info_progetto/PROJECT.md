@@ -65,6 +65,8 @@ Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
 - La Casetta Alcolica nasce nel 2018, al primo carnevale; migliorata 2019 e 2020 (casettina DJ), pausa Covid, ritorno con permessi Comune/Pro Loco (sotto l'arco)
 - Jack = amico artista: Madre Natura (muro dietro la consolle), street art in Casetta, Portale per Point Of View al Social Hub (2024)
 - WTN: 2016 e 2017 già Wooden Tree Night grandi; 2018; set. 2021 = APE in Casetta; 2022 = Vol. V; ott. 2022 = APE in Casetta / WTN Autumn Edition; 2023 = WTN 6; 2024 = WTN 7; WTN 8 (2025) solo su Drive
+- Boiler Room: sezione Eventi (/galleria/boiler-room), edizioni dic. 2023, nov. 2024, dic. 2024, mar. 2025, apr. 2026
+- Around the world: 01, 02, 05 = Lago di Resia; 03 = ferrata a Cortina; 04 = Predazzo; 06 = la Casetta
 - La struttura verde con i tentacoli è la postazione DJ su ruote che va con la Casetta Alcolica
 - Drive: cartella "WTH storia" e cartella grande "Casetta" condivise con link (anteprime: drive.google.com/thumbnail?id=ID&sz=w500, originali: drive.usercontent.google.com/download?id=ID&export=download&confirm=t)
 - Tappe con `daConfermare: true` mostrano l'etichetta "Da confermare"

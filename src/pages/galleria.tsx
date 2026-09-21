@@ -71,8 +71,8 @@ export default function Galleria() {
           </div>
         </Blocco>
 
-        <Blocco titolo="Eventi" etichetta="Fatti insieme" descrizione="La festa in Casetta e la Casetta che porta la festa in piazza.">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+        <Blocco titolo="Eventi" etichetta="Fatti insieme" descrizione="La festa in Casetta, le serate d'inverno e la Casetta che porta la festa in piazza.">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
             {eventi.map((area) => (
               <SchedaArea key={area.slug} area={area} />
             ))}

@@ -137,7 +137,7 @@ export function AltreAree({ corrente }: { corrente: string }) {
           Tutta la galleria →
         </a>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
         {altre.map((area) => (
           <SchedaArea key={area.slug} area={area} compatta />
         ))}

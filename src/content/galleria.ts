@@ -300,6 +300,44 @@ const mobile = {
   2026: serie("wooden-tree-mobile/2026-02", ["La folla davanti alla Casetta Alcolica, carnevale 2026", "Il DJ accanto al bancone con i tentacoli", "I fuochi davanti alla Casetta Alcolica"]),
 };
 
+// ---------- BOILER ROOM ----------
+const boiler = {
+  2023: serie("boiler-room/2023-12", [
+    "Il gruppo davanti alla Casetta il giorno della Boiler Room di Natale 2023",
+    "La Casetta al sole di dicembre",
+    "Il gruppo con le felpe gialle sotto l'albero",
+  ]),
+  "2024-11": serie("boiler-room/2024-11", [
+    "La consolle nella luce verde, Boiler Room d'autunno 2024",
+    "Due amici tra le luci della festa",
+    "Divani e lucine dentro la Casetta",
+    "La Casetta al tramonto prima della festa",
+    "La scala della Casetta nel pomeriggio",
+  ]),
+  "2024-12": serie("boiler-room/2024-12", [
+    "Il bancone dipinto con le onde, Natale 2024",
+    "Il Portale montato in giardino",
+    "Le cuffie WTH colorate appese in fila",
+    "Madre Natura e la Casetta a dicembre",
+  ]),
+  2025: serie("boiler-room/2025-03", [
+    "La locandina della Boiler Room di primavera 2025",
+    "Il gruppo seduto al tavolo dentro la Casetta",
+    "Brindisi sotto il gazebo",
+    "Foto di gruppo sotto il gazebo",
+    "Serata sotto il gazebo",
+    "Il bancone con le onde di sera",
+  ]),
+  2026: serie("boiler-room/2026-04", [
+    "La proiezione su Madre Natura di notte, aprile 2026",
+    "La consolle davanti a Madre Natura",
+    "Aperitivo al sole davanti al muro dipinto",
+    "Il bancone dipinto con il leone",
+    "Brindisi a fine serata",
+    "La Casetta in primavera, aprile 2026",
+  ]),
+};
+
 export const AREE: Area[] = [
   {
     slug: "casetta",
@@ -588,6 +626,54 @@ export const AREE: Area[] = [
         titolo: "WTN 7",
         testo: "Il giardino pieno fino all'ultimo angolo, sotto gli alberi e davanti ai banconi dipinti.",
         foto: wtn[2024],
+      },
+    ],
+  },
+  {
+    slug: "boiler-room",
+    modello: "storia",
+    categoria: "eventi",
+    etichetta: "Winter Session",
+    titolo: "Boiler Room",
+    sezioneHome: "eventi",
+    intro:
+      "Le feste raccolte della Casetta: d'inverno e a inizio primavera, dentro e intorno alla Casetta, con la consolle e pochi amici stretti.",
+    copertina: boiler["2024-11"][0],
+    tappe: [
+      {
+        anno: "2023",
+        data: "Dicembre 2023",
+        titolo: "La Boiler Room di Natale",
+        testo: "La prima Boiler Room, la vigilia di Natale: il giardino al sole di dicembre, poi la festa di sera.",
+        foto: boiler[2023],
+      },
+      {
+        anno: "2024",
+        data: "Novembre 2024",
+        titolo: "Boiler Room d'autunno",
+        testo: "Luci verdi, la consolle e la Casetta piena fino a notte fonda.",
+        foto: boiler["2024-11"],
+      },
+      {
+        anno: "2024",
+        data: "Dicembre 2024",
+        titolo: "Pre e post Natale",
+        testo: "Il giardino si prepara per il Natale: il Portale torna in Casetta e le cuffie WTH escono dagli scatoloni.",
+        foto: boiler["2024-12"],
+      },
+      {
+        anno: "2025",
+        data: "Marzo 2025",
+        titolo: "Boiler Room di primavera",
+        testo: "Sotto il gazebo, tra brindisi e musica, per salutare l'inverno.",
+        foto: boiler[2025],
+      },
+      {
+        anno: "2026",
+        data: "Aprile 2026",
+        titolo: "Boiler Room primaverile",
+        testo: "Aperitivo al sole davanti al muro dipinto, poi di notte le proiezioni su Madre Natura.",
+        foto: boiler[2026],
       },
     ],
   },
