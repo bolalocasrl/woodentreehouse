@@ -135,7 +135,6 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           <a href="#allestimenti" className="hover:underline underline-offset-4">Allestimenti</a>
           <a href="#eventi" className="hover:underline underline-offset-4">Eventi</a>
           <a href="/galleria" className="hover:underline underline-offset-4">Galleria</a>
-          <a href="#archive" className="hover:underline underline-offset-4">Gadget</a>
           <a href="/shop" className="hover:underline underline-offset-4">Shop</a>
         </nav>
       </header>

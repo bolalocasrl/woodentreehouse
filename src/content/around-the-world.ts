@@ -20,9 +20,9 @@ export const POST_MONDO: PostMondo[] = [
     luogo: "Lago di Resia, Alto Adige",
     url: PROFILO,
   },
-  { foto: f("02", "Quattro felpe WTH su una panchina in montagna"), url: PROFILO },
-  { foto: f("03", "Maglie e felpe WTH in cima a una parete di roccia"), url: PROFILO, data: "Agosto 2017" },
-  { foto: f("04", "Un gruppo con le felpe WTH nel bosco innevato"), url: PROFILO },
-  { foto: f("05", "Felpe WTH su una strada di montagna"), url: PROFILO },
+  { foto: f("02", "Quattro felpe WTH su una panchina sopra il Lago di Resia"), luogo: "Lago di Resia, Alto Adige", url: PROFILO },
+  { foto: f("03", "Maglie e felpe WTH in cima a una via ferrata"), luogo: "Ferrata a Cortina d'Ampezzo", url: PROFILO, data: "Agosto 2017" },
+  { foto: f("04", "Un gruppo con le felpe WTH nel bosco innevato"), luogo: "Predazzo, Trentino", url: PROFILO },
+  { foto: f("05", "Felpe WTH sulla Fiat Panda al Lago di Resia"), luogo: "Lago di Resia, Alto Adige", url: PROFILO },
   { foto: f("06-casetta", "Il gruppo con le felpe WTH davanti alla Casetta"), luogo: "Casa base: la Casetta", url: PROFILO },
 ];
