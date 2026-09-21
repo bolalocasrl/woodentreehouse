@@ -74,21 +74,75 @@ const serie = (cartella: string, didascalie: string[]) =>
 
 // ---------- LA CASETTA ----------
 const casetta = {
-  inizi: serie("casetta/2012-gli-inizi", ["Il giardino di Giova visto dall'alto, dove sorge la Casetta", "Il gruppo sulla Casetta nei primi anni"]),
+  prima: serie("casetta/2012-la-prima-casetta", [
+    "La prima struttura della Casetta tra gli alberi, agosto 2012",
+    "Il tetto e le travi della prima Casetta",
+    "Dentro la prima Casetta, con le tende di perline",
+    "Il cartello all'ingresso: \"Se l'aria non entra, la facciamo entrare\"",
+  ]),
+  aerea: foto("/galleria/casetta/2012-gli-inizi/01", "Il giardino di Giova visto dall'alto, dove sorge la Casetta"),
+  allarga: serie("casetta/2013-si-allarga", [
+    "Quattro dei ragazzi seduti sulla nuova piattaforma, luglio 2013",
+    "Si costruisce il piano nuovo",
+    "La carrucola della teleferica",
+    "La Casetta con la scala, ottobre 2013",
+    "Il pavimento nuovo della piattaforma",
+    "La Casetta nel verde, primavera 2013",
+  ]),
+  serate: serie("casetta/2014-le-prime-serate", [
+    "La Casetta tra gli alberi in primavera, 2014",
+    "I ragazzi affacciati dalla Casetta",
+    "Lavori sul tetto",
+    "La Casetta illuminata di notte, dicembre 2014",
+  ]),
+  gruppoPrimi: foto("/galleria/casetta/2012-gli-inizi/02", "Il gruppo sulla Casetta con l'insegna WTH"),
+  nome: serie("casetta/2016-il-nome-sulla-porta", [
+    "La scritta Wooden Tree House dipinta sulla porta",
+    "La Casetta d'inverno, dicembre 2016",
+    "Il cancello della casa di Giova",
+  ]),
+  piattaforma: serie("casetta/2017-la-piattaforma", [
+    "Dalla piattaforma panoramica guardando il terrazzo",
+    "Si costruisce la piattaforma in cima agli alberi",
+    "La struttura nuova sotto la Casetta",
+    "Il bancone sotto la Casetta",
+    "Il gruppo con le prime felpe WTH, ottobre 2017",
+    "La Casetta con le luci di Natale, dicembre 2017",
+  ]),
+  interni2018: serie("casetta/2018-nuovi-interni", [
+    "La Casetta a marzo 2018",
+    "Il nuovo interno con il prato sintetico, dicembre 2018",
+    "Il gruppo dentro la Casetta rinnovata",
+  ]),
   cantiere: serie("casetta/2019-il-grande-cantiere", [
     "La Casetta smontata durante il cantiere del 2019",
     "La nuova struttura prende forma tra gli alberi",
     "Travi e assi nel giardino durante i lavori",
     "Mani al lavoro sul pavimento nuovo",
     "Il pavimento della Casetta durante la ricostruzione",
+    "Il telaio nuovo di notte, giugno 2019",
+    "Il tetto nuovo con le tegole, ottobre 2019",
   ]),
-  terrazzo: serie("casetta/2020-il-terrazzo", ["Il terrazzo nuovo della Casetta"]),
+  terrazzo: serie("casetta/2020-il-terrazzo", [
+    "Il terrazzo nuovo della Casetta",
+    "La scritta Wooden Tree House sotto il tetto nuovo, gennaio 2020",
+    "La base del terrazzo in costruzione",
+  ]),
+  stufa: serie("casetta/2021-la-stufa", ["La stufa accesa dentro la Casetta, gennaio 2021", "La passerella nuova all'ingresso, aprile 2021"]),
   interni: serie("casetta/2022-gli-interni", ["Il salotto dentro la Casetta", "L'altalena e le luci dentro la Casetta", "Un gatto in visita sulla Casetta"]),
-  ingresso: serie("casetta/2023-il-nuovo-ingresso", ["La Casetta in autunno, con la nuova scala", "Il viale di campagna che porta alla Casetta"]),
+  ingresso: serie("casetta/2023-il-nuovo-ingresso", [
+    "La Casetta in autunno, con la nuova scala",
+    "Il viale di campagna che porta alla Casetta",
+    "Si scava per portare l'acqua alla Casetta",
+    "Il gruppo sull'ingresso nuovo, aprile 2023",
+    "Si costruisce il nuovo ingresso",
+    "La porta intagliata dell'ingresso",
+    "Il viale con il cane della Casetta",
+  ]),
   avantiTutta: serie("casetta/2024-avanti-tutta", [
     "La Casetta con la scala e i banconi dipinti",
     "I banconi del bar pieni di piante",
-    "Arriva l'acqua in Casetta",
+    "Il rubinetto dell'acqua al bar",
     "Il bancone del bar con le onde dipinte",
     "Un ospite gonfiabile dentro la Casetta",
     "La Casetta tra gli alberi, tutta colorata",
@@ -104,8 +158,10 @@ const alcolica = {
     "La prima Casetta Alcolica, bianca con il logo",
     "Lavori notturni in garage",
     "Il bancone visto da vicino",
+    "La Casetta Alcolica a pois in piazza di sera, febbraio 2018",
+    "La Casetta Alcolica a pois tra i coriandoli, martedì grasso 2018",
   ]),
-  legno: serie("casetta-alcolica/2018-04-in-legno", ["La Casetta Alcolica in legno, con il tetto e i pois", "Sotto il tetto della Casetta Alcolica"]),
+  legno: serie("casetta-alcolica/2018-04-in-legno", ["La Casetta Alcolica a pois in giardino", "Sotto il tetto della Casetta Alcolica"]),
   rinnova: serie("casetta-alcolica/2019-si-rinnova", [
     "Il gruppo con i caschetti dentro la Casetta Alcolica",
     "Le nuove pareti in legno massiccio",
@@ -114,6 +170,7 @@ const alcolica = {
     "I ragazzi con i caschetti davanti al bancone",
     "La Casetta Alcolica caricata sul camion",
   ]),
+  giardino: serie("casetta-alcolica/2021-in-giardino", ["La Casetta Alcolica in giardino, giugno 2021"]),
   nuove: serie("casetta-alcolica/2024-nuove-casette", ["Il bancone con i tentacoli dipinti", "Il bancone verde con le onde", "Il bancone all'ingresso del giardino"]),
   ritorno: serie("casetta-alcolica/2026-il-ritorno", ["La Casetta Alcolica caricata sul furgone, pronta per il carnevale 2026"]),
 };
@@ -153,9 +210,33 @@ const allestimenti = {
 
 // ---------- WOODEN TREE NIGHT ----------
 const wtn = {
-  2018: serie("wooden-tree-night/2018-06", ["La folla davanti al palco, giugno 2018", "La festa nel giardino della Casetta, giugno 2018"]),
-  2021: serie("wooden-tree-night/2021-09", ["I DJ alla consolle, settembre 2021", "Mani in alto tra le foglie"]),
-  2022: serie("wooden-tree-night/2022-06-wtn-5", ["Il portale di rami con la scritta WTN Vol. V", "Il pubblico della quinta edizione", "La consolle nel giardino", "Si balla sotto gli alberi"]),
+  2016: serie("wooden-tree-night/2016-06", ["La consolle con l'insegna WTH, giugno 2016"]),
+  2017: serie("wooden-tree-night/2017-06", ["Il gruppo sotto la Casetta, giugno 2017", "Due amici a fine festa"]),
+  2018: serie("wooden-tree-night/2018-06", [
+    "La folla davanti al palco, giugno 2018",
+    "La festa nel giardino della Casetta, giugno 2018",
+    "Il giardino pieno sotto le luci",
+    "Si balla tra gli alberi",
+    "La festa vista dal palco",
+  ]),
+  2021: serie("wooden-tree-night/2021-09", [
+    "I DJ alla consolle, settembre 2021",
+    "Mani in alto tra le foglie",
+    "La consolle con il disegno della Casetta",
+    "La consolle illuminata di blu",
+    "I DJ in consolle",
+    "Si balla davanti alla consolle",
+  ]),
+  2022: serie("wooden-tree-night/2022-06-wtn-5", [
+    "Il portale di rami con la scritta WTN Vol. V",
+    "Il pubblico della quinta edizione",
+    "La consolle nel giardino",
+    "Si balla sotto gli alberi",
+    "La locandina di WTN 5",
+    "Il palco con le luci, giugno 2022",
+    "Le luci sul palco di WTN 5",
+  ]),
+  "2022-10": serie("wooden-tree-night/2022-10", ["Il giardino pieno di luci colorate, ottobre 2022", "La folla sotto le lucine"]),
   2023: serie("wooden-tree-night/2023-06-wtn-6", ["Il giardino pieno per WTN 6"]),
   2024: serie("wooden-tree-night/2024-06-wtn-7", [
     "Il giardino di notte durante WTN 7",
@@ -170,6 +251,8 @@ const wtn = {
     "Fumo verde vicino alla consolle",
   ]),
 };
+// la locandina apre la tappa di WTN 5
+const wtn5 = [wtn[2022][4], ...wtn[2022].slice(0, 4), ...wtn[2022].slice(5)];
 
 // ---------- WOODEN TREE MOBILE ----------
 const mobile = {
@@ -182,8 +265,16 @@ const mobile = {
     "Il bancone pieno di gente",
     "Foto di gruppo davanti alla Casetta Alcolica",
   ]),
-  2019: serie("wooden-tree-mobile/2019-02", ["La Casetta Alcolica in piazza, carnevale 2019", "Foto di gruppo di notte, carnevale 2019"]),
-  2020: serie("wooden-tree-mobile/2020-02", ["Qualche bottiglia di troppo, carnevale 2020"]),
+  2019: serie("wooden-tree-mobile/2019-02", [
+    "La Casetta Alcolica in piazza, carnevale 2019",
+    "Foto di gruppo di notte, carnevale 2019",
+    "Il gruppo al completo in piazza, carnevale 2019",
+  ]),
+  2020: serie("wooden-tree-mobile/2020-02", [
+    "Qualche bottiglia di troppo, carnevale 2020",
+    "I fuochi davanti alla Casetta Alcolica, carnevale 2020",
+    "Fumo verde sopra la Casetta Alcolica",
+  ]),
   2026: serie("wooden-tree-mobile/2026-02", ["La folla davanti alla Casetta Alcolica, carnevale 2026", "Il DJ accanto al bancone con i tentacoli", "I fuochi davanti alla Casetta Alcolica"]),
 };
 
@@ -201,27 +292,63 @@ export const AREE: Area[] = [
     tappe: [
       {
         anno: "2012",
-        data: "Luglio 2012",
+        data: "Estate 2012",
         titolo: "La sfida",
         testo:
-          "Tutto parte da una sfida dello zio William a Giova: costruire una casetta sull'albero nel giardino di casa. Una decina di amici la raccoglie. La prima Casetta poggia su tre alberi e un palo di sostegno.",
-        foto: casetta.inizi,
+          "Tutto parte da una sfida dello zio William a Giova: costruire una casetta sull'albero nel giardino di casa. Una decina di amici la raccoglie. La prima Casetta poggia su tre alberi e un palo di sostegno, e ad agosto è già in piedi.",
+        foto: [...casetta.prima, casetta.aerea],
+      },
+      {
+        anno: "2013",
+        titolo: "Si allarga",
+        testo:
+          "Il secondo anno arrivano un piano nuovo, una piattaforma per sedersi a guardare il giardino dall'alto e perfino una teleferica tra gli alberi.",
+        foto: casetta.allarga,
+      },
+      {
+        anno: "2014",
+        titolo: "Le prime serate",
+        testo: "L'edera avvolge la Casetta, si sistema il tetto e arrivano le prime lucine: la Casetta diventa il posto dove passare le sere.",
+        foto: [...casetta.serate, casetta.gruppoPrimi],
+      },
+      {
+        anno: "2016",
+        titolo: "Il nome sulla porta",
+        testo: "Sulla porta compare la scritta Wooden Tree House. Da qui in poi la Casetta ha un nome, e un logo.",
+        foto: casetta.nome,
+      },
+      {
+        anno: "2017",
+        titolo: "La piattaforma panoramica",
+        testo:
+          "In cima agli alberi nasce la piattaforma per vedere il panorama dall'alto. Sotto, un bancone per quando arriva gente. E in autunno escono le prime felpe WTH.",
+        foto: casetta.piattaforma,
+      },
+      {
+        anno: "2018",
+        titolo: "Dentro si rinnova",
+        testo: "La Casetta cambia faccia anche all'interno: pavimento verde, lucine e spazio per stare tutti insieme.",
+        foto: casetta.interni2018,
       },
       {
         anno: "2019",
-        data: "Settembre 2019",
+        data: "Giugno — ottobre 2019",
         titolo: "Il grande cantiere",
         testo:
-          "Anno dopo anno la Casetta si allarga. Nel 2019 si smonta e si ricostruisce: nuove travi, un pavimento nuovo e tante mani al lavoro.",
+          "La Casetta si smonta e si ricostruisce da capo: travi nuove, un pavimento nuovo, il tetto con le tegole e tante mani al lavoro per tutta l'estate.",
         foto: casetta.cantiere,
-        daConfermare: true,
       },
       {
         anno: "2020",
         titolo: "Il terrazzo nuovo",
-        testo: "Arriva il terrazzo nuovo: più spazio sospeso tra i rami, per stare insieme e guardare il panorama dall'alto.",
+        testo: "Arriva il terrazzo nuovo: più spazio sospeso tra i rami, per stare insieme e guardare il panorama.",
         foto: casetta.terrazzo,
-        daConfermare: true,
+      },
+      {
+        anno: "2021",
+        titolo: "La stufa",
+        testo: "Con la stufa accesa la Casetta diventa un rifugio anche d'inverno. In primavera, una passerella nuova all'ingresso.",
+        foto: casetta.stufa,
       },
       {
         anno: "2022",
@@ -231,9 +358,9 @@ export const AREE: Area[] = [
       },
       {
         anno: "2023",
-        titolo: "Il nuovo ingresso",
+        titolo: "L'acqua e il nuovo ingresso",
         testo:
-          "Si demolisce il vecchio ingresso e arrivano una scala e un accesso nuovi. In fondo al viale di campagna, la Casetta è sempre lì.",
+          "Si scava per portare l'acqua fino alla Casetta, si demolisce il vecchio ingresso e arrivano una scala e un accesso nuovi, con la porta intagliata.",
         foto: casetta.ingresso,
       },
       {
@@ -241,7 +368,7 @@ export const AREE: Area[] = [
         data: "Giugno 2024",
         titolo: "Avanti tutta",
         testo:
-          "Arriva l'acqua, i banconi del bar si riempiono di piante e le pareti si colorano con le opere di Jack, il nostro amico artista.",
+          "L'acqua arriva fino al bar, i banconi si riempiono di piante e le pareti si colorano con le opere di Jack, il nostro amico artista.",
         foto: casetta.avantiTutta,
       },
       {
@@ -269,14 +396,14 @@ export const AREE: Area[] = [
         data: "Febbraio 2018",
         titolo: "Il primo carnevale",
         testo:
-          "La prima Casetta Alcolica è molto semplice: un telaio in legno, un bancone bianco con il logo e tanta voglia di fare festa. Debutta al carnevale di San Giovanni in Persiceto.",
+          "La prima Casetta Alcolica è molto semplice: un telaio in legno e un bancone bianco con il logo. Debutta al carnevale di San Giovanni in Persiceto e, prima dell'ultima domenica, si veste già di marrone con i pois.",
         foto: alcolica.primo,
       },
       {
         anno: "2018",
         data: "Primavera 2018",
-        titolo: "Si passa al legno",
-        testo: "Dopo il primo carnevale la Casetta Alcolica si veste di legno, con il tetto e i pois.",
+        titolo: "In giardino",
+        testo: "Finito il carnevale, la Casetta Alcolica torna in giardino e diventa il bar delle nostre serate.",
         foto: alcolica.legno,
         daConfermare: true,
       },
@@ -292,8 +419,15 @@ export const AREE: Area[] = [
         anno: "2020",
         titolo: "La consolle, poi lo stop",
         testo:
-          "Nel 2020 arriva anche una casettina tutta per il DJ. Poi il Covid ferma tutto, e la Casetta Alcolica si prende qualche anno di pausa.",
+          "Nel 2020 arriva anche una casettina tutta per il DJ. Poi il Covid ferma tutto, e la Casetta Alcolica si prende qualche anno di pausa dalla piazza.",
         foto: mobile[2020],
+      },
+      {
+        anno: "2021",
+        titolo: "La festa resta in giardino",
+        testo: "Senza carnevale, la Casetta Alcolica resta in giardino con la sua insegna, pronta a ripartire.",
+        foto: alcolica.giardino,
+        daConfermare: true,
       },
       {
         anno: "2024",
@@ -363,6 +497,22 @@ export const AREE: Area[] = [
     copertina: wtn[2018][1],
     tappe: [
       {
+        anno: "2016",
+        data: "Giugno 2016",
+        titolo: "La prima consolle",
+        testo: "Una consolle sotto la Casetta, l'insegna WTH e qualche amico: comincia così.",
+        foto: wtn[2016],
+        daConfermare: true,
+      },
+      {
+        anno: "2017",
+        data: "Giugno 2017",
+        titolo: "Si balla sotto la Casetta",
+        testo: "La festicciola di inizio giugno diventa un appuntamento fisso.",
+        foto: wtn[2017],
+        daConfermare: true,
+      },
+      {
         anno: "2018",
         data: "Giugno 2018",
         titolo: "La festa riempie il giardino",
@@ -373,7 +523,7 @@ export const AREE: Area[] = [
         anno: "2021",
         data: "Settembre 2021",
         titolo: "Si torna a ballare",
-        testo: "Dopo la pausa, la festa riparte a fine estate.",
+        testo: "Dopo la pausa, la festa riparte a fine estate, con la consolle vestita dal disegno della Casetta.",
         foto: wtn[2021],
         daConfermare: true,
       },
@@ -381,8 +531,15 @@ export const AREE: Area[] = [
         anno: "2022",
         data: "Giugno 2022",
         titolo: "WTN Vol. V",
-        testo: "La quinta edizione, con il portale di rami all'ingresso e il giardino pieno fino a tarda notte.",
-        foto: wtn[2022],
+        testo: "La quinta edizione, con il portale di rami all'ingresso, un palco vero e il giardino pieno fino a tarda notte.",
+        foto: wtn5,
+      },
+      {
+        anno: "2022",
+        data: "Ottobre 2022",
+        titolo: "La festa d'autunno",
+        foto: wtn["2022-10"],
+        daConfermare: true,
       },
       {
         anno: "2023",
@@ -421,14 +578,14 @@ export const AREE: Area[] = [
         anno: "2019",
         data: "Febbraio 2019",
         titolo: "Si torna in piazza",
-        testo: "Il secondo carnevale, con la nuova Casetta Alcolica in legno.",
+        testo: "Il secondo carnevale, con la nuova Casetta Alcolica in legno e un gruppo sempre più grande.",
         foto: mobile[2019],
       },
       {
         anno: "2020",
         data: "Febbraio 2020",
         titolo: "Prima dello stop",
-        testo: "L'ultimo carnevale prima della pausa. Qualche bottiglia non è arrivata a fine giornata.",
+        testo: "L'ultimo carnevale prima della pausa, chiuso con i fuochi. Qualche bottiglia non è arrivata a fine giornata.",
         foto: mobile[2020],
       },
       {
