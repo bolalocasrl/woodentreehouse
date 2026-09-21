@@ -66,6 +66,7 @@ Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
 - Jack = amico artista: Madre Natura (muro dietro la consolle), street art in Casetta, Portale per Point Of View al Social Hub (2024)
 - WTN: 2016 e 2017 già Wooden Tree Night grandi; 2018; set. 2021 = APE in Casetta; 2022 = Vol. V; ott. 2022 = APE in Casetta / WTN Autumn Edition; 2023 = WTN 6; 2024 = WTN 7; WTN 8 (2025) solo su Drive
 - Boiler Room: sezione Eventi (/galleria/boiler-room), edizioni dic. 2023, nov. 2024, dic. 2024, mar. 2025, apr. 2026
+- Mappamondo 3D in cima alla sezione (`src/components/shop/WorldGlobe.tsx`, libreria globe.gl, caricato solo quando la sezione si avvicina). Coordinate dei luoghi in `src/content/coordinate.ts`: un post con un luogo nuovo va aggiunto anche lì. I punti vicini si raggruppano (numero), clic sul gruppo = zoom, clic sul punto = scheda del post. Se WebGL non c'è, resta solo la griglia
 - Around the world: 36 post Instagram (dal profilo, via Chrome con login) + 4 foto di gruppo. Ogni scheda linka il post vero. Foto post: 1080px dalla pagina del post (le og:image sono troppo piccole)
 - La struttura verde con i tentacoli è la postazione DJ su ruote che va con la Casetta Alcolica
 - Drive: cartella "WTH storia" e cartella grande "Casetta" condivise con link (anteprime: drive.google.com/thumbnail?id=ID&sz=w500, originali: drive.usercontent.google.com/download?id=ID&export=download&confirm=t)
