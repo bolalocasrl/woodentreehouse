@@ -72,3 +72,60 @@
     text-wrap: balance;
   }
 }
+
+/* Mappamondo "WTH around the world" */
+.wth-marker {
+  position: relative;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: 0;
+  padding: 6px;
+}
+.wth-marker__dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #F5C73D;
+  box-shadow: 0 0 0 3px rgba(245, 199, 61, 0.35), 0 0 12px rgba(245, 199, 61, 0.8);
+  animation: wth-pulse 2.4s ease-out infinite;
+}
+.wth-marker__label {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, -2px);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #F2F0E9;
+  background: rgba(18, 18, 18, 0.75);
+  padding: 2px 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.wth-marker:hover .wth-marker__label,
+.wth-marker:focus-visible .wth-marker__label { opacity: 1; }
+.wth-marker__cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  background: #F5C73D;
+  color: #1B3B2B;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 0 0 4px rgba(245, 199, 61, 0.3), 0 0 16px rgba(245, 199, 61, 0.6);
+  transition: transform 0.2s;
+}
+.wth-marker:hover .wth-marker__cluster { transform: scale(1.12); }
+@keyframes wth-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 199, 61, 0.6), 0 0 12px rgba(245, 199, 61, 0.8); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 199, 61, 0), 0 0 12px rgba(245, 199, 61, 0.8); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 199, 61, 0), 0 0 12px rgba(245, 199, 61, 0.8); }
+}
