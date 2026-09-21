@@ -26,6 +26,7 @@ export function AvvisoBozza() {
 }
 
 export function EtichettaEsempio() {
+  if (!GALLERIA_IN_BOZZA) return null;
   return (
     <span className="inline-block align-middle ml-3 text-[10px] font-bold uppercase tracking-widest border border-brand-wood text-brand-wood px-2 py-0.5">
       Da confermare

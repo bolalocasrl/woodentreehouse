@@ -134,6 +134,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           <a href="#alcolica" className="hover:underline underline-offset-4">Alcolica</a>
           <a href="#allestimenti" className="hover:underline underline-offset-4">Allestimenti</a>
           <a href="#eventi" className="hover:underline underline-offset-4">Eventi</a>
+          <a href="/galleria" className="hover:underline underline-offset-4">Galleria</a>
           <a href="#archive" className="hover:underline underline-offset-4">Gadget</a>
           <a href="/shop" className="hover:underline underline-offset-4">Shop</a>
         </nav>
@@ -257,6 +258,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                   Guarda il documentario <ArrowRight className="ml-2 w-4 h-4" />
                 </a>
               </Button>
+              <a href="/galleria/casetta" className="group/g inline-flex items-center mt-6 text-xs font-bold uppercase tracking-widest text-brand-yellow hover:text-brand-offwhite transition-colors">
+                La storia della Casetta, dal 2012 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
+              </a>
             </div>
           </div>
           <div className="lg:col-span-8 grid grid-cols-2 relative">
@@ -298,6 +302,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                 Scopri dove siamo <Instagram className="ml-2 w-4 h-4" />
               </a>
             </Button>
+            <a href="/galleria/casetta-alcolica" className="group/g inline-flex items-center mt-6 text-xs font-bold uppercase tracking-widest text-brand-forest hover:text-brand-smoke transition-colors">
+              Guarda la storia della Casetta Alcolica <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
+            </a>
           </div>
         </section>
 
@@ -332,6 +339,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                  Contattaci per collaborare
                </a>
             </Button>
+            <a href="/galleria/allestimenti" className="group/g inline-flex items-center mt-6 text-xs font-bold uppercase tracking-widest text-brand-offwhite/80 hover:text-brand-offwhite transition-colors">
+              Guarda i nostri progetti <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
+            </a>
           </div>
           <div className="lg:col-span-6 relative h-full min-h-[400px]">
              <img src={imgSetDesign} alt="Set Design" className="absolute inset-0 w-full h-full object-cover opacity-90" />
@@ -363,6 +373,11 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                 <br /><br />
                 Non ti preoccupare, siamo venuti in questo universo per un solo e unico motivo: aiutarti.
               </p>
+              <Button asChild variant="outline" className="text-brand-offwhite border-brand-offwhite hover:bg-brand-offwhite hover:text-brand-forest rounded-none self-start">
+                <a href="/galleria/allestimenti/madre-natura">
+                  Guarda Madre Natura <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -396,6 +411,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                      <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Secret Party</span>
                      <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Invitation Only</span>
                    </div>
+                   <a href="/galleria/wooden-tree-night" onClick={(e) => e.stopPropagation()} className="group/g inline-flex items-center mt-6 self-start text-xs font-bold uppercase tracking-widest text-white hover:text-brand-yellow transition-colors">
+                     Tutte le edizioni <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
+                   </a>
                 </div>
              </div>
 
@@ -415,6 +433,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
                      <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Itinerant</span>
                      <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Public</span>
                    </div>
+                   <a href="/galleria/wooden-tree-mobile" onClick={(e) => e.stopPropagation()} className="group/g inline-flex items-center mt-6 self-start text-xs font-bold uppercase tracking-widest text-white hover:text-brand-yellow transition-colors">
+                     Tutti i carnevali <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
+                   </a>
                 </div>
              </div>
            </div>

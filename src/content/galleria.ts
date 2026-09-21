@@ -5,7 +5,7 @@
 import manifest from "./foto.json";
 
 // Finché è true le pagine mostrano l'avviso di bozza e non vengono indicizzate
-export const GALLERIA_IN_BOZZA = true;
+export const GALLERIA_IN_BOZZA = false;
 
 export type Foto = {
   base: string;
@@ -171,7 +171,7 @@ const alcolica = {
     "La Casetta Alcolica caricata sul camion",
   ]),
   giardino: serie("casetta-alcolica/2021-in-giardino", ["La Casetta Alcolica in giardino, giugno 2021"]),
-  nuove: serie("casetta-alcolica/2024-nuove-casette", ["Il bancone con i tentacoli dipinti", "Il bancone verde con le onde", "Il bancone all'ingresso del giardino"]),
+  nuove: serie("casetta-alcolica/2024-nuove-casette", ["La postazione DJ con i tentacoli dipinti", "La postazione DJ verde con le onde", "La postazione DJ all'ingresso del giardino"]),
   ritorno: serie("casetta-alcolica/2026-il-ritorno", ["La Casetta Alcolica caricata sul furgone, pronta per il carnevale 2026"]),
 };
 
@@ -197,6 +197,28 @@ const allestimenti = {
     "Madre Natura e il pavimento di pallet",
     "Si costruisce il palco davanti a Madre Natura",
     "Il palco in costruzione, aprile 2025",
+  ]),
+  palco: serie("allestimenti/il-palco", [
+    "Il palco finito davanti a Madre Natura",
+    "Le travi della base del palco, aprile 2025",
+    "Si prepara il terreno per il palco",
+    "La struttura di pallet prende forma",
+    "Si posano i pallet del palco",
+    "Il pavimento nuovo del palco, agosto 2025",
+    "Si inchiodano le assi del pavimento",
+    "Il palco con il pavimento finito",
+    "Il palco visto di lato",
+    "Gli ultimi tagli alle assi",
+    "L'impianto audio sul palco davanti a Madre Natura",
+    "Il bar al piano terra con i banconi dipinti",
+  ]),
+  stencil: serie("allestimenti/stencil-cassa", [
+    "La cassa con lo stencil WTH verde",
+    "Lo stencil del logo WTH ritagliato a mano",
+    "La prova dello stencil con la vernice nera",
+    "Lo stencil dopo la prima mano",
+    "La cassa appena verniciata",
+    "La cassa verde sul palco",
   ]),
   streetArt: serie("allestimenti/street-art", [
     "I banconi dipinti con le onde",
@@ -431,10 +453,9 @@ export const AREE: Area[] = [
       },
       {
         anno: "2024",
-        titolo: "Nuove casette",
-        testo: "Accanto all'Alcolica nascono nuovi banconi su ruote, dipinti a mano con tentacoli e onde.",
+        titolo: "La postazione del DJ",
+        testo: "Arriva la postazione del DJ su ruote, dipinta a mano con tentacoli e onde: si sposta insieme alla Casetta Alcolica.",
         foto: alcolica.nuove,
-        daConfermare: true,
       },
       {
         anno: "2026",
@@ -476,6 +497,23 @@ export const AREE: Area[] = [
         foto: allestimenti.madreNatura,
       },
       {
+        slug: "il-palco",
+        titolo: "Il Palco",
+        luogo: "La Casetta",
+        anno: "2025",
+        testo:
+          "Il palco per i DJ davanti a Madre Natura: la base di travi e pallet ad aprile, il pavimento in assi ad agosto, poi l'impianto audio. Costruito tutto a mano, per le nostre feste.",
+        foto: allestimenti.palco,
+      },
+      {
+        slug: "stencil-cassa",
+        titolo: "Lo stencil sulla cassa",
+        luogo: "La Casetta",
+        anno: "2025",
+        testo: "Il logo WTH ritagliato a mano, provato su carta e spruzzato in verde sulle casse del nostro impianto.",
+        foto: allestimenti.stencil,
+      },
+      {
         slug: "street-art-in-casetta",
         titolo: "Street Art in Casetta",
         luogo: "La Casetta",
@@ -499,18 +537,16 @@ export const AREE: Area[] = [
       {
         anno: "2016",
         data: "Giugno 2016",
-        titolo: "La prima consolle",
-        testo: "Una consolle sotto la Casetta, l'insegna WTH e qualche amico: comincia così.",
+        titolo: "La prima Wooden Tree Night",
+        testo: "Una consolle sotto la Casetta con l'insegna WTH, il giardino pieno a inizio giugno: la festa è già grande.",
         foto: wtn[2016],
-        daConfermare: true,
       },
       {
         anno: "2017",
         data: "Giugno 2017",
         titolo: "Si balla sotto la Casetta",
-        testo: "La festicciola di inizio giugno diventa un appuntamento fisso.",
+        testo: "La Wooden Tree Night di inizio giugno diventa l'appuntamento fisso dell'estate.",
         foto: wtn[2017],
-        daConfermare: true,
       },
       {
         anno: "2018",
@@ -522,10 +558,9 @@ export const AREE: Area[] = [
       {
         anno: "2021",
         data: "Settembre 2021",
-        titolo: "Si torna a ballare",
-        testo: "Dopo la pausa, la festa riparte a fine estate, con la consolle vestita dal disegno della Casetta.",
+        titolo: "APE in Casetta",
+        testo: "Dopo la pausa si torna a ballare con un APE in Casetta di fine estate, la consolle vestita dal disegno della Casetta.",
         foto: wtn[2021],
-        daConfermare: true,
       },
       {
         anno: "2022",
@@ -537,9 +572,9 @@ export const AREE: Area[] = [
       {
         anno: "2022",
         data: "Ottobre 2022",
-        titolo: "La festa d'autunno",
+        titolo: "WTN Autumn Edition",
+        testo: "La festa d'autunno, tra APE in Casetta e Wooden Tree Night: lucine colorate e il giardino pieno.",
         foto: wtn["2022-10"],
-        daConfermare: true,
       },
       {
         anno: "2023",
