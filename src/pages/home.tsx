@@ -442,7 +442,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
 
         {/* ARCHIVE / GADGETS (Wood Background) */}
         <section id="archive" className="p-8 md:p-16 bg-brand-wood text-brand-offwhite">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-2 block">Brand Equipment — Archivio</span>
               <h2 className="text-3xl md:text-4xl font-serif text-white">Gadget</h2>

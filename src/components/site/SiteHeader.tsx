@@ -7,7 +7,7 @@ type Props = {
 };
 
 const DEFAULT_LINKS = [
-  { label: "Il sito", href: "/" },
+  { label: "Home", href: "/" },
   ...(GALLERIA_IN_BOZZA ? [] : [{ label: "Galleria", href: "/galleria" }]),
   { label: "Shop", href: "/shop" },
 ];

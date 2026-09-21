@@ -1769,5 +1769,14 @@
       1600,
       2400
     ]
+  },
+  "/galleria/around-the-world/00-passo-di-resia": {
+    "w": 6000,
+    "h": 4000,
+    "larghezze": [
+      800,
+      1600,
+      2400
+    ]
   }
 }
