@@ -10,7 +10,7 @@ export default function SiteFooter() {
       </div>
       <div className="flex flex-col items-center md:items-end gap-4">
         <a href="/" className="text-xs font-bold uppercase tracking-widest hover:text-brand-forest transition-colors">
-          ← Torna al sito
+          ← Torna alla home
         </a>
         <a href="/privacy-policy" className="text-xs text-brand-smoke/50 hover:text-brand-smoke transition-colors underline underline-offset-4">
           Privacy Policy

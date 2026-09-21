@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Bookmark, Heart, MapPin, MessageCircle, Send } from "lucide-react";
 import FotoImg from "@/components/galleria/FotoImg";
 import type { PostMondo } from "@/content/around-the-world";
-import imgLogo from "@/assets/images/logo-nero.png";
+import imgAvatar from "@/assets/images/instagram-avatar.webp";
 
 const INSTAGRAM = "https://www.instagram.com/wooden_tree_house/";
 const MOSTRATI = 8;
@@ -51,9 +51,9 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
           >
             {/* intestazione del post */}
             <div className="flex items-center gap-3 px-3 py-2.5">
-              <span className="w-8 h-8 rounded-full p-[2px] bg-gradient-to-tr from-brand-yellow via-amber-500 to-brand-forest flex-none">
-                <span className="block w-full h-full rounded-full bg-white p-[3px]">
-                  <img src={imgLogo} alt="" className="w-full h-full object-contain" />
+              <span className="w-9 h-9 rounded-full p-[2px] bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex-none">
+                <span className="block w-full h-full rounded-full bg-white p-[2px]">
+                  <img src={imgAvatar} alt="" className="w-full h-full rounded-full object-cover" />
                 </span>
               </span>
               <span className="min-w-0 flex-1 leading-tight">
@@ -81,11 +81,12 @@ export default function AroundTheWorld({ posts }: { posts: PostMondo[] }) {
             {/* azioni e didascalia */}
             <div className="px-3 pt-3 pb-4">
               <div className="flex items-center gap-4 mb-2">
-                <Heart className="w-5 h-5 transition-colors group-hover:fill-red-500 group-hover:text-red-500" />
+                <Heart className={`w-5 h-5 transition-colors ${post.likes ? "fill-red-500 text-red-500" : "group-hover:fill-red-500 group-hover:text-red-500"}`} />
                 <MessageCircle className="w-5 h-5" />
                 <Send className="w-5 h-5" />
                 <Bookmark className="w-5 h-5 ml-auto" />
               </div>
+              {post.likes && <p className="text-[13px] font-semibold mb-1">Piace a {post.likes} persone</p>}
               {post.didascalia && (
                 <p className="text-[13px] leading-snug line-clamp-2">
                   <span className="font-semibold mr-1">wooden_tree_house</span>
