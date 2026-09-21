@@ -1,192 +1,149 @@
 # Wooden Tree House — PROJECT.md
 
-## Repository GitHub
-https://github.com/bolalocasrl/woodentreehouse.git
+Aggiornato: settembre 2026
 
-## URL
-- Sito: https://www.woodentreehousesgp.com (Vercel, progetto `woodentreehouse`)
-- Shop: https://wooden-tree-house-shop.fourthwall.com/en-eur (Fourthwall, gestito dal pannello Fourthwall)
+## Link
 
----
-
-## Stack Tecnico
-
-| Layer | Tecnologia |
+| Cosa | Dove |
 |---|---|
-| Framework UI | React 19 |
-| Linguaggio | TypeScript |
-| Build tool | Vite 8 |
-| Routing | Wouter |
-| Styling | Tailwind CSS v4 + tw-animate-css |
-| Animazioni | Framer Motion |
-| Componenti UI | Radix UI (shadcn/ui pattern) |
-| State/Data | TanStack Query v5 |
-| Form | React Hook Form + Zod |
-| Icone | Lucide React + React Icons |
-| Font | Helvetica Neue (sans) + Times New Roman (serif) |
+| Sito | https://www.woodentreehousesgp.com (Vercel, progetto `woodentreehouse`, deploy automatico da `main`) |
+| Repository | https://github.com/bolalocasrl/woodentreehouse.git |
+| Shop Fourthwall | https://wooden-tree-house-shop.fourthwall.com/en-eur — pannello: https://admin.fourthwall.com/store/wooden-tree-house/ |
+| Instagram | https://www.instagram.com/wooden_tree_house/ |
+| Documentario YouTube | https://youtu.be/Z491JyyrQB0 |
+| WhatsApp contatti | https://wa.me/34632854055 |
+| Newsletter | Brevo, lista ID 2 (via `api/subscribe.js`) |
 
 ---
 
-## Stato Attuale
+## Stack
 
-Progetto **landing page** monopagina per il brand Wooden Tree House. Frontend + una sola funzione server Vercel (`api/subscribe.js`) per la newsletter.
+React 19 · TypeScript · Vite 8 · Wouter (routing) · Tailwind CSS v4 · Framer Motion · shadcn/ui (solo `Button` e `Toaster` usati) · globe.gl (mappamondo) · sharp (preparazione foto, solo sviluppo).
 
-Fatto (settembre 2026):
-- Newsletter su **Brevo** tramite `api/subscribe.js` (la chiave API resta sul server, variabile Vercel `BREVO_API_KEY`, lista Brevo ID 2)
-- `vercel.json`: rewrite SPA (esclude `/api/`) + header per embedding in iframe
-- Anteprima link (og:image) → `public/opengraph.jpg`
-- Google Tag Manager installato (`GTM-WFMMWWRV`) in `index.html`
-- Sezione Gadget con link allo shop Fourthwall
-- Pagina `/privacy-policy`
+Font: Helvetica Neue (testi) + Times New Roman (titoli).
 
-Da fare:
-- Testo Privacy Policy da aggiornare (cita ancora Google Forms, non cita Brevo / GTM)
-- Sezione Gadget: allineare ai prodotti reali dello shop (le maglie verranno aggiunte su Fourthwall)
-- Landing page dedicata per sponsorizzate / promo Natale (più avanti)
-- Evento di conversione "iscrizione newsletter" in GTM per le campagne
-- Landing page di Natale (+ banner cookie e pixel di tracciamento)
-- Email di benvenuto su Brevo (in pausa: password Brevo da recuperare)
+Funzioni server Vercel (cartella `api/`):
+- `api/subscribe.js` → iscrizione newsletter Brevo (chiave in `BREVO_API_KEY`)
+- `api/products.js` → catalogo prodotti Fourthwall (token in `FOURTHWALL_TOKEN`, cache CDN 5 minuti)
 
----
-
-## Galleria
-
-Contenuti tutti in `src/content/galleria.ts` (aree, tappe, progetti, foto).
-- `GALLERIA_IN_BOZZA = false` (galleria pubblica da settembre 2026): link "Galleria" nei menu e pulsanti dalle sezioni della home. Con `true` torna in bozza (avviso, noindex, etichette "Da confermare" visibili)
-- Due modelli: `StoriaTemplate` (linea del tempo: Casetta, Casetta Alcolica, Wooden Tree Night, Wooden Tree Mobile) e `ProgettiTemplate` (Allestimenti, con pagina per progetto)
-- Componenti in `src/components/galleria/` (Lightbox a schermo intero, Collage, schede area)
-- Foto in `public/galleria/<area>/...` in 3 misure (`nome-800.webp`, `nome-1600.webp`, `nome-2400.webp`, qualità 84); dimensioni in `src/content/foto.json`. Il componente `FotoImg` usa srcset: il browser sceglie la misura giusta. Foto vere da `galleria_sito` (100 foto, settembre 2026)
-- **Preparare le foto:** `npm run foto -- <cartella-originali> <area>` (script `scripts/foto.mjs`, usa sharp; HEIC via sips; raddrizza le foto verticali)
-- Originali delle foto: cartella `PROGETTI/woodentreehouse-foto/` (fuori dal repo), una sottocartella per area e una per tappa (`AAAA-MM Titolo`), istruzioni in `LEGGIMI.txt`
-- Foto della home: ridotte a max 2880px, qualità 85 (non scendere sotto: la qualità delle foto è prioritaria)
-- Header/footer condivisi di shop e galleria: `src/components/site/SiteHeader.tsx` e `SiteFooter.tsx`
-- Nomi eventi: **Wooden Tree Night** (festa in Casetta) e **Wooden Tree Mobile** (Casetta Alcolica al carnevale di San Giovanni in Persiceto)
-- La Casetta è stata costruita per la prima volta nel luglio 2012 (sfida dello zio William a Giova, giardino di Giova a San Giovanni in Persiceto)
-- La Casetta Alcolica nasce nel 2018, al primo carnevale; migliorata 2019 e 2020 (casettina DJ), pausa Covid, ritorno con permessi Comune/Pro Loco (sotto l'arco)
-- Jack = amico artista: Madre Natura (muro dietro la consolle), street art in Casetta, Portale per Point Of View al Social Hub (2024)
-- WTN: 2016 e 2017 già Wooden Tree Night grandi; 2018; set. 2021 = APE in Casetta; 2022 = Vol. V; ott. 2022 = APE in Casetta / WTN Autumn Edition; 2023 = WTN 6; 2024 = WTN 7; WTN 8 (2025) solo su Drive
-- Boiler Room: sezione Eventi (/galleria/boiler-room), edizioni dic. 2023, nov. 2024, dic. 2024, mar. 2025, apr. 2026
-- Mappamondo 3D in cima alla sezione (`src/components/shop/WorldGlobe.tsx`, libreria globe.gl, caricato solo quando la sezione si avvicina). Coordinate dei luoghi in `src/content/coordinate.ts`: un post con un luogo nuovo va aggiunto anche lì. I punti vicini si raggruppano (numero), clic sul gruppo = zoom, clic sul punto = scheda del post. Se WebGL non c'è, resta solo la griglia
-- Around the world: 36 post Instagram (dal profilo, via Chrome con login) + 4 foto di gruppo. Ogni scheda linka il post vero. Foto post: 1080px dalla pagina del post (le og:image sono troppo piccole)
-- La struttura verde con i tentacoli è la postazione DJ su ruote che va con la Casetta Alcolica
-- Drive: cartella "WTH storia" e cartella grande "Casetta" condivise con link (anteprime: drive.google.com/thumbnail?id=ID&sz=w500, originali: drive.usercontent.google.com/download?id=ID&export=download&confirm=t)
-- Tappe con `daConfermare: true` mostrano l'etichetta "Da confermare"
-- Foto originali: `/Users/user/Desktop/Matte/Progettiamo/WTH/Foto/galleria_sito` e Drive "Computer > Il mio laptop > Casetta" (account woodentreehouse97, leggibile col connettore Drive ma le foto grandi non si scaricano da lì)
-
----
-
-## Shop Fourthwall
-
-Pannello: https://admin.fourthwall.com/store/wooden-tree-house/
-
-Grafica (fatta settembre 2026, Site design):
-- Colori: Primary `#1B3B2B`, Secondary `#7A6652`, Background `#F2F0E9`, Text `#121212`, Text over Primary/Secondary `#F2F0E9`
-- Banner home con colori propri (testo e bottone `#F2F0E9`, testo bottone `#1B3B2B`), a tutta larghezza
-- Font titoli Tinos Regular (simile a Times del sito), testi Inter
-- Logo e favicon: logo del sito (ritagliato)
-- Foto prodotti 4:5
-- Testi home: "Lo shop / della Casetta", bottone "Scopri i prodotti", sezione "Gadget", testo "Sogni intagliati nel legno"
-- Menu: Home · Prodotti · Il sito (link a www.woodentreehousesgp.com)
-
-Pagina `/shop` sul nostro sito:
-- `api/products.js` legge il catalogo dalla **Storefront API** di Fourthwall; il token sta in `FOURTHWALL_TOKEN` su Vercel (GitHub blocca il push se finisce nel codice), cache CDN 5 minuti
-- `src/lib/fourthwall.ts` espone prodotti, prezzi in EUR e raggruppamento per colore
-- Il pulsante Acquista apre `…/products/<slug>?variant=<id>`: sullo shop colore e taglia risultano già selezionati
-- Carrello e pagamento restano su Fourthwall (il carrello via API non funziona)
-
-Sezione "WTH around the world" (in fondo a /shop):
-- dati in `src/content/around-the-world.ts` (foto, luogo, link al post Instagram, didascalia, data)
-- schede stile post Instagram: griglia su desktop, carosello su telefono; ONLINE con 6 foto, link al profilo (mancano i link ai singoli post e i luoghi)
-- foto da preparare con `npm run foto -- <cartella> around-the-world`
-
-Prodotti e prezzi:
-- Prodotti "on demand" (stampati da Printful/Fourthwall a ordine, spedizione 7-13 giorni)
-- La valuta base è **USD**: i prezzi in EUR sono conversioni automatiche (Settings → Checkout → Local currencies), quindi non sono tondi e cambiano col cambio
-- Nuove maglie: Products → Create new product → catalogo (es. Comfort Colors 1717 da $15.45, Bella+Canvas 3001 da $11.75)
-- Maglie pubblicate: "Maglia WTH" (Black, Hemp, Blue Spruce — logo bianco) e "Maglia WTH Chiara" (Ivory, White — logo nero), Comfort Colors 1717, $33.78 (circa €30), guadagno $18.33
-- Stampa: logo 9" centrato sul petto; file pronti in `public/logo-bianco.png` e `public/logo-nero.png`
+Variabili d'ambiente su Vercel: `BREVO_API_KEY`, `FOURTHWALL_TOKEN`. Le chiavi non vanno mai nel codice (GitHub blocca il push).
 
 ---
 
 ## Pagine
 
-| Route | File | Descrizione |
+| Route | File | Cosa c'è |
 |---|---|---|
-| `/` | `src/pages/home.tsx` | Landing page principale (unica pagina reale) |
-| `/shop` | `src/pages/shop.tsx` | Shop: prodotti letti da Fourthwall, scheda con colori e taglie |
-| `/galleria` | `src/pages/galleria.tsx` | Galleria: Realizzazioni + Eventi (IN BOZZA, non linkata) |
-| `/galleria/:area` | `src/pages/galleria-area.tsx` | Pagina di un'area: modello "storia" o "progetti" |
+| `/` | `src/pages/home.tsx` | Home monopagina (tutta inline nel file) |
+| `/shop` | `src/pages/shop.tsx` | Prodotti letti da Fourthwall + sezione WTH around the world con mappamondo |
+| `/galleria` | `src/pages/galleria.tsx` | Galleria: Realizzazioni + Eventi |
+| `/galleria/:area` | `src/pages/galleria-area.tsx` | Storia (linea del tempo) o elenco progetti |
 | `/galleria/:area/:progetto` | `src/pages/galleria-area.tsx` | Singolo progetto (solo Allestimenti) |
-| `/privacy-policy` | `src/pages/privacy-policy.tsx` | Privacy policy |
-| `*` (fallback) | `src/pages/not-found.tsx` | Pagina 404 |
+| `/privacy-policy` | `src/pages/privacy-policy.tsx` | Privacy (Brevo, Vercel, GTM, Fourthwall) |
+| `*` | `src/pages/not-found.tsx` | 404 |
+
+`vercel.json`: rewrite di tutto su `index.html` tranne `/api/` (senza, le sottopagine danno 404) + header per l'embedding in iframe.
 
 ---
 
-## Struttura Sezioni (Home)
+## Home (`src/pages/home.tsx`)
 
-La home è divisa in sezioni a scorrimento verticale con layout a griglia editoriale:
+Menu: La Casetta · Alcolica · Allestimenti · Eventi · Galleria · Shop
 
-| ID | Titolo | Bg | Descrizione |
-|---|---|---|---|
-| Hero | — | Immagine full-screen | Parallax sticky con blur scroll-driven + form newsletter (Brevo via `/api/subscribe`) |
-| `#casetta` | 01 — La Casetta | `brand-forest` (verde scuro) | Storia della casetta sull'albero, fondata luglio 2012. Link documentario YouTube |
-| `#alcolica` | 02 — La Casetta Alcolica | `brand-yellow` (giallo caldo) | Bar mobile su ruote. Link Instagram. Est. 2014 |
-| `#allestimenti` | 03 — Allestimenti & Collaborazioni | `brand-wood` (legno) | Set design e scenografie in legno per eventi. CTA WhatsApp |
-| `#mostra-arte` | 03.5 — La Mostra Arte | `brand-forest` | Sezione art exhibition / collaborazioni creative |
-| `#eventi` | 04 — I Nostri Eventi | `brand-forest` | Due card eventi: "Wooden Tree House" (Secret Party) e "Wooden Tree Mobile" (Itinerant/Public) |
-| `#archive` | Gadget / Brand Equipment | `brand-wood` | Grid 4 prodotti merchandising: Maglie, Felpe Cappuccio, Felpe WTH, Cuffie WTH. Status: **ARCHIVED / OUT OF STOCK**. Bottone "Shop" → Fourthwall |
-| Footer | — | `brand-offwhite` | Dati APS (P.IVA, PEC), Instagram, Privacy Policy, © 2013 |
+| Sezione | Contenuto | Link |
+|---|---|---|
+| Hero | Parallax + form newsletter (Brevo) | Privacy |
+| `#casetta` | 01 — La Casetta, fondata luglio 2012 | Documentario, galleria Casetta |
+| `#alcolica` | 02 — Casetta Alcolica, EST. 2018 | Instagram, galleria Casetta Alcolica |
+| `#allestimenti` | 03 — Allestimenti & Collaborazioni | WhatsApp, galleria Allestimenti |
+| `#mostra-arte` | 03.5 — La Mostra Arte | Progetto Madre Natura |
+| `#eventi` | 04 — Wooden Tree Night e Wooden Tree Mobile | Gallerie dei due eventi |
+| `#archive` | Gadget (archivio dei pezzi storici) | Pagina /shop |
+| Footer | Dati APS, Instagram, Privacy, © 2013 | |
 
----
-
-## Componenti Chiave
-
-### `src/pages/home.tsx`
-Tutta la UI della landing vive qui (monolitico). Gestisce:
-- Parallax hero con `useScroll` / `useTransform` di Framer Motion
-- Header sticky con logo che si centra allo scroll
-- Form newsletter → `POST /api/subscribe` → Brevo
-- Toggle mobile per eventi e gadget (click su touch, hover su desktop)
-
-### `src/components/sections/`
-File presenti ma **non utilizzati** nella home attuale (il codice è inline in `home.tsx`):
-`CostruzioniSection`, `EventsSection`, `Footer`, `Header`, `Hero`, `LaCasettaAlcolicaSection`, `LaCasettaSection`, `MerchGrid`, `SetDesignSection`, `StoryGallery`, `WoodenTreeMobileSection`, `WoodenTreeNightSection`
-
-### `src/components/ui/`
-Libreria completa shadcn/ui (Radix-based). Solo `Button` e `Toaster` sono attualmente usati nella home.
-
-### `src/App.tsx`
-Entry point con `QueryClientProvider`, `TooltipProvider`, `Toaster` e router Wouter.
+Google Tag Manager installato in `index.html` (`GTM-WFMMWWRV`). Anteprima link: `public/opengraph.jpg`.
 
 ---
 
-## Brand Palette
+## Shop
+
+### Pagina `/shop` sul nostro sito
+- Catalogo dalla **Storefront API** di Fourthwall (`src/lib/fourthwall.ts`): prezzi in EUR, colori e taglie
+- "Acquista" apre `…/products/<slug>?variant=<id>` su Fourthwall con colore e taglia già selezionati. Carrello e pagamento restano su Fourthwall (il carrello via API non funziona)
+- Hero con `src/assets/images/herofotoshop.webp`
+- Header e footer condivisi con la galleria: `src/components/site/SiteHeader.tsx` (Home · Galleria · Shop) e `SiteFooter.tsx`
+
+### WTH around the world (in fondo a /shop)
+- Dati: `src/content/around-the-world.ts` — 36 post Instagram (foto, luogo, data, didascalia, "mi piace", link al post) + 4 foto di gruppo
+- Schede stile post Instagram (`PostCard` in `src/components/shop/AroundTheWorld.tsx`), con l'avatar del profilo `src/assets/images/instagram-avatar.webp`. Griglia su desktop (8 visibili + "Mostra tutte"), carosello su telefono
+- **Mappamondo 3D** (`src/components/shop/WorldGlobe.tsx`, globe.gl): caricato solo quando la sezione si avvicina (~570 KB). Continenti da `world-atlas`, punti gialli raggruppati quando vicini, clic sul gruppo = zoom, clic sul punto = scheda. Zoom solo con i pulsanti +/− (la rotellina scorre la pagina). Senza WebGL resta la griglia. Il metodo "hexPolygons" (continenti a puntini) dà errore: usare `polygonsData`
+- **Aggiungere un post:** foto in `woodentreehouse-foto/around-the-world/`, `npm run foto -- woodentreehouse-foto/around-the-world around-the-world`, voce nel file dati e **coordinate del luogo in `src/content/coordinate.ts`**
+- Foto dei post: prese a 1080 px dalla pagina del post (con login in Chrome); le `og:image` sono troppo piccole
+
+### Shop Fourthwall
+- Grafica fatta a settembre 2026 (Site design): Primary `#1B3B2B`, Secondary `#7A6652`, Background `#F2F0E9`, Text `#121212`; titoli Tinos, testi Inter; logo e favicon del sito; foto prodotti 4:5; banner "Lo shop / della Casetta"; menu Home · Prodotti · Il sito
+- Prodotti on demand (Printful), spedizione 5-13 giorni
+- **Valuta base USD**: gli euro sono conversioni automatiche, quindi non tondi (la maglia $33.78 ≈ €30)
+- Maglie (Comfort Colors 1717, logo 9" sul petto): "Maglia WTH" (Black, Hemp, Blue Spruce, logo bianco) e "Maglia WTH Chiara" (Ivory, White, logo nero). Guadagno $18.33
+- File di stampa: `public/logo-bianco.png`, `public/logo-nero.png`
+
+---
+
+## Galleria
+
+Contenuti tutti in `src/content/galleria.ts`. Pubblica (`GALLERIA_IN_BOZZA = false`); con `true` torna in bozza (avviso, noindex, niente link nei menu, etichette "Da confermare" visibili).
+
+| Area | Modello | Contenuto |
+|---|---|---|
+| La Casetta | storia | 13 tappe: 2012 la sfida → 2013 → 2014 → 2016 il nome → 2017 piattaforma → 2018 → 2019 cantiere → 2020 terrazzo → 2021 stufa → 2022 → 2023 acqua e ingresso → 2024 → oggi |
+| La Casetta Alcolica | storia | 2018 primo carnevale → primavera 2018 → 2019 → 2020 → 2021 → 2024 postazione DJ → 2026 ritorno |
+| Allestimenti | progetti | Il Portale (Point Of View × Social Hub 2024), Madre Natura, Il Palco (2025), Lo stencil sulla cassa, Street Art in Casetta |
+| Wooden Tree Night | storia | 2016, 2017, 2018, set. 2021 (APE in Casetta), WTN 5 (2022), ott. 2022 (Autumn Edition), WTN 6 (2023), WTN 7 (2024) |
+| Boiler Room | storia | dic. 2023, nov. 2024, dic. 2024, mar. 2025, apr. 2026 |
+| Wooden Tree Mobile | storia | carnevali 2018, 2019, 2020, 2026 |
+
+Tecnica:
+- Modelli in `src/components/galleria/` (`StoriaTemplate`, `ProgettiTemplate`, `Lightbox`, `parts.tsx` con Collage e "Continua a esplorare", `FotoImg`)
+- Foto in `public/galleria/<area>/...` in 3 misure (`-800`, `-1600`, `-2400.webp`, qualità 84), dimensioni in `src/content/foto.json`; `FotoImg` usa srcset
+- **Preparare foto:** `npm run foto -- <cartella-originali> <area>` (`scripts/foto.mjs`: sharp, HEIC via sips, raddrizza le verticali, aggiorna foto.json)
+- Nel file dati, `serie("area/cartella", [didascalie…])` prende 01, 02… nell'ordine delle didascalie
+- Qualità prima di tutto: non scendere sotto qualità 84 in galleria e 85 per le foto della home (max 2880 px)
+
+Storia (per i testi):
+- La Casetta nasce a luglio 2012 da una sfida dello zio William a Giova, nel giardino di Giova a San Giovanni in Persiceto; gruppo di una decina di amici
+- Casetta Alcolica: 2018 al primo carnevale, migliorata 2019 e 2020 (casettina DJ), pausa Covid, ritorno con i permessi di Comune e Pro Loco (sotto uno dei due archi)
+- La struttura verde con i tentacoli è la postazione DJ su ruote che va con la Casetta Alcolica; i banconi dipinti al piano terra sono il bar della Casetta
+- Jack = amico artista: Madre Natura (muro dietro la consolle), street art, Portale per Point Of View
+- WTN = feste grandi in giardino a inizio giugno; Boiler Room = feste d'inverno/primavera più raccolte
+
+---
+
+## Foto originali
+
+- Cartella locale del progetto: `woodentreehouse-foto/` (esclusa da git), una sottocartella per area e una per tappa
+- `/Users/user/Desktop/Matte/Progettiamo/WTH/Foto/galleria_sito`
+- Drive (account woodentreehouse97): cartella "WTH storia" (2012-2023, ordinata per data) e cartella grande "Casetta" (cartelle per data dal 2022, WTN, Boiler Room, Madre Natura…). Condivise con link: anteprime `drive.google.com/thumbnail?id=ID&sz=w500`, originali `drive.usercontent.google.com/download?id=ID&export=download&confirm=t` (andare piano, altrimenti Google risponde con la pagina di login)
+
+---
+
+## Brand
 
 | Token | Valore | Uso |
 |---|---|---|
-| `brand-smoke` | `#121212` | Testo principale |
-| `brand-offwhite` | `#F2F0E9` | Background principale |
-| `brand-forest` | `#1B3B2B` | Verde scuro (La Casetta, eventi) |
-| `brand-wood` | `#7A6652` (muted warm brown) | Sezioni legno |
-| `brand-yellow` | `#F5C73D` (warm yellow) | Accenti, La Casetta Alcolica |
+| `brand-smoke` | `#121212` | Testo |
+| `brand-offwhite` | `#F2F0E9` | Sfondo |
+| `brand-forest` | `#1B3B2B` | Verde scuro |
+| `brand-wood` | `#7A6652` | Legno |
+| `brand-yellow` | `#F5C73D` | Accenti |
+
+Asset: logo `src/assets/images/logo-nero.png` (600 px), favicon `public/favicon.png`, loghi di stampa in `public/`.
 
 ---
 
-## Asset
+## Da fare
 
-- **Logo:** `src/assets/images/logo-nero.png`
-- **Immagini:** tutte `.webp` in `src/assets/images/`
-- **OpenGraph:** `public/opengraph.jpg`
-- **Favicon:** `public/favicon.png`
-
----
-
-## Link Esterni
-
-| Servizio | URL |
-|---|---|
-| Instagram | https://www.instagram.com/wooden_tree_house/ |
-| Documentario YouTube | https://youtu.be/Z491JyyrQB0 |
-| WhatsApp contatti | https://wa.me/34632854055 |
-| Newsletter | Brevo, lista ID 2 (via `api/subscribe.js`) |
-| Shop | https://wooden-tree-house-shop.fourthwall.com/en-eur |
+- **Landing page di Natale** per le sponsorizzate — quando lo dice il cliente. Servono: banner cookie (GDPR, obbligatorio prima dei pixel), pixel Meta/Google via GTM, evento di conversione "iscrizione newsletter", eventuale sconto per gli iscritti
+- **Email di benvenuto su Brevo** — in pausa finché non viene recuperata la password Brevo
+- **Galleria:** piattaforma zipline 2026 (serve una foto migliore), testi reali delle Boiler Room, eventuali foto migliori di marzo 2025 (ora solo WhatsApp)
+- **Around the world:** nuovi post man mano (ricordarsi le coordinate)
+- Pulizia facoltativa: `src/components/sections/` contiene componenti vecchi non usati; molti componenti shadcn in `src/components/ui/` non sono usati
