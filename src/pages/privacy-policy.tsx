@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
             Privacy<br />Policy
           </h1>
           <div className="w-12 h-[1px] bg-brand-offwhite/40 mb-8" />
-          <p className="text-brand-offwhite/50 text-xs font-mono uppercase tracking-widest">
+          <p className="text-brand-offwhite/70 text-xs font-mono uppercase tracking-widest">
             Ultimo aggiornamento: settembre 2026
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function PrivacyPolicy() {
 
           {/* Titolare */}
           <div className="border border-brand-smoke/20 p-8 md:p-10 mb-16">
-            <h2 className="text-xs font-bold tracking-widest uppercase text-brand-smoke/40 mb-6">
+            <h2 className="text-xs font-bold tracking-widest uppercase text-brand-smoke/60 mb-6">
               Titolare del Trattamento
             </h2>
             <p className="font-serif text-xl text-brand-smoke mb-4">WOODEN TREE HOUSE APS</p>
@@ -171,7 +171,7 @@ export default function PrivacyPolicy() {
               className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-12 border-b border-brand-smoke/20 last:border-0"
             >
               <div className="md:col-span-3 pt-1">
-                <span className="text-xs font-bold tracking-widest uppercase text-brand-smoke/25 font-mono">
+                <span className="text-xs font-bold tracking-widest uppercase text-brand-smoke/50 font-mono">
                   {section.number}
                 </span>
               </div>
@@ -191,7 +191,7 @@ export default function PrivacyPolicy() {
 
       {/* FOOTER */}
       <footer className="border-t border-brand-smoke/20 py-10 px-6 text-center bg-brand-offwhite text-brand-smoke">
-        <p className="text-xs text-brand-smoke/40 uppercase tracking-widest mb-5">
+        <p className="text-xs text-brand-smoke/60 uppercase tracking-widest mb-5">
           © 2013 WOODEN TREE HOUSE APS — P.IVA 04354171201
         </p>
         <a

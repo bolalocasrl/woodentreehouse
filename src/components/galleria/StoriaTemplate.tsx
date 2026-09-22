@@ -37,7 +37,7 @@ export default function StoriaTemplate({ area }: { area: AreaStoria }) {
           <aside className="hidden lg:block lg:col-span-4 border-r border-brand-smoke/20">
             <div className="sticky top-[5.5rem] h-[calc(100vh-5.5rem)] flex flex-col justify-between p-12 xl:p-16">
               <div>
-                <span className="text-xs font-bold tracking-widest uppercase text-brand-smoke/40 block mb-4">Linea del tempo</span>
+                <span className="text-xs font-bold tracking-widest uppercase text-brand-smoke/60 block mb-4">Linea del tempo</span>
                 <motion.p
                   key={tappaAttiva?.anno}
                   initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function StoriaTemplate({ area }: { area: AreaStoria }) {
                       type="button"
                       onClick={() => vaiA(i)}
                       className={`flex items-center gap-3 text-left text-sm transition-colors ${
-                        i === attiva ? "text-brand-smoke" : "text-brand-smoke/40 hover:text-brand-smoke/70"
+                        i === attiva ? "text-brand-smoke" : "text-brand-smoke/60 hover:text-brand-smoke/70"
                       }`}
                     >
                       <span className={`h-[1px] transition-all duration-500 ${i === attiva ? "w-10 bg-brand-forest" : "w-4 bg-brand-smoke/30"}`} />

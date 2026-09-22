@@ -48,10 +48,28 @@ Variabili d'ambiente su Vercel: `BREVO_API_KEY`, `FOURTHWALL_TOKEN`. Le chiavi n
 
 ## Home (`src/pages/home.tsx`)
 
-Menu: La Casetta · Alcolica · Allestimenti · Eventi · Galleria · Shop
+Header: `src/components/site/HomeHeader.tsx` — trasparente sopra la foto, poi barra panna che si nasconde scendendo e ricompare risalendo; su telefono pulsante menu con pannello a tutto schermo.
+Menu: La Casetta · Casetta Alcolica · Allestimenti · Eventi · Galleria · Shop
 
 | Sezione | Contenuto | Link |
 |---|---|---|
+| Hero | Nome + frase visibili subito, form newsletter; scorrendo la foto si sfoca | Privacy |
+| `#casetta` | 01 — Dove tutto è iniziato | Documentario, galleria Casetta |
+| `#alcolica` | 02 — Il bar su ruote, EST. 2018 | Instagram, galleria Casetta Alcolica |
+| `#allestimenti` | 03 — Costruzioni su misura | WhatsApp, galleria Allestimenti |
+| `#mostra-arte` | 04 — Arte in Casetta | Progetto Madre Natura |
+| `#eventi` | 05 — Le nostre feste (Wooden Tree Night, Wooden Tree Mobile) | Gallerie dei due eventi |
+| `#shop` | 06 — Maglie e gadget: primi 4 prodotti Fourthwall (`src/components/shop/ShopTeaser.tsx`) | /shop |
+| Newsletter | "La prossima festa la sai prima tu" | |
+| Footer | Dati APS, Instagram, Privacy, © 2013 | |
+
+Newsletter: componente unico `src/components/site/NewsletterForm.tsx` (hero e blocco finale). A iscrizione riuscita manda l'evento `iscrizione_newsletter` a Google Tag Manager (`dataLayer`), pronto per le campagne.
+
+Testi tutti in italiano (tranne i nomi propri: Wooden Tree Night, Boiler Room, WTH around the world).
+
+Google Tag Manager installato in `index.html` (`GTM-WFMMWWRV`). Anteprima link: `public/opengraph.jpg`.
+
+---|---|---|
 | Hero | Parallax + form newsletter (Brevo) | Privacy |
 | `#casetta` | 01 — La Casetta, fondata luglio 2012 | Documentario, galleria Casetta |
 | `#alcolica` | 02 — Casetta Alcolica, EST. 2018 | Instagram, galleria Casetta Alcolica |

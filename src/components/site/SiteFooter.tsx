@@ -15,7 +15,7 @@ export default function SiteFooter() {
         <a href="/privacy-policy" className="text-xs text-brand-smoke/50 hover:text-brand-smoke transition-colors underline underline-offset-4">
           Privacy Policy
         </a>
-        <p className="text-xs text-brand-smoke/40">© 2013 WOODEN TREE HOUSE APS. Tutti i diritti riservati.</p>
+        <p className="text-xs text-brand-smoke/60">© 2013 WOODEN TREE HOUSE APS. Tutti i diritti riservati.</p>
       </div>
     </footer>
   );

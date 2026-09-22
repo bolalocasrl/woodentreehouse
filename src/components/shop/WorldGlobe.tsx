@@ -194,7 +194,7 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
           <Minus className="w-4 h-4" />
         </button>
       </div>
-      <p className="absolute bottom-4 left-4 text-[10px] uppercase tracking-widest text-brand-offwhite/50 pointer-events-none">
+      <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-widest text-brand-offwhite/75 pointer-events-none max-w-[60%]">
         Trascina per girare il mondo · tocca un punto
       </p>
 
