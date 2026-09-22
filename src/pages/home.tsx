@@ -4,6 +4,8 @@ import { ArrowRight, Mail, ChevronDown, X } from "lucide-react";
 const Instagram = (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>;
 import { Button } from "@/components/ui/button";
 import HomeHeader from "@/components/site/HomeHeader";
+import ShopTeaser from "@/components/shop/ShopTeaser";
+import NewsletterForm from "@/components/site/NewsletterForm";
 
 
 // Images - Background
@@ -25,11 +27,6 @@ import imgSetDesign from "@/assets/images/tshwth.webp";
 import imgFesta from "@/assets/images/festa.webp";
 import imgCarnevale from "@/assets/images/carnevale.webp";
 
-// Images - Merch
-import imgTshirt from "@/assets/images/Military Green 1.webp";
-import imgHoodie from "@/assets/images/nero 1.webp";
-import imgBeanie from "@/assets/images/Cuffie WTH.pdf.webp";
-import imgCrewneck from "@/assets/images/bianco 1.webp";
 
 // Images - Art Exhibition
 import imgMadreNatura from "@/assets/images/madre-natura.webp";
@@ -37,12 +34,7 @@ import imgCas2 from "@/assets/images/cas2.webp";
 import imgJeck from "@/assets/images/jeck.webp";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
-  const [activeGadgetId, setActiveGadgetId] = useState<string | null>(null);
   
 const heroRef = useRef(null);
 const { scrollYProgress } = useScroll({
@@ -68,36 +60,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
   const backgroundBlur = useTransform(scrollYProgress, [0.2, 0.8], ["0px", "20px"]);
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
 
-    setIsSubmitting(true);
-    setIsError(false);
-
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      if (res.ok) {
-        setEmail("");
-        setIsSuccess(true);
-        setTimeout(() => setIsSuccess(false), 3000);
-      } else {
-        setIsError(true);
-        setTimeout(() => setIsError(false), 3000);
-      }
-    } catch (error) {
-      console.error("Error submitting form", error);
-      setIsError(true);
-      setTimeout(() => setIsError(false), 3000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleEventClick = (id: string) => {
     // Only toggle on mobile (md:hidden breakpoint is usually 768px)
@@ -105,11 +68,6 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
     setActiveEventId(prev => prev === id ? null : id);
   };
 
-  const handleGadgetClick = (id: string) => {
-    // Only toggle on mobile
-    if (window.innerWidth >= 768) return;
-    setActiveGadgetId(prev => prev === id ? null : id);
-  };
 
   return (
     <div className="min-h-screen bg-brand-offwhite text-brand-smoke font-sans selection:bg-brand-forest selection:text-brand-offwhite">
@@ -167,33 +125,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
               Unisciti alla community per aggiornamenti ed eventi
             </p>
 
-            <form 
-              className="flex flex-col sm:flex-row gap-0 max-w-md mx-auto border border-brand-offwhite/50"
-              onSubmit={handleSubmit}
-            >
-              <input 
-                type="email" 
-                placeholder="LA TUA EMAIL" 
-                className="flex-1 bg-transparent border-none px-4 py-3 text-sm focus:ring-0 placeholder:text-brand-offwhite/60 text-brand-offwhite disabled:opacity-50"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting || isSuccess}
-                required
-              />
-              <button 
-                type="submit"
-                disabled={isSubmitting || isSuccess}
-                className="bg-brand-offwhite text-brand-smoke px-6 py-3 text-xs uppercase tracking-widest font-bold hover:bg-brand-yellow transition-colors disabled:opacity-70 disabled:hover:bg-brand-offwhite min-w-[100px]"
-              >
-                {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : isError ? "✗ Errore" : "Iscriviti"}
-              </button>
-            </form>
-            <p className="text-[11px] text-brand-offwhite/50 mt-3 text-center">
-              Iscrivendoti accetti la nostra{" "}
-              <a href="/privacy-policy" className="underline underline-offset-2 hover:text-brand-offwhite/80 transition-colors">
-                Privacy Policy
-              </a>
-            </p>
+            <NewsletterForm />
           </motion.div>
 
           {/* Scroll Indicator - Always visible, outside of opacity animation */}
@@ -418,55 +350,18 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
            </div>
         </section>
 
-        {/* ARCHIVE / GADGETS (Wood Background) */}
-        <section id="archive" className="p-8 md:p-16 bg-brand-wood text-brand-offwhite">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
-            <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-2 block">Brand Equipment — Archivio</span>
-              <h2 className="text-3xl md:text-4xl font-serif text-white">Gadget</h2>
-            </div>
-            <a
-              href="/shop"
-              className="text-xs font-mono border border-brand-offwhite px-3 py-1 uppercase text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-wood transition-colors"
-            >
-              Shop — Maglie e gadget →
-            </a>
-          </div>
+        <ShopTeaser />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-offwhite/20 border border-brand-offwhite/20">
-            {[
-              { id: 'tshirt', name: 'Maglie WTH', type: 'Apparel', img: imgTshirt, desc: "Plutone Organico 97% e 3% Amore&Fantasia." },
-              { id: 'hoodie', name: 'Felpe Cappuccio', type: 'Apparel', img: imgHoodie, desc: "Lana Merino intrecciata, la maestra la boccia !" },
-              { id: 'crew', name: 'Felpe WTH', type: 'Apparel', img: imgCrewneck, desc: "Il classico senza tempo, robusta e scomoda." },
-              { id: 'beanie', name: 'Cuffie WTH', type: 'Accessories', img: imgBeanie, desc: "Rimozione disturbi sonori, protezione sassi, ecc.." },
-            ].map((item) => (
-              <div 
-                key={item.id} 
-                className="bg-brand-offwhite group relative aspect-[4/5] overflow-hidden"
-                onClick={() => handleGadgetClick(item.id)}
-              >
-                <img src={item.img} alt={item.name} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                <div className={`absolute inset-0 p-6 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-brand-forest/90 backdrop-blur-sm text-brand-offwhite ${activeGadgetId === item.id ? '!opacity-100' : ''}`}>
-                   <div>
-                     <p className="text-xs uppercase tracking-widest text-brand-offwhite/60 mb-2">{item.type}</p>
-                     <h3 className="text-xl font-serif text-white">{item.name}</h3>
-                   </div>
-                   <div className="mt-auto">
-                     <p className="text-sm font-light leading-relaxed mb-4 text-white">
-                        {item.desc}
-                     </p>
-                     <div className="text-xs font-bold border-t border-brand-offwhite/20 pt-4">
-                       ARCHIVED / OUT OF STOCK
-                     </div>
-                   </div>
-                </div>
-                {/* Always visible label */}
-                <div className={`absolute bottom-4 left-4 bg-brand-smoke text-brand-offwhite px-3 py-1 text-xs font-bold uppercase tracking-wider group-hover:opacity-0 transition-opacity ${activeGadgetId === item.id ? '!opacity-0' : ''}`}>
-                  {item.name}
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* NEWSLETTER */}
+        <section className="bg-brand-forest text-brand-offwhite px-6 py-16 md:py-24 text-center border-t border-brand-offwhite/15">
+          <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">Resta aggiornato</span>
+          <h2 className="text-4xl md:text-6xl font-serif text-brand-offwhite mb-6 leading-tight">
+            La prossima festa<br />la sai prima tu
+          </h2>
+          <p className="text-brand-offwhite/80 text-lg max-w-xl mx-auto mb-10">
+            Date delle Wooden Tree Night, nuovi gadget e quello che succede in Casetta. Poche email, solo quando serve.
+          </p>
+          <NewsletterForm />
         </section>
 
         {/* FOOTER */}
