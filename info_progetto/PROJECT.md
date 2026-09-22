@@ -69,18 +69,6 @@ Testi tutti in italiano (tranne i nomi propri: Wooden Tree Night, Boiler Room, W
 
 Google Tag Manager installato in `index.html` (`GTM-WFMMWWRV`). Anteprima link: `public/opengraph.jpg`.
 
----|---|---|
-| Hero | Parallax + form newsletter (Brevo) | Privacy |
-| `#casetta` | 01 — La Casetta, fondata luglio 2012 | Documentario, galleria Casetta |
-| `#alcolica` | 02 — Casetta Alcolica, EST. 2018 | Instagram, galleria Casetta Alcolica |
-| `#allestimenti` | 03 — Allestimenti & Collaborazioni | WhatsApp, galleria Allestimenti |
-| `#mostra-arte` | 03.5 — La Mostra Arte | Progetto Madre Natura |
-| `#eventi` | 04 — Wooden Tree Night e Wooden Tree Mobile | Gallerie dei due eventi |
-| `#archive` | Gadget (archivio dei pezzi storici) | Pagina /shop |
-| Footer | Dati APS, Instagram, Privacy, © 2013 | |
-
-Google Tag Manager installato in `index.html` (`GTM-WFMMWWRV`). Anteprima link: `public/opengraph.jpg`.
-
 ---
 
 ## Shop
