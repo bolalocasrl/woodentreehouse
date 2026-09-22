@@ -55,9 +55,8 @@ useEffect(() => {
   return scrollYProgress.on("change", (v) => setScrollVal(v));
 }, [scrollYProgress]);
 
-const calcOverlayOpacity = Math.min(0.7, Math.max(0.2, (scrollVal - 0.2) / 0.4 * 0.5 + 0.2));
-const calcContentOpacity = Math.min(1, Math.max(0, (scrollVal - 0.3) / 0.3));
-const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
+// Il nome è visibile subito; scorrendo la foto si scurisce e si sfoca
+const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
   
   // Parallax / Scroll Animations
   // 0% - 25%: Initial state (clear image) -> Start moving
@@ -67,9 +66,6 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.4]);
   const backgroundBlur = useTransform(scrollYProgress, [0.2, 0.8], ["0px", "20px"]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.2, 0.6], [0.2, 0.7]);
-  const contentOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
-  const contentY = useTransform(scrollYProgress, [0.3, 0.6], [50, 0]);
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -119,7 +115,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
     <div className="min-h-screen bg-brand-offwhite text-brand-smoke font-sans selection:bg-brand-forest selection:text-brand-offwhite">
       <HomeHeader />
       {/* HERO SECTION - Sticky Parallax Container */}
-      <div ref={heroRef} className="h-[200vh] relative">
+      <div ref={heroRef} className="h-[160vh] relative">
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center items-center border-b border-brand-smoke/20 overflow-hidden">
           {/* Background Image with Blur Animation */}
           <motion.div 
@@ -132,7 +128,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           >
              <img 
                src={imgHero} 
-               alt="Background" 
+               alt="La Casetta vista dall'alto tra gli alberi" 
                className="w-full h-full object-cover"
              />
              <motion.div 
@@ -144,10 +140,9 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
           {/* Content Container - Fades in on scroll */}
           <motion.div 
             className="w-full px-6 text-center z-10 relative"
-            style={{ 
-  opacity: calcContentOpacity,
-  y: calcContentY
-}}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
           >
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-normal tracking-tighter mb-8 text-brand-offwhite text-center mx-auto cursor-default">
               {"Wooden Tree House".split("").map((char, index) => {
@@ -165,7 +160,10 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
               <span className="text-brand-yellow">.</span>
             </h1>
             
-            <p className="text-lg md:text-xl font-normal mb-12 text-brand-offwhite/90">
+            <p className="text-lg md:text-2xl font-serif italic mb-3 text-brand-offwhite">
+              La casetta sull'albero di San Giovanni in Persiceto. Dal 2012.
+            </p>
+            <p className="text-sm md:text-base font-normal mb-10 text-brand-offwhite/80">
               Unisciti alla community per aggiornamenti ed eventi
             </p>
 
