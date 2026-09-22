@@ -173,7 +173,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             >
               <input 
                 type="email" 
-                placeholder="YOUR EMAIL" 
+                placeholder="LA TUA EMAIL" 
                 className="flex-1 bg-transparent border-none px-4 py-3 text-sm focus:ring-0 placeholder:text-brand-offwhite/60 text-brand-offwhite disabled:opacity-50"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -185,11 +185,11 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                 disabled={isSubmitting || isSuccess}
                 className="bg-brand-offwhite text-brand-smoke px-6 py-3 text-xs uppercase tracking-widest font-bold hover:bg-brand-yellow transition-colors disabled:opacity-70 disabled:hover:bg-brand-offwhite min-w-[100px]"
               >
-                {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : isError ? "✗ Errore" : "Join"}
+                {isSubmitting ? "..." : isSuccess ? "✔ Iscritto" : isError ? "✗ Errore" : "Iscriviti"}
               </button>
             </form>
             <p className="text-[11px] text-brand-offwhite/50 mt-3 text-center">
-              Cliccando su Join accetti la nostra{" "}
+              Iscrivendoti accetti la nostra{" "}
               <a href="/privacy-policy" className="underline underline-offset-2 hover:text-brand-offwhite/80 transition-colors">
                 Privacy Policy
               </a>
@@ -203,7 +203,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
             >
-              <span className="text-[10px] uppercase tracking-widest font-bold text-brand-offwhite">Scoprimi tu</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-brand-offwhite">Scopri la Casetta</span>
               <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -221,7 +221,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         <section id="casetta" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
           <div className="lg:col-span-4 p-8 md:p-16 flex flex-col justify-between border-r border-brand-offwhite/20 min-h-[50vh] lg:min-h-[80vh]">
             <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">01 — The Origin</span>
+              <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">01 — Dove tutto è iniziato</span>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-none text-brand-offwhite">La<br/>Casetta</h2>
               <div className="w-12 h-[1px] bg-brand-offwhite mb-8"></div>
               <p className="text-brand-offwhite/80 text-lg leading-relaxed font-normal mb-8">
@@ -264,7 +264,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
              </div>
           </div>
           <div className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh]">
-            <span className="text-xs font-bold tracking-widest uppercase text-brand-forest mb-4 block">02 — LA BAR MOBILE</span>
+            <span className="text-xs font-bold tracking-widest uppercase text-brand-forest mb-4 block">02 — Il bar su ruote</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">La Casetta<br/>Alcolica</h2>
             <p className="text-brand-smoke/80 text-lg leading-relaxed font-normal mb-8">
               Se la montagna non va in Casetta, allora la Casetta andrà in montagna.
@@ -288,7 +288,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 3: ALLESTIMENTI & TEAM (Wood Background) */}
         <section id="allestimenti" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-wood text-brand-offwhite">
           <div className="lg:col-span-6 p-8 md:p-16 flex flex-col justify-center border-r border-brand-offwhite/20 min-h-[60vh]">
-            <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-4 block">03 — Creative Build</span>
+            <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-4 block">03 — Costruzioni su misura</span>
             <h2 className="text-4xl md:text-6xl font-serif mb-8 text-brand-offwhite">Allestimenti &<br/>Collaborazioni</h2>
             <p className="text-brand-offwhite/80 text-lg leading-relaxed mb-12 max-w-xl font-normal">
               Stanchi dei soliti format, abbiamo unito la nostra competenza tecnica nel legno alla direzione artistica per eventi. Non ci limitiamo a montare pareti, ma creiamo scenografie capaci di definire l'atmosfera, come abbiamo fatto nel 2024 al The Social Hub di Bologna per Point Of View.
@@ -342,7 +342,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
           </div>
           <div className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh] lg:min-h-[80vh]">
             <div>
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">03.5 — Art Exhibition</span>
+              <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">04 — Arte in Casetta</span>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-none text-brand-offwhite">La Mostra<br/>Arte</h2>
               <div className="w-12 h-[1px] bg-brand-offwhite mb-8"></div>
               <p className="text-brand-offwhite/80 text-lg leading-relaxed font-normal mb-8">
@@ -362,7 +362,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 4: EVENTS (Dark Green Background) */}
         <section id="eventi" className="grid grid-cols-1 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
            <div className="p-8 md:p-12 text-center border-b border-brand-offwhite/20">
-             <span className="text-xs font-bold tracking-widest uppercase opacity-70 mb-2 block text-brand-yellow">04 — Experience</span>
+             <span className="text-xs font-bold tracking-widest uppercase opacity-70 mb-2 block text-brand-yellow">05 — Le nostre feste</span>
              <h2 className="text-4xl md:text-6xl font-serif text-white mb-8">I Nostri Eventi</h2>
              <Button asChild variant="outline" className="text-white border-white hover:bg-white hover:text-brand-forest rounded-none">
                 <a href="https://www.instagram.com/wooden_tree_house/?hl=en" target="_blank" rel="noopener noreferrer">
@@ -385,8 +385,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                      Pensa quanto sarebbe bello entrare gratis alla festa in casetta semplicemente rispondendo alla domanda "Anno di fondazione WTH ?"
                    </p>
                    <div className="flex gap-4">
-                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Secret Party</span>
-                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Invitation Only</span>
+                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Festa in Casetta</span>
+                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Su invito</span>
                    </div>
                    <a href="/galleria/wooden-tree-night" onClick={(e) => e.stopPropagation()} className="group/g inline-flex items-center mt-6 self-start text-xs font-bold uppercase tracking-widest text-white hover:text-brand-yellow transition-colors">
                      Tutte le edizioni <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
@@ -407,8 +407,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                      La nostra produttività va alimentata.. Qual'è la Composizione chimica del Latte? Se ci prendi vinci sconti & Gadget!
                    </p>
                    <div className="flex gap-4">
-                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Itinerant</span>
-                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Public</span>
+                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">In piazza</span>
+                     <span className="text-xs uppercase tracking-widest border border-brand-offwhite/50 px-3 py-1 rounded-full text-white">Aperta a tutti</span>
                    </div>
                    <a href="/galleria/wooden-tree-mobile" onClick={(e) => e.stopPropagation()} className="group/g inline-flex items-center mt-6 self-start text-xs font-bold uppercase tracking-widest text-white hover:text-brand-yellow transition-colors">
                      Tutti i carnevali <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
@@ -488,7 +488,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                Privacy Policy
              </a>
              <p className="text-xs text-brand-smoke/40">
-               © 2013 WOODEN TREE HOUSE APS. All rights reserved.
+               © 2013 WOODEN TREE HOUSE APS. Tutti i diritti riservati.
              </p>
            </div>
         </footer>

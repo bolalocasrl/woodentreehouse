@@ -343,7 +343,7 @@ export const AREE: Area[] = [
     slug: "casetta",
     modello: "storia",
     categoria: "realizzazioni",
-    etichetta: "01 — The Origin",
+    etichetta: "01 — Dove tutto è iniziato",
     titolo: "La Casetta",
     sezioneHome: "casetta",
     intro:
@@ -444,7 +444,7 @@ export const AREE: Area[] = [
     slug: "casetta-alcolica",
     modello: "storia",
     categoria: "realizzazioni",
-    etichetta: "02 — Il bar mobile",
+    etichetta: "02 — Il bar su ruote",
     titolo: "La Casetta Alcolica",
     sezioneHome: "alcolica",
     intro:
@@ -509,7 +509,7 @@ export const AREE: Area[] = [
     slug: "allestimenti",
     modello: "progetti",
     categoria: "realizzazioni",
-    etichetta: "03 — Creative Build",
+    etichetta: "03 — Costruzioni su misura",
     titolo: "Allestimenti",
     sezioneHome: "allestimenti",
     intro:
@@ -565,7 +565,7 @@ export const AREE: Area[] = [
     slug: "wooden-tree-night",
     modello: "storia",
     categoria: "eventi",
-    etichetta: "Secret Party",
+    etichetta: "La festa in Casetta",
     titolo: "Wooden Tree Night",
     sezioneHome: "eventi",
     intro:
@@ -633,7 +633,7 @@ export const AREE: Area[] = [
     slug: "boiler-room",
     modello: "storia",
     categoria: "eventi",
-    etichetta: "Winter Session",
+    etichetta: "Le serate d'inverno",
     titolo: "Boiler Room",
     sezioneHome: "eventi",
     intro:
@@ -681,7 +681,7 @@ export const AREE: Area[] = [
     slug: "wooden-tree-mobile",
     modello: "storia",
     categoria: "eventi",
-    etichetta: "Itinerant — Public",
+    etichetta: "La festa in piazza",
     titolo: "Wooden Tree Mobile",
     sezioneHome: "eventi",
     intro:

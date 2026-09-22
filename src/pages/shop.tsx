@@ -64,7 +64,7 @@ export default function Shop() {
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
         >
           <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-6 block">
-            Brand Equipment
+            Maglie e gadget
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-normal tracking-tighter text-brand-offwhite mb-8 leading-none">
             Lo shop<br />della Casetta
