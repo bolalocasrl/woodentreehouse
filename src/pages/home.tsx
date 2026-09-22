@@ -135,7 +135,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
             >
-              <span className="text-[10px] uppercase tracking-widest font-bold text-brand-offwhite">Scopri la Casetta</span>
+              <span className="text-xs uppercase tracking-widest font-bold text-brand-offwhite">Scopri la Casetta</span>
               <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -220,7 +220,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 3: ALLESTIMENTI & TEAM (Wood Background) */}
         <section id="allestimenti" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-wood text-brand-offwhite">
           <div className="lg:col-span-6 p-8 md:p-16 flex flex-col justify-center border-r border-brand-offwhite/20 min-h-[60vh]">
-            <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-4 block">03 — Costruzioni su misura</span>
+            <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/80 mb-4 block">03 — Costruzioni su misura</span>
             <h2 className="text-4xl md:text-6xl font-serif mb-8 text-brand-offwhite">Allestimenti &<br/>Collaborazioni</h2>
             <p className="text-brand-offwhite/80 text-lg leading-relaxed mb-12 max-w-xl font-normal">
               Stanchi dei soliti format, abbiamo unito la nostra competenza tecnica nel legno alla direzione artistica per eventi. Non ci limitiamo a montare pareti, ma creiamo scenografie capaci di definire l'atmosfera, come abbiamo fatto nel 2024 al The Social Hub di Bologna per Point Of View.
@@ -294,7 +294,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 4: EVENTS (Dark Green Background) */}
         <section id="eventi" className="grid grid-cols-1 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
            <div className="p-8 md:p-12 text-center border-b border-brand-offwhite/20">
-             <span className="text-xs font-bold tracking-widest uppercase opacity-70 mb-2 block text-brand-yellow">05 — Le nostre feste</span>
+             <span className="text-xs font-bold tracking-widest uppercase mb-2 block text-brand-yellow">05 — Le nostre feste</span>
              <h2 className="text-4xl md:text-6xl font-serif text-white mb-8">I Nostri Eventi</h2>
              <Button asChild variant="outline" className="text-white border-white hover:bg-white hover:text-brand-forest rounded-none">
                 <a href="https://www.instagram.com/wooden_tree_house/?hl=en" target="_blank" rel="noopener noreferrer">
@@ -382,7 +382,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
              <a href="/privacy-policy" className="text-xs text-brand-smoke/50 hover:text-brand-smoke transition-colors underline underline-offset-4">
                Privacy Policy
              </a>
-             <p className="text-xs text-brand-smoke/40">
+             <p className="text-xs text-brand-smoke/60">
                © 2013 WOODEN TREE HOUSE APS. Tutti i diritti riservati.
              </p>
            </div>

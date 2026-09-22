@@ -143,7 +143,7 @@ function ContattaciAllestimenti() {
   return (
     <section className="bg-brand-wood text-brand-offwhite p-8 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
       <div>
-        <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/50 mb-4 block">Su richiesta</span>
+        <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/80 mb-4 block">Su richiesta</span>
         <h2 className="font-serif text-3xl md:text-5xl leading-tight text-brand-offwhite">
           Hai un evento o uno spazio<br />da trasformare?
         </h2>
