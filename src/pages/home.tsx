@@ -3,9 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Mail, ChevronDown, X } from "lucide-react";
 const Instagram = (props) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>;
 import { Button } from "@/components/ui/button";
+import HomeHeader from "@/components/site/HomeHeader";
 
-// Images - Logo
-import imgLogo from "@/assets/images/logo-nero.png";
 
 // Images - Background
 import imgHero from "@/assets/images/mondowth.webp";
@@ -39,7 +38,6 @@ import imgJeck from "@/assets/images/jeck.webp";
 
 export default function Home() {
   const [email, setEmail] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -73,11 +71,6 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
   const contentOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
   const contentY = useTransform(scrollYProgress, [0.3, 0.6], [50, 0]);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -124,20 +117,7 @@ const calcContentY = Math.max(0, 50 - (scrollVal - 0.3) / 0.3 * 50);
 
   return (
     <div className="min-h-screen bg-brand-offwhite text-brand-smoke font-sans selection:bg-brand-forest selection:text-brand-offwhite">
-      {/* HEADER / NAV (Minimal) */}
-      <header className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-brand-offwhite p-4 md:p-8 flex justify-end items-center pointer-events-none min-h-[5.5rem] md:min-h-[9rem]">
-        <div className={`pointer-events-auto absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out ${isScrolled ? "left-1/2 -translate-x-1/2" : "left-4 md:left-8"}`}>
-          <img src={imgLogo} alt="Wooden Tree House Logo" className="h-16 w-auto md:h-20 invert brightness-0" />
-        </div>
-        <nav className={`pointer-events-auto hidden md:flex gap-6 text-sm font-medium tracking-wide uppercase transition-opacity duration-500 ${isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
-          <a href="#casetta" className="hover:underline underline-offset-4">La Casetta</a>
-          <a href="#alcolica" className="hover:underline underline-offset-4">Alcolica</a>
-          <a href="#allestimenti" className="hover:underline underline-offset-4">Allestimenti</a>
-          <a href="#eventi" className="hover:underline underline-offset-4">Eventi</a>
-          <a href="/galleria" className="hover:underline underline-offset-4">Galleria</a>
-          <a href="/shop" className="hover:underline underline-offset-4">Shop</a>
-        </nav>
-      </header>
+      <HomeHeader />
       {/* HERO SECTION - Sticky Parallax Container */}
       <div ref={heroRef} className="h-[200vh] relative">
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center items-center border-b border-brand-smoke/20 overflow-hidden">
