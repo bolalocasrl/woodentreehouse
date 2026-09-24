@@ -12,7 +12,7 @@ Aggiornato: settembre 2026
 | Instagram | https://www.instagram.com/wooden_tree_house/ |
 | Documentario YouTube | https://youtu.be/Z491JyyrQB0 |
 | WhatsApp contatti | https://wa.me/34632854055 |
-| Newsletter | Brevo, lista ID 2 (via `api/subscribe.js`) |
+| Newsletter | Brevo, account "Casetta Sull'Albero" — lista #2 (via `api/subscribe.js`) |
 
 ---
 
@@ -95,6 +95,23 @@ Google Tag Manager installato in `index.html` (`GTM-WFMMWWRV`). Anteprima link: 
 
 ---
 
+## Brevo (newsletter e contatti)
+
+Account **Casetta Sull'Albero**. Liste (settembre 2026):
+
+| Lista | ID | Contatti | Cosa contiene |
+|---|---|---|---|
+| Associati WTH | #5 | 452 | Associati dal modulo Google "Associati a WTH" (da marzo 2025) |
+| Newsletter WTH | #2 | 24 | Iscritti dal sito — è la lista su cui scrive `api/subscribe.js` |
+| identified_contacts | #3 | 0 | Automatica di Brevo, non si tocca |
+
+- Dal modulo del sito il contatto arriva **diretto** nella lista #2 via API v3 (verificato il 24 settembre 2026 con un indirizzo di prova, poi cancellato)
+- Il limite di **300 email al giorno** del piano gratuito riguarda **l'invio**, non quanti contatti puoi avere in lista. Per scrivere a tutti gli associati servono 2 giorni: file già divisi in `Downloads/brevo-associati-wth-parte1.csv` e `parte2.csv` (226 + 226)
+- **Attenzione:** a maggio 2026 la campagna "Benvenuto in Casetta" era partita verso 28 contatti della lista #2, ma quei contatti sono stati cancellati dal database. Il report gratuito conserva solo i numeri, non gli indirizzi. I 24 attuali sono stati ricaricati a mano. **Non cancellare contatti da Brevo: non si recuperano.**
+- Prima di caricare contatti: solo EMAIL, NOME, COGNOME. Codice fiscale, indirizzo, telefono e documento del modulo associati **non** vanno su Brevo
+
+---
+
 ## Galleria
 
 Contenuti tutti in `src/content/galleria.ts`. Pubblica (`GALLERIA_IN_BOZZA = false`); con `true` torna in bozza (avviso, noindex, niente link nei menu, etichette "Da confermare" visibili).
@@ -149,7 +166,7 @@ Asset: logo `src/assets/images/logo-nero.png` (600 px), favicon `public/favicon.
 ## Da fare
 
 - **Landing page di Natale** per le sponsorizzate — quando lo dice il cliente. Servono: banner cookie (GDPR, obbligatorio prima dei pixel), pixel Meta/Google via GTM, evento di conversione "iscrizione newsletter", eventuale sconto per gli iscritti
-- **Email di benvenuto su Brevo** — in pausa finché non viene recuperata la password Brevo
+- **Email di benvenuto su Brevo** — automazione da preparare (l'accesso a Brevo ora funziona)
 - **Galleria:** piattaforma zipline 2026 (serve una foto migliore), testi reali delle Boiler Room, eventuali foto migliori di marzo 2025 (ora solo WhatsApp)
 - **Around the world:** nuovi post man mano (ricordarsi le coordinate)
 - Pulizia facoltativa: `src/components/sections/` contiene componenti vecchi non usati; molti componenti shadcn in `src/components/ui/` non sono usati
