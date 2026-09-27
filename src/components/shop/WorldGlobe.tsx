@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Minus, Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import Globe from "globe.gl";
 import { feature } from "topojson-client";
 import land from "world-atlas/land-110m.json";
@@ -109,15 +109,34 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
       autoRotate: boolean;
       autoRotateSpeed: number;
       enableZoom: boolean;
+      zoomSpeed: number;
+      touches: { ONE: number; TWO: number };
       minDistance: number;
       maxDistance: number;
       addEventListener: (t: string, f: () => void) => void;
     };
     controlli.autoRotate = true;
     controlli.autoRotateSpeed = 0.35;
-    controlli.enableZoom = false; // la rotellina deve far scorrere la pagina: lo zoom è sui pulsanti
+    controlli.enableZoom = true;
+    controlli.zoomSpeed = 0.7;
+    // un dito gira il mondo, due dita lo avvicinano (0 = ruota, 3 = zoom + ruota)
+    controlli.touches = { ONE: 0, TWO: 3 };
     controlli.minDistance = 120;
     controlli.maxDistance = 500;
+
+    // La rotellina zooma solo dopo che hai afferrato il mappamondo: altrimenti chi
+    // scorre la pagina e ci passa sopra resterebbe bloccato qui. La pizzicata del
+    // trackpad (che il browser manda come rotellina + ctrl) invece zooma sempre.
+    let afferrato = false;
+    const suRotellina = (e: WheelEvent) => {
+      if (e.ctrlKey || afferrato) return;
+      e.stopPropagation(); // non arriva al mappamondo: la pagina scorre normalmente
+    };
+    const afferra = () => { afferrato = true; };
+    const lascia = () => { afferrato = false; };
+    box.addEventListener("wheel", suRotellina, { capture: true });
+    box.addEventListener("pointerdown", afferra);
+    box.addEventListener("pointerleave", lascia);
 
     let riparti: ReturnType<typeof setTimeout>;
     controlli.addEventListener("start", () => {
@@ -165,18 +184,14 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
 
     return () => {
       ro.disconnect();
+      box.removeEventListener("wheel", suRotellina, { capture: true });
+      box.removeEventListener("pointerdown", afferra);
+      box.removeEventListener("pointerleave", lascia);
       clearTimeout(riparti);
       globe._destructor?.();
       box.innerHTML = "";
     };
   }, [posts]);
-
-  const zoom = (fattore: number) => {
-    const globe = globeRef.current;
-    if (!globe) return;
-    const pov = globe.pointOfView();
-    globe.pointOfView({ ...pov, altitude: Math.min(3.5, Math.max(0.2, pov.altitude * fattore)) }, 500);
-  };
 
   if (errore) return null;
 
@@ -186,16 +201,8 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
     <div className="relative">
       <div ref={boxRef} className="h-[420px] sm:h-[520px] lg:h-[620px] w-full cursor-grab active:cursor-grabbing" />
 
-      <div className="absolute bottom-4 right-4 flex flex-col gap-2">
-        <button type="button" aria-label="Avvicina" onClick={() => zoom(0.6)} className="w-10 h-10 flex items-center justify-center border border-brand-offwhite/50 text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-forest transition-colors">
-          <Plus className="w-4 h-4" />
-        </button>
-        <button type="button" aria-label="Allontana" onClick={() => zoom(1.6)} className="w-10 h-10 flex items-center justify-center border border-brand-offwhite/50 text-brand-offwhite hover:bg-brand-offwhite hover:text-brand-forest transition-colors">
-          <Minus className="w-4 h-4" />
-        </button>
-      </div>
-      <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-widest text-brand-offwhite/75 pointer-events-none max-w-[60%]">
-        Trascina per girare il mondo · tocca un punto
+      <p className="absolute bottom-4 left-4 text-[11px] uppercase tracking-widest text-brand-offwhite/75 pointer-events-none max-w-[70%]">
+        Trascina per girare il mondo · pizzica per avvicinare · tocca un punto
       </p>
 
       <AnimatePresence>
