@@ -12,6 +12,9 @@ type Punto = { post: PostMondo; lat: number; lng: number };
 type Gruppo = { lat: number; lng: number; punti: Punto[] };
 
 const VISTA_INIZIALE = { lat: 38, lng: 14, altitude: 2.1 };
+// Poco più indietro della vista di partenza: allontanandosi si arriva subito al fondo
+// e da lì la rotellina torna a scorrere la pagina.
+const ALTEZZA_MASSIMA = 2.3;
 
 // Raggruppa i punti vicini: più il mappamondo è lontano, più sono grandi i gruppi
 function raggruppa(punti: Punto[], altitudine: number): Gruppo[] {
@@ -122,21 +125,23 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
     // un dito gira il mondo, due dita lo avvicinano (0 = ruota, 3 = zoom + ruota)
     controlli.touches = { ONE: 0, TWO: 3 };
     controlli.minDistance = 120;
-    controlli.maxDistance = 500;
+    controlli.maxDistance = 100 * (1 + ALTEZZA_MASSIMA);
 
-    // La rotellina zooma solo dopo che hai afferrato il mappamondo: altrimenti chi
-    // scorre la pagina e ci passa sopra resterebbe bloccato qui. La pizzicata del
-    // trackpad (che il browser manda come rotellina + ctrl) invece zooma sempre.
-    let afferrato = false;
+    // Con la rotellina si zooma solo stando sopra alla sfera: nel verde ai lati la
+    // pagina scorre come sempre. E quando il mondo è già tutto allontanato, continuando
+    // a scendere si riprende a scorrere la pagina — così non si resta mai bloccati qui.
+    // La pizzicata del trackpad (che il browser manda come rotellina + ctrl) zooma sempre.
     const suRotellina = (e: WheelEvent) => {
-      if (e.ctrlKey || afferrato) return;
-      e.stopPropagation(); // non arriva al mappamondo: la pagina scorre normalmente
+      if (e.ctrlKey) return;
+      const r = box.getBoundingClientRect();
+      const sopraIlMondo = globe.toGlobeCoords(e.clientX - r.left, e.clientY - r.top) !== null;
+      const siAllontana = e.deltaY > 0;
+      const tuttoIndietro = globe.pointOfView().altitude >= ALTEZZA_MASSIMA - 0.05;
+      if (!sopraIlMondo || (siAllontana && tuttoIndietro)) {
+        e.stopPropagation(); // non arriva al mappamondo: la pagina scorre normalmente
+      }
     };
-    const afferra = () => { afferrato = true; };
-    const lascia = () => { afferrato = false; };
     box.addEventListener("wheel", suRotellina, { capture: true });
-    box.addEventListener("pointerdown", afferra);
-    box.addEventListener("pointerleave", lascia);
 
     let riparti: ReturnType<typeof setTimeout>;
     controlli.addEventListener("start", () => {
@@ -185,8 +190,6 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
     return () => {
       ro.disconnect();
       box.removeEventListener("wheel", suRotellina, { capture: true });
-      box.removeEventListener("pointerdown", afferra);
-      box.removeEventListener("pointerleave", lascia);
       clearTimeout(riparti);
       globe._destructor?.();
       box.innerHTML = "";
