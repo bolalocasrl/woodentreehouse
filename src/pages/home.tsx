@@ -177,16 +177,10 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             </div>
           </Rivela>
           <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative">
-             <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
-                <img loading="lazy" decoding="async" src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="w-full h-full object-cover transition-all duration-700" />
-             </div>
-             <div className="col-span-2 md:col-span-1 h-full flex flex-col">
-                <div className="h-1/2 border-b border-brand-offwhite/20">
-                   <img loading="lazy" decoding="async" src={imgTerrazza} alt="Il terrazzo della Casetta" className="w-full h-full object-cover transition-all duration-700" />
-                </div>
-                <div className="h-1/2">
-                   <img loading="lazy" decoding="async" src={imgInteriore} alt="L'interno della Casetta" className="w-full h-full object-cover transition-all duration-700" />
-                </div>
+             <FotoParallasse src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
+             <div className="col-span-2 md:col-span-1 md:h-full flex flex-col">
+                <FotoParallasse src={imgTerrazza} alt="Il terrazzo della Casetta" className="border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgInteriore} alt="L'interno della Casetta" className="aspect-[3/2] md:aspect-auto md:h-1/2" />
              </div>
           </Rivela>
         </section>
@@ -264,16 +258,10 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 3.5: LA MOSTRA ARTE (New Section - Inverted Layout) */}
         <section id="mostra-arte" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
           <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative order-2 lg:order-1 border-r border-brand-offwhite/20">
-             <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
-                <img loading="lazy" decoding="async" src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="w-full h-full object-cover transition-all duration-700" />
-             </div>
-             <div className="col-span-2 md:col-span-1 h-full flex flex-col">
-                <div className="h-1/2 border-b border-brand-offwhite/20">
-                   <img loading="lazy" decoding="async" src={imgMadreNatura} alt="Madre Natura, il murale dietro la consolle" className="w-full h-full object-cover transition-all duration-700" />
-                </div>
-                <div className="h-1/2">
-                   <img loading="lazy" decoding="async" src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="w-full h-full object-cover transition-all duration-700" />
-                </div>
+             <FotoParallasse src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
+             <div className="col-span-2 md:col-span-1 md:h-full flex flex-col">
+                <FotoParallasse src={imgMadreNatura} alt="Madre Natura, il murale dietro la consolle" className="border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="aspect-[3/2] md:aspect-auto md:h-1/2" />
              </div>
           </Rivela>
           <Rivela className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh] lg:min-h-[80vh]">

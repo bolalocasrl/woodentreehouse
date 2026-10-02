@@ -65,7 +65,13 @@ Menu: La Casetta · Casetta Alcolica · Allestimenti · Eventi · Galleria · Sh
 
 Animazioni allo scroll: `src/components/site/Rivela.tsx` — avvolge un blocco e lo fa comparire (sale di 24 px e sfuma, 0,6 s) quando entra nello schermo, **una volta sola**. Si usa al posto del `<div>` del blocco, non in aggiunta, altrimenti si scompone la griglia: `<Rivela className="lg:col-span-4 …">`. Con `ritardo={0.1}` si sfalsano testo e foto. Se nel sistema è attivo "riduci movimento" non anima niente.
 
-Parallasse: `src/components/site/FotoParallasse.tsx` — la foto scorre più lenta della pagina (±8%). È alta il 130% del riquadro e parte spostata in su del 15%, così il movimento non scopre mai i bordi; **se si alza il movimento oltre l'8% vanno alzati anche altezza e margine**. Il riquadro che la contiene deve avere `overflow-hidden`. Usata solo sulle due foto grandi singole (Casetta Alcolica e Allestimenti): sulle griglie da tre foto e sulle schede eventi sarebbe troppo.
+Parallasse: `src/components/site/FotoParallasse.tsx` — la foto scorre più lenta della pagina (±8%). È alta il 130% del riquadro e posizionata in assoluto a `-top-[15%]`, così il movimento non scopre mai i bordi; **se si alza il movimento oltre l'8% vanno alzati anche altezza e scostamento**.
+
+Due regole da non dimenticare, costate un difetto già una volta:
+- **Il riquadro deve avere un'altezza definita** (`h-full`, `md:h-1/2`, `aspect-[3/2]` o `absolute inset-0`), mai automatica: le percentuali della foto si calcolano su quella. Nelle griglie di 01 e 04 da telefono serve `aspect-[3/2] md:aspect-auto md:h-full`
+- **Mai usare un margine negativo in percentuale** per alzare la foto: in CSS le percentuali dei margini si calcolano sulla *larghezza*, non sull'altezza. Da telefono (riquadri larghi e bassi) scopriva il bordo. Per questo si usa `top`
+
+Dove è usata: le 6 foto delle griglie (01 e 04) e le 2 foto grandi singole (02 e 03). **Non** sulle schede eventi, dove sovrascriverebbe lo zoom al passaggio del mouse (stesso meccanismo `transform`), né sulla fotina del camion, troppo bassa perché si noti.
 
 Immagini della home: tutte con `loading="lazy"` tranne la foto di apertura, che ha `fetchPriority="high"`. All'apertura si scaricano 1,8 MB invece di 5,3.
 
