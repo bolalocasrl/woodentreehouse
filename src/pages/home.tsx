@@ -86,6 +86,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
           >
              <img 
                src={imgHero} 
+               fetchPriority="high"
+               decoding="async"
                alt="La Casetta vista dall'alto tra gli alberi" 
                className="w-full h-full object-cover"
              />
@@ -174,14 +176,14 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
           </div>
           <div className="lg:col-span-8 grid grid-cols-2 relative">
              <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
-                <img src={imgColore} alt="La Casetta Exterior" className="w-full h-full object-cover transition-all duration-700" />
+                <img loading="lazy" decoding="async" src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="w-full h-full object-cover transition-all duration-700" />
              </div>
              <div className="col-span-2 md:col-span-1 h-full flex flex-col">
                 <div className="h-1/2 border-b border-brand-offwhite/20">
-                   <img src={imgTerrazza} alt="La Casetta Terrace" className="w-full h-full object-cover transition-all duration-700" />
+                   <img loading="lazy" decoding="async" src={imgTerrazza} alt="Il terrazzo della Casetta" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
                 <div className="h-1/2">
-                   <img src={imgInteriore} alt="La Casetta Interior" className="w-full h-full object-cover transition-all duration-700" />
+                   <img loading="lazy" decoding="async" src={imgInteriore} alt="L'interno della Casetta" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
              </div>
           </div>
@@ -190,7 +192,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 2: LA CASETTA ALCOLICA (Warm Yellow Background) */}
         <section id="alcolica" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-yellow text-brand-smoke">
           <div className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative">
-             <img src={imgCasettaAlcolica} alt="La Casetta Alcolica" className="w-full h-full object-cover transition-all duration-700 min-h-[400px]" />
+             <img loading="lazy" decoding="async" src={imgCasettaAlcolica} alt="La Casetta Alcolica, il bar su ruote" className="w-full h-full object-cover transition-all duration-700 min-h-[400px]" />
              <div className="absolute bottom-0 right-0 p-4 bg-brand-yellow border-t border-l border-brand-smoke/20">
                <span className="text-xs font-mono font-bold">EST. 2018</span>
              </div>
@@ -203,7 +205,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
               Le potenti ruote e la stabile struttura impedisce alle avversità esterne di diventare complessità interne.
             </p>
             <div className="aspect-video w-full overflow-hidden border border-brand-smoke/20 mt-4 mb-8">
-              <img src={imgTrasportoAlcolica} alt="Trasporto" className="w-full h-full object-cover transition-all duration-500" />
+              <img loading="lazy" decoding="async" src={imgTrasportoAlcolica} alt="La Casetta Alcolica durante il trasporto" className="w-full h-full object-cover transition-all duration-500" />
             </div>
 
             <Button asChild variant="outline" className="text-brand-smoke border-brand-smoke hover:bg-brand-smoke hover:text-brand-yellow rounded-none self-start">
@@ -253,7 +255,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             </a>
           </div>
           <div className="lg:col-span-6 relative h-full min-h-[400px]">
-             <img src={imgSetDesign} alt="Set Design" className="absolute inset-0 w-full h-full object-cover opacity-90" />
+             <img loading="lazy" decoding="async" src={imgSetDesign} alt="Allestimento in legno costruito per un evento" className="absolute inset-0 w-full h-full object-cover opacity-90" />
           </div>
         </section>
 
@@ -261,14 +263,14 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         <section id="mostra-arte" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
           <div className="lg:col-span-8 grid grid-cols-2 relative order-2 lg:order-1 border-r border-brand-offwhite/20">
              <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
-                <img src={imgCas2} alt="Art Vertical" className="w-full h-full object-cover transition-all duration-700" />
+                <img loading="lazy" decoding="async" src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="w-full h-full object-cover transition-all duration-700" />
              </div>
              <div className="col-span-2 md:col-span-1 h-full flex flex-col">
                 <div className="h-1/2 border-b border-brand-offwhite/20">
-                   <img src={imgMadreNatura} alt="Madre Natura" className="w-full h-full object-cover transition-all duration-700" />
+                   <img loading="lazy" decoding="async" src={imgMadreNatura} alt="Madre Natura, il murale dietro la consolle" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
                 <div className="h-1/2">
-                   <img src={imgJeck} alt="Art Detail" className="w-full h-full object-cover transition-all duration-700" />
+                   <img loading="lazy" decoding="async" src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
              </div>
           </div>
@@ -309,7 +311,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                className="group relative border-b md:border-b-0 md:border-r border-brand-offwhite/20 h-[600px] overflow-hidden"
                onClick={() => handleEventClick('night')}
              >
-                <img src={imgFesta} alt="Wooden Tree Night" className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={imgFesta} alt="Una serata della Wooden Tree Night" className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" />
                 <div className={`absolute inset-0 bg-brand-forest/60 group-hover:bg-brand-forest/40 transition-colors z-10 duration-500 ${activeEventId === 'night' ? '!bg-brand-forest/40' : ''}`}></div>
                 <div className="absolute inset-0 z-20 p-8 md:p-16 flex flex-col justify-end text-brand-offwhite">
                    <h3 className="text-4xl md:text-5xl font-serif mb-4 text-white">Wooden Tree Night</h3>
@@ -331,7 +333,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                className="group relative h-[600px] overflow-hidden"
                onClick={() => handleEventClick('mobile')}
              >
-                <img src={imgCarnevale} alt="Wooden Tree Mobile" className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" />
+                <img loading="lazy" decoding="async" src={imgCarnevale} alt="La Wooden Tree Mobile al carnevale" className="absolute inset-0 w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" />
                 <div className={`absolute inset-0 bg-brand-forest/60 group-hover:bg-brand-forest/40 transition-colors z-10 duration-500 ${activeEventId === 'mobile' ? '!bg-brand-forest/40' : ''}`}></div>
                 <div className="absolute inset-0 z-20 p-8 md:p-16 flex flex-col justify-end text-brand-offwhite">
                    <h3 className="text-4xl md:text-5xl font-serif mb-4 text-white">Wooden Tree Mobile</h3>
