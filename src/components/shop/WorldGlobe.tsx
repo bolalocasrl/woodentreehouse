@@ -196,7 +196,18 @@ export default function WorldGlobe({ posts }: { posts: PostMondo[] }) {
     };
   }, [posts]);
 
-  if (errore) return null;
+  // Senza accelerazione grafica il mappamondo non si può disegnare. Invece di sparire
+  // in silenzio (sembrerebbe un pezzo di sito rotto) lo diciamo: le foto restano qui sotto.
+  if (errore)
+    return (
+      <div className="h-[420px] sm:h-[520px] lg:h-[620px] flex flex-col items-center justify-center text-center px-6 gap-3">
+        <p className="font-serif text-2xl md:text-3xl text-brand-offwhite">Il mappamondo non si è caricato</p>
+        <p className="text-sm text-brand-offwhite/70 max-w-sm leading-relaxed">
+          Il tuo browser in questo momento non può disegnarlo. Prova a ricaricare la pagina —
+          le foto dal mondo le trovi comunque qui sotto.
+        </p>
+      </div>
+    );
 
   const post = aperti?.[indice];
 
