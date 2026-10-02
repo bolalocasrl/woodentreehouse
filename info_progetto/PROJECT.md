@@ -63,6 +63,10 @@ Menu: La Casetta · Casetta Alcolica · Allestimenti · Eventi · Galleria · Sh
 | Newsletter | "La prossima festa la sai prima tu" | |
 | Footer | Dati APS, Instagram, Privacy, © 2013 | |
 
+Animazioni allo scroll: `src/components/site/Rivela.tsx` — avvolge un blocco e lo fa comparire (sale di 24 px e sfuma, 0,6 s) quando entra nello schermo, **una volta sola**. Si usa al posto del `<div>` del blocco, non in aggiunta, altrimenti si scompone la griglia: `<Rivela className="lg:col-span-4 …">`. Con `ritardo={0.1}` si sfalsano testo e foto. Se nel sistema è attivo "riduci movimento" non anima niente.
+
+Immagini della home: tutte con `loading="lazy"` tranne la foto di apertura, che ha `fetchPriority="high"`. All'apertura si scaricano 1,8 MB invece di 5,3.
+
 Newsletter: componente unico `src/components/site/NewsletterForm.tsx` (hero e blocco finale). A iscrizione riuscita manda l'evento `iscrizione_newsletter` a Google Tag Manager (`dataLayer`), pronto per le campagne.
 
 Testi tutti in italiano (tranne i nomi propri: Wooden Tree Night, Boiler Room, WTH around the world).

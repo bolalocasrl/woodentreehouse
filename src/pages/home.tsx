@@ -32,6 +32,7 @@ import imgCarnevale from "@/assets/images/carnevale.webp";
 import imgMadreNatura from "@/assets/images/madre-natura.webp";
 import imgCas2 from "@/assets/images/cas2.webp";
 import imgJeck from "@/assets/images/jeck.webp";
+import Rivela from "@/components/site/Rivela";
 
 export default function Home() {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
@@ -153,7 +154,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         
         {/* PILLAR 1: LA CASETTA (Green Background) */}
         <section id="casetta" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
-          <div className="lg:col-span-4 p-8 md:p-16 flex flex-col justify-between border-r border-brand-offwhite/20 min-h-[50vh] lg:min-h-[80vh]">
+          <Rivela className="lg:col-span-4 p-8 md:p-16 flex flex-col justify-between border-r border-brand-offwhite/20 min-h-[50vh] lg:min-h-[80vh]">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">01 — Dove tutto è iniziato</span>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-none text-brand-offwhite">La<br/>Casetta</h2>
@@ -173,8 +174,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                 La storia della Casetta, dal 2012 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
               </a>
             </div>
-          </div>
-          <div className="lg:col-span-8 grid grid-cols-2 relative">
+          </Rivela>
+          <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative">
              <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
                 <img loading="lazy" decoding="async" src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="w-full h-full object-cover transition-all duration-700" />
              </div>
@@ -186,18 +187,18 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                    <img loading="lazy" decoding="async" src={imgInteriore} alt="L'interno della Casetta" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
              </div>
-          </div>
+          </Rivela>
         </section>
 
         {/* PILLAR 2: LA CASETTA ALCOLICA (Warm Yellow Background) */}
         <section id="alcolica" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-yellow text-brand-smoke">
-          <div className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative">
+          <Rivela ritardo={0.1} className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative">
              <img loading="lazy" decoding="async" src={imgCasettaAlcolica} alt="La Casetta Alcolica, il bar su ruote" className="w-full h-full object-cover transition-all duration-700 min-h-[400px]" />
              <div className="absolute bottom-0 right-0 p-4 bg-brand-yellow border-t border-l border-brand-smoke/20">
                <span className="text-xs font-mono font-bold">EST. 2018</span>
              </div>
-          </div>
-          <div className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh]">
+          </Rivela>
+          <Rivela className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh]">
             <span className="text-xs font-bold tracking-widest uppercase text-brand-forest mb-4 block">02 — Il bar su ruote</span>
             <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">La Casetta<br/>Alcolica</h2>
             <p className="text-brand-smoke/80 text-lg leading-relaxed font-normal mb-8">
@@ -216,12 +217,12 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             <a href="/galleria/casetta-alcolica" className="group/g inline-flex items-center mt-6 text-xs font-bold uppercase tracking-widest text-brand-forest hover:text-brand-smoke transition-colors">
               Guarda la storia della Casetta Alcolica <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
             </a>
-          </div>
+          </Rivela>
         </section>
 
         {/* PILLAR 3: ALLESTIMENTI & TEAM (Wood Background) */}
         <section id="allestimenti" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-wood text-brand-offwhite">
-          <div className="lg:col-span-6 p-8 md:p-16 flex flex-col justify-center border-r border-brand-offwhite/20 min-h-[60vh]">
+          <Rivela className="lg:col-span-6 p-8 md:p-16 flex flex-col justify-center border-r border-brand-offwhite/20 min-h-[60vh]">
             <span className="text-xs font-bold tracking-widest uppercase text-brand-offwhite/80 mb-4 block">03 — Costruzioni su misura</span>
             <h2 className="text-4xl md:text-6xl font-serif mb-8 text-brand-offwhite">Allestimenti &<br/>Collaborazioni</h2>
             <p className="text-brand-offwhite/80 text-lg leading-relaxed mb-12 max-w-xl font-normal">
@@ -253,15 +254,15 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             <a href="/galleria/allestimenti" className="group/g inline-flex items-center mt-6 text-xs font-bold uppercase tracking-widest text-brand-offwhite/80 hover:text-brand-offwhite transition-colors">
               Guarda i nostri progetti <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
             </a>
-          </div>
-          <div className="lg:col-span-6 relative h-full min-h-[400px]">
+          </Rivela>
+          <Rivela ritardo={0.1} className="lg:col-span-6 relative h-full min-h-[400px]">
              <img loading="lazy" decoding="async" src={imgSetDesign} alt="Allestimento in legno costruito per un evento" className="absolute inset-0 w-full h-full object-cover opacity-90" />
-          </div>
+          </Rivela>
         </section>
 
         {/* PILLAR 3.5: LA MOSTRA ARTE (New Section - Inverted Layout) */}
         <section id="mostra-arte" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
-          <div className="lg:col-span-8 grid grid-cols-2 relative order-2 lg:order-1 border-r border-brand-offwhite/20">
+          <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative order-2 lg:order-1 border-r border-brand-offwhite/20">
              <div className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 h-full">
                 <img loading="lazy" decoding="async" src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="w-full h-full object-cover transition-all duration-700" />
              </div>
@@ -273,8 +274,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                    <img loading="lazy" decoding="async" src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="w-full h-full object-cover transition-all duration-700" />
                 </div>
              </div>
-          </div>
-          <div className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh] lg:min-h-[80vh]">
+          </Rivela>
+          <Rivela className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh] lg:min-h-[80vh]">
             <div>
               <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">04 — Arte in Casetta</span>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 leading-none text-brand-offwhite">La Mostra<br/>Arte</h2>
@@ -290,12 +291,12 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                 </a>
               </Button>
             </div>
-          </div>
+          </Rivela>
         </section>
 
         {/* PILLAR 4: EVENTS (Dark Green Background) */}
         <section id="eventi" className="grid grid-cols-1 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
-           <div className="p-8 md:p-12 text-center border-b border-brand-offwhite/20">
+           <Rivela className="p-8 md:p-12 text-center border-b border-brand-offwhite/20">
              <span className="text-xs font-bold tracking-widest uppercase mb-2 block text-brand-yellow">05 — Le nostre feste</span>
              <h2 className="text-4xl md:text-6xl font-serif text-white mb-8">I Nostri Eventi</h2>
              <Button asChild variant="outline" className="text-white border-white hover:bg-white hover:text-brand-forest rounded-none">
@@ -303,11 +304,11 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                    Seguici per gli eventi <Instagram className="ml-2 w-4 h-4" />
                 </a>
              </Button>
-           </div>
+           </Rivela>
            
            <div className="grid grid-cols-1 md:grid-cols-2">
              {/* Event 1: Night */}
-             <div 
+             <Rivela
                className="group relative border-b md:border-b-0 md:border-r border-brand-offwhite/20 h-[600px] overflow-hidden"
                onClick={() => handleEventClick('night')}
              >
@@ -326,10 +327,11 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                      Tutte le edizioni <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
                    </a>
                 </div>
-             </div>
+             </Rivela>
 
              {/* Event 2: Mobile */}
-             <div 
+             <Rivela
+               ritardo={0.1}
                className="group relative h-[600px] overflow-hidden"
                onClick={() => handleEventClick('mobile')}
              >
@@ -348,7 +350,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
                      Tutti i carnevali <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
                    </a>
                 </div>
-             </div>
+             </Rivela>
            </div>
         </section>
 
@@ -356,6 +358,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
 
         {/* NEWSLETTER */}
         <section className="bg-brand-forest text-brand-offwhite px-6 py-16 md:py-24 text-center border-t border-brand-offwhite/15">
+          <Rivela>
           <span className="text-xs font-bold tracking-widest uppercase text-brand-yellow mb-4 block">Resta aggiornato</span>
           <h2 className="text-4xl md:text-6xl font-serif text-brand-offwhite mb-6 leading-tight">
             La prossima festa<br />la sai prima tu
@@ -364,6 +367,7 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             Date delle Wooden Tree Night, nuovi gadget e quello che succede in Casetta. Poche email, solo quando serve.
           </p>
           <NewsletterForm />
+          </Rivela>
         </section>
 
         {/* FOOTER */}
