@@ -4,3 +4,12 @@ dist/
 # foto originali per la galleria (restano solo sul Mac)
 woodentreehouse-foto/
 .DS_Store
+
+# Foto originali da fotocamera: non devono mai entrare in git, pesano 15-25 MB l'una.
+# Nel sito si usano solo le .webp leggere, che restano tracciate.
+src/assets/images/*.jpg
+src/assets/images/*.jpeg
+src/assets/images/*.JPG
+src/assets/images/*.JPEG
+src/assets/images/*.heic
+src/assets/images/*.HEIC
