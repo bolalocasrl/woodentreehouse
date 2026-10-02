@@ -177,10 +177,10 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
             </div>
           </Rivela>
           <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative">
-             <FotoParallasse src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
+             <FotoParallasse src={imgColore} alt="La Casetta vista da fuori, tra i rami" className="relative col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
              <div className="col-span-2 md:col-span-1 md:h-full flex flex-col">
-                <FotoParallasse src={imgTerrazza} alt="Il terrazzo della Casetta" className="border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
-                <FotoParallasse src={imgInteriore} alt="L'interno della Casetta" className="aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgTerrazza} alt="Il terrazzo della Casetta" className="relative border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgInteriore} alt="L'interno della Casetta" className="relative aspect-[3/2] md:aspect-auto md:h-1/2" />
              </div>
           </Rivela>
         </section>
@@ -258,10 +258,10 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
         {/* PILLAR 3.5: LA MOSTRA ARTE (New Section - Inverted Layout) */}
         <section id="mostra-arte" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-forest text-brand-offwhite">
           <Rivela ritardo={0.1} className="lg:col-span-8 grid grid-cols-2 relative order-2 lg:order-1 border-r border-brand-offwhite/20">
-             <FotoParallasse src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
+             <FotoParallasse src={imgCas2} alt="Opera d'arte dipinta in Casetta" className="relative col-span-2 md:col-span-1 border-r border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-full" />
              <div className="col-span-2 md:col-span-1 md:h-full flex flex-col">
-                <FotoParallasse src={imgMadreNatura} alt="Madre Natura, il murale dietro la consolle" className="border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
-                <FotoParallasse src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgMadreNatura} alt="Madre Natura, il murale dietro la consolle" className="relative border-b border-brand-offwhite/20 aspect-[3/2] md:aspect-auto md:h-1/2" />
+                <FotoParallasse src={imgJeck} alt="Dettaglio di una delle opere in Casetta" className="relative aspect-[3/2] md:aspect-auto md:h-1/2" />
              </div>
           </Rivela>
           <Rivela className="lg:col-span-4 order-1 lg:order-2 p-8 md:p-16 flex flex-col justify-center min-h-[50vh] lg:min-h-[80vh]">

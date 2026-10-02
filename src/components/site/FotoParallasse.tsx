@@ -8,8 +8,13 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 // La foto è posizionata in assoluto apposta: le percentuali di `top` si calcolano
 // sull'altezza del riquadro, mentre quelle di `margin` si calcolerebbero sulla
 // larghezza — e da telefono, con riquadri larghi e bassi, scoprivano il bordo.
-// Per questo il riquadro deve avere un'altezza definita (`h-full`, `h-1/2`,
-// `aspect-[...]` o `absolute inset-0`), mai altezza automatica.
+//
+// Chi lo usa deve dare al riquadro, in `className`:
+//  - un posizionamento: `relative`, oppure `absolute inset-0` per riempire il genitore
+//  - un'altezza definita: `h-full`, `md:h-1/2`, `aspect-[3/2]`… mai automatica
+// Il posizionamento NON è messo qui dentro apposta: scrivere `relative` nel
+// componente andrebbe in contrasto con l'`absolute` di chi lo usa, e in quel
+// conflitto vince `relative`, il riquadro resta senza altezza e la foto sparisce.
 //
 // Con "riduci movimento" attivo nel sistema la foto resta ferma.
 export default function FotoParallasse({
@@ -33,7 +38,7 @@ export default function FotoParallasse({
   const scorrimento = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   return (
-    <div ref={riquadro} className={`relative overflow-hidden ${className}`}>
+    <div ref={riquadro} className={`overflow-hidden ${className}`}>
       <motion.img
         src={src}
         alt={alt}
