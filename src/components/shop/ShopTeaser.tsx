@@ -1,18 +1,8 @@
-import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { fetchProducts, formatPrice, priceFrom, imagesOf, type FwProduct } from "@/lib/fourthwall";
+import FotoProdotti from "./FotoProdotti";
 
-// Anteprima dello shop in home: i primi prodotti veri, letti da Fourthwall.
-// Se il catalogo non si carica, mostra solo il pulsante verso /shop.
+// Anteprima dello shop in home: la foto dei prodotti con i punti cliccabili.
 export default function ShopTeaser() {
-  const [prodotti, setProdotti] = useState<FwProduct[] | null>(null);
-
-  useEffect(() => {
-    fetchProducts()
-      .then((p) => setProdotti(p.slice(0, 4)))
-      .catch(() => setProdotti([]));
-  }, []);
-
   return (
     <section id="shop" className="p-8 md:p-16 bg-brand-wood text-brand-offwhite">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-14 gap-6 md:gap-8">
@@ -29,43 +19,11 @@ export default function ShopTeaser() {
         </a>
       </div>
 
-      {prodotti === null ? (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="aspect-[4/5] bg-brand-offwhite/10 animate-pulse" />
-          ))}
-        </div>
-      ) : (
-        prodotti.length > 0 && (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-            {prodotti.map((p) => {
-              const img = imagesOf(p)[0];
-              const piuPrezzi = new Set(p.variants.map((v) => v.unitPrice.value)).size > 1;
-              return (
-                <a key={p.id} href="/shop" className="group block bg-brand-offwhite text-brand-smoke">
-                  <div className="aspect-[4/5] overflow-hidden bg-brand-smoke/5">
-                    {img && (
-                      <img
-                        src={img.url}
-                        alt={p.name}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                  <div className="p-3 md:p-4 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-2">
-                    <h3 className="font-serif text-base md:text-lg leading-tight">{p.name}</h3>
-                    <span className="text-xs md:text-sm font-mono whitespace-nowrap pt-0.5">
-                      {piuPrezzi ? "da " : ""}
-                      {formatPrice(priceFrom(p))}
-                    </span>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        )
-      )}
+      <FotoProdotti />
+      <p className="text-center text-xs uppercase tracking-widest text-brand-offwhite/60 mt-6">
+        Tocca i punti sulla foto per vedere i prodotti
+      </p>
+
     </section>
   );
 }
