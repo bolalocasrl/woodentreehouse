@@ -65,6 +65,8 @@ Menu: La Casetta · Casetta Alcolica · Allestimenti · Eventi · Galleria · Sh
 
 Animazioni allo scroll: `src/components/site/Rivela.tsx` — avvolge un blocco e lo fa comparire (sale di 24 px e sfuma, 0,6 s) quando entra nello schermo, **una volta sola**. Si usa al posto del `<div>` del blocco, non in aggiunta, altrimenti si scompone la griglia: `<Rivela className="lg:col-span-4 …">`. Con `ritardo={0.1}` si sfalsano testo e foto. Se nel sistema è attivo "riduci movimento" non anima niente.
 
+Parallasse: `src/components/site/FotoParallasse.tsx` — la foto scorre più lenta della pagina (±8%). È alta il 130% del riquadro e parte spostata in su del 15%, così il movimento non scopre mai i bordi; **se si alza il movimento oltre l'8% vanno alzati anche altezza e margine**. Il riquadro che la contiene deve avere `overflow-hidden`. Usata solo sulle due foto grandi singole (Casetta Alcolica e Allestimenti): sulle griglie da tre foto e sulle schede eventi sarebbe troppo.
+
 Immagini della home: tutte con `loading="lazy"` tranne la foto di apertura, che ha `fetchPriority="high"`. All'apertura si scaricano 1,8 MB invece di 5,3.
 
 Newsletter: componente unico `src/components/site/NewsletterForm.tsx` (hero e blocco finale). A iscrizione riuscita manda l'evento `iscrizione_newsletter` a Google Tag Manager (`dataLayer`), pronto per le campagne.

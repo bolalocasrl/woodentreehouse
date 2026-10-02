@@ -33,6 +33,7 @@ import imgMadreNatura from "@/assets/images/madre-natura.webp";
 import imgCas2 from "@/assets/images/cas2.webp";
 import imgJeck from "@/assets/images/jeck.webp";
 import Rivela from "@/components/site/Rivela";
+import FotoParallasse from "@/components/site/FotoParallasse";
 
 export default function Home() {
   const [activeEventId, setActiveEventId] = useState<string | null>(null);
@@ -192,9 +193,9 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
 
         {/* PILLAR 2: LA CASETTA ALCOLICA (Warm Yellow Background) */}
         <section id="alcolica" className="grid grid-cols-1 lg:grid-cols-12 border-b border-brand-smoke/20 bg-brand-yellow text-brand-smoke">
-          <Rivela ritardo={0.1} className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative">
-             <img loading="lazy" decoding="async" src={imgCasettaAlcolica} alt="La Casetta Alcolica, il bar su ruote" className="w-full h-full object-cover transition-all duration-700 min-h-[400px]" />
-             <div className="absolute bottom-0 right-0 p-4 bg-brand-yellow border-t border-l border-brand-smoke/20">
+          <Rivela ritardo={0.1} className="lg:col-span-8 order-2 lg:order-1 border-r border-brand-smoke/20 relative overflow-hidden min-h-[400px]">
+             <FotoParallasse src={imgCasettaAlcolica} alt="La Casetta Alcolica, il bar su ruote" className="absolute inset-0" />
+             <div className="absolute bottom-0 right-0 p-4 bg-brand-yellow border-t border-l border-brand-smoke/20 z-10">
                <span className="text-xs font-mono font-bold">EST. 2018</span>
              </div>
           </Rivela>
@@ -255,8 +256,8 @@ const calcOverlayOpacity = Math.min(0.7, 0.4 + scrollVal * 0.6);
               Guarda i nostri progetti <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/g:translate-x-1" />
             </a>
           </Rivela>
-          <Rivela ritardo={0.1} className="lg:col-span-6 relative h-full min-h-[400px]">
-             <img loading="lazy" decoding="async" src={imgSetDesign} alt="Allestimento in legno costruito per un evento" className="absolute inset-0 w-full h-full object-cover opacity-90" />
+          <Rivela ritardo={0.1} className="lg:col-span-6 relative h-full min-h-[400px] overflow-hidden">
+             <FotoParallasse src={imgSetDesign} alt="Allestimento in legno costruito per un evento" className="absolute inset-0" classeFoto="opacity-90" />
           </Rivela>
         </section>
 
