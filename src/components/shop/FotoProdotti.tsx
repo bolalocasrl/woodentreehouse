@@ -14,7 +14,7 @@ const PUNTI: Record<string, { x: number; y: number }> = {
   "ciabatta-wth": { x: 77, y: 79 },
 };
 
-export default function FotoProdotti() {
+export default function FotoProdotti({ onApertura }: { onApertura?: (aperto: boolean) => void }) {
   const [prodotti, setProdotti] = useState<FwProduct[] | null>(null);
   const [aperto, setAperto] = useState<string | null>(null);
   const box = useRef<HTMLDivElement>(null);
@@ -22,6 +22,11 @@ export default function FotoProdotti() {
   useEffect(() => {
     fetchProducts().then(setProdotti).catch(() => setProdotti([]));
   }, []);
+
+  // avvisa la sezione: mentre leggi una scheda le cartoline ai lati si fermano
+  useEffect(() => {
+    onApertura?.(aperto !== null);
+  }, [aperto, onApertura]);
 
   // chiudi la scheda cliccando fuori o con Esc
   useEffect(() => {

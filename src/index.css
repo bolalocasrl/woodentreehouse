@@ -129,3 +129,17 @@
   70% { box-shadow: 0 0 0 10px rgba(245, 199, 61, 0), 0 0 12px rgba(245, 199, 61, 0.8); }
   100% { box-shadow: 0 0 0 0 rgba(245, 199, 61, 0), 0 0 12px rgba(245, 199, 61, 0.8); }
 }
+
+/* Le cartoline dei viaggi che scendono piano ai lati della foto prodotti (solo da pc).
+   La striscia contiene l'elenco due volte: scendendo di meta' altezza il giro
+   ricomincia senza stacchi. Animazione in CSS, non in JavaScript: la fa la scheda
+   grafica e non appesantisce la pagina. */
+@keyframes wth-pioggia {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+.wth-pioggia { animation: wth-pioggia 70s linear infinite; }
+.wth-pioggia--ferma { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .wth-pioggia { animation: none; }
+}

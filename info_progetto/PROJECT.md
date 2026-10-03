@@ -59,7 +59,7 @@ Menu: La Casetta · Casetta Alcolica · Allestimenti · Eventi · Galleria · Sh
 | `#allestimenti` | 03 — Costruzioni su misura | WhatsApp, galleria Allestimenti |
 | `#mostra-arte` | 04 — Arte in Casetta | Progetto Madre Natura |
 | `#eventi` | 05 — Le nostre feste (Wooden Tree Night, Wooden Tree Mobile) | Gallerie dei due eventi |
-| `#shop` | 06 — Maglie e gadget: primi 4 prodotti Fourthwall (`src/components/shop/ShopTeaser.tsx`) | /shop |
+| `#shop` | 06 — Maglie e gadget: foto invernale con i punti cliccabili (`ShopTeaser` + `FotoProdotti`) | /shop |
 | Newsletter | "La prossima festa la sai prima tu" | |
 | Footer | Dati APS, Instagram, Privacy, © 2013 | |
 
@@ -74,6 +74,12 @@ Due regole da non dimenticare, costate un difetto già una volta:
 Dove è usata: le 6 foto delle griglie (01 e 04) e le 2 foto grandi singole (02 e 03). **Non** sulle schede eventi, dove sovrascriverebbe lo zoom al passaggio del mouse (stesso meccanismo `transform`), né sulla fotina del camion, troppo bassa perché si noti.
 
 Immagini della home: tutte con `loading="lazy"` tranne la foto di apertura, che ha `fetchPriority="high"`. All'apertura si scaricano 1,8 MB invece di 5,3.
+
+Sezione shop della home (`src/components/shop/`):
+- `FotoProdotti.tsx` — la foto `prodotti-inverno.webp` con **cinque punti cliccabili**, uno per prodotto. Le posizioni stanno nella mappa `PUNTI`, in percentuale: **se si cambia la foto vanno rifatte**. Un punto compare solo se quel prodotto è davvero nel catalogo Fourthwall, così non restano punti che non portano da nessuna parte
+- `PioggiaFoto.tsx` — le cartoline dei viaggi che scendono ai lati, **solo da pc** (da `lg` in su): riempiono lo spazio vuoto a destra e sinistra della foto, che è quadrata. Sono decorazione: `aria-hidden`, non cliccabili. Si fermano quando apri la scheda di un prodotto e con "riduci movimento"
+- Le cartoline usano versioni **da 400 px** (30 KB invece di 115). Aggiungendone altre va creata anche quella misura, altrimenti non si vedono. Da telefono sono in `display:none` e **non si scaricano affatto**
+- Da telefono la foto arriva ai bordi dello schermo (`-mx-8` annulla il margine della sezione) e il pulsante sta sotto
 
 Newsletter: componente unico `src/components/site/NewsletterForm.tsx` (hero e blocco finale). A iscrizione riuscita manda l'evento `iscrizione_newsletter` a Google Tag Manager (`dataLayer`), pronto per le campagne.
 
